@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension
+         point="org.eclipse.core.runtime.applications"
+         id="LexiconEditorAdvisorApplication">
+      <!-- @generated lexicon -->
+      <application>
+         <run class="home.computerlinguistik.lexiconmodel.presentation.LexiconEditorAdvisor$Application"/>
+      </application>
+   </extension>
+
+
+   <extension point="org.eclipse.ui.perspectives">
+      <!-- @generated lexicon -->
+      <perspective
+            name="%_UI_Perspective_label"
+            class="home.computerlinguistik.lexiconmodel.presentation.LexiconEditorAdvisor$Perspective"
+            id="home.computerlinguistik.lexiconmodel.presentation.LexiconEditorAdvisorPerspective">
+      </perspective>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands">
+      <!-- @generated lexicon -->
+      <command
+            name="%_UI_Menu_OpenURI_label"
+            description="%_UI_Menu_OpenURI_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="home.computerlinguistik.lexiconmodel.presentation.LexiconEditorAdvisorOpenURICommand"/>
+      <command
+            name="%_UI_Menu_Open_label"
+            description="%_UI_Menu_Open_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="home.computerlinguistik.lexiconmodel.presentation.LexiconEditorAdvisorOpenCommand"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.bindings">
+      <!-- @generated lexicon -->
+      <key
+            commandId="home.computerlinguistik.lexiconmodel.presentation.LexiconEditorAdvisorOpenURICommand"
+            sequence="M1+U"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <key
+            commandId="home.computerlinguistik.lexiconmodel.presentation.LexiconEditorAdvisorOpenCommand"
+            sequence="M1+O"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated lexicon -->
+      <actionSet
+            label="%_UI_LexiconEditorAdvisor_ActionSet_label"
+            visible="true"
+            id="LexiconEditorAdvisorActionSet">
+         <action
+               label="%_UI_Menu_About_label"
+               class="home.computerlinguistik.lexiconmodel.presentation.LexiconEditorAdvisor$AboutAction"
+               menubarPath="help/additions"
+               id="home.computerlinguistik.lexiconmodel.presentation.LexiconEditorAdvisorAboutAction"/>
+         <action
+               label="%_UI_Menu_OpenURI_label"
+               definitionId="home.computerlinguistik.lexiconmodel.presentation.LexiconEditorAdvisorOpenURICommand"
+               class="home.computerlinguistik.lexiconmodel.presentation.LexiconEditorAdvisor$OpenURIAction"
+               menubarPath="file/additions"
+               id="home.computerlinguistik.lexiconmodel.presentation.LexiconEditorAdvisorOpenURIAction"/>
+         <action
+               label="%_UI_Menu_Open_label"
+               definitionId="home.computerlinguistik.lexiconmodel.presentation.LexiconEditorAdvisorOpenCommand"
+               class="home.computerlinguistik.lexiconmodel.presentation.LexiconEditorAdvisor$OpenAction"
+               menubarPath="file/additions"
+               id="home.computerlinguistik.lexiconmodel.presentation.LexiconEditorAdvisorOpenAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated lexicon -->
+      <actionSet
+            label="%_UI_LexiconmodelModelWizard_ActionSet_label"
+            visible="true"
+            id="home.computerlinguistik.lexiconmodel.presentation.LexiconmodelActionBarContributorActionSet">
+         <action
+               label="%_UI_LexiconmodelModelWizard_label"
+               class="home.computerlinguistik.lexiconmodel.presentation.LexiconmodelActionBarContributor$NewAction"
+               menubarPath="file/new/additions"
+               id="home.computerlinguistik.lexiconmodel.presentation.LexiconmodelActionBarContributorNewAction"/>
+      </actionSet>
+   </extension>
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated lexicon -->
+      <editor
+            id="home.computerlinguistik.lexiconmodel.presentation.LexiconmodelEditorID"
+            name="%_UI_LexiconmodelEditor_label"
+            icon="icons/full/obj16/LexiconmodelModelFile.gif"
+            extensions="lexiconmodel"
+            class="home.computerlinguistik.lexiconmodel.presentation.LexiconmodelEditor"
+            contributorClass="home.computerlinguistik.lexiconmodel.presentation.LexiconmodelActionBarContributor">
+      </editor>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="home.computerlinguistik.model.editor.LexiconEditorAdvisorApplication"
+            name="lexiconeditor">
+         <property
+               name="appName"
+               value="lexiconeditor">
+         </property>
+      </product>
+   </extension>
+
+</plugin>

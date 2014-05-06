@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Main
+Bundle-SymbolicName: home.computerlinguistik.main;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: home.computerlinguistik.main.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ home.computerlinguistik.model.editor;bundle-version="1.0.0",
+ org.eclipse.core.commands,
+ org.eclipse.ui.workbench,
+ org.eclipse.swt
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy

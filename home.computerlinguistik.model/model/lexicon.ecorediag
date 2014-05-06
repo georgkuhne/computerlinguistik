@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_Hz9woNVTEeO0vqqiXBnzcg" type="EcoreTools" name="lexicon.ecorediag" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_KQ5tINVTEeO0vqqiXBnzcg" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_KQ9-kNVTEeO0vqqiXBnzcg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_KQ_zwNVTEeO0vqqiXBnzcg" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_KQ_zwdVTEeO0vqqiXBnzcg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_KQ_zwtVTEeO0vqqiXBnzcg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_KQ_zw9VTEeO0vqqiXBnzcg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_KRAa0NVTEeO0vqqiXBnzcg" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_KRAa0dVTEeO0vqqiXBnzcg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_KRAa0tVTEeO0vqqiXBnzcg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_KRAa09VTEeO0vqqiXBnzcg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_KQ6UMNVTEeO0vqqiXBnzcg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="lexicon.ecore#//Lexicon"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KQ6UMdVTEeO0vqqiXBnzcg" x="365" y="145"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_p2Gj0NVUEeO0vqqiXBnzcg" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_p2IZANVUEeO0vqqiXBnzcg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_p2JAENVUEeO0vqqiXBnzcg" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_30l8UNVyEeO0vqqiXBnzcg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="lexicon.ecore#//Eintrag/wortart"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_30l8UdVyEeO0vqqiXBnzcg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_yk9OsNVyEeO0vqqiXBnzcg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="lexicon.ecore#//Eintrag/wort"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_yk9OsdVyEeO0vqqiXBnzcg"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_p2JAEdVUEeO0vqqiXBnzcg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_p2JAEtVUEeO0vqqiXBnzcg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_p2JAE9VUEeO0vqqiXBnzcg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_p2JnINVUEeO0vqqiXBnzcg" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_p2JnIdVUEeO0vqqiXBnzcg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_p2JnItVUEeO0vqqiXBnzcg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_p2JnI9VUEeO0vqqiXBnzcg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_p2HK4NVUEeO0vqqiXBnzcg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="lexicon.ecore#//Eintrag"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_p2HK4dVUEeO0vqqiXBnzcg" x="350" y="245"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_w0eOsNVVEeO0vqqiXBnzcg" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_w0gD4NVVEeO0vqqiXBnzcg" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_w0hSANVVEeO0vqqiXBnzcg" type="5008">
+      <children xmi:type="notation:Node" xmi:id="_A51CgNVzEeO0vqqiXBnzcg" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="lexicon.ecore#//Wortart/Nomen"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_A51CgdVzEeO0vqqiXBnzcg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_7FCfkNVVEeO0vqqiXBnzcg" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="lexicon.ecore#//Wortart/VERB"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7FCfkdVVEeO0vqqiXBnzcg"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_w0hSAdVVEeO0vqqiXBnzcg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_w0hSAtVVEeO0vqqiXBnzcg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_w0hSA9VVEeO0vqqiXBnzcg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_w0eOsdVVEeO0vqqiXBnzcg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="lexicon.ecore#//Wortart"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_w0eOstVVEeO0vqqiXBnzcg" x="140" y="190"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_Hz9wodVTEeO0vqqiXBnzcg"/>
+  <element xmi:type="ecore:EPackage" href="lexicon.ecore#/"/>
+  <edges xmi:type="notation:Edge" xmi:id="_l8e10NVzEeO0vqqiXBnzcg" type="3002" source="_KQ5tINVTEeO0vqqiXBnzcg" target="_p2Gj0NVUEeO0vqqiXBnzcg">
+    <children xmi:type="notation:Node" xmi:id="_l8gD8NVzEeO0vqqiXBnzcg" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_l8gD8dVzEeO0vqqiXBnzcg" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_l8grANVzEeO0vqqiXBnzcg" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_l8grAdVzEeO0vqqiXBnzcg" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_l8e10dVzEeO0vqqiXBnzcg" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_l8e10tVzEeO0vqqiXBnzcg" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="lexicon.ecore#//Lexicon/eintraege"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_l8e109VzEeO0vqqiXBnzcg" points="[-7, 21, 1, -65]$[-7, 80, 1, -6]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_l8kVYNVzEeO0vqqiXBnzcg" id="(0.4461538461538462,0.10294117647058823)"/>
+  </edges>
+</notation:Diagram>
