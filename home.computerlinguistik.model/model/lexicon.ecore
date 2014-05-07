@@ -10,7 +10,48 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="wortart" eType="#//Wortart"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Wortart">
-    <eLiterals name="VERB"/>
+    <eLiterals name="Verb"/>
     <eLiterals name="Nomen" value="1"/>
+    <eLiterals name="Pronomen" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GramatikalischeKategorien">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="person" eType="#//Person"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numerus"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Person">
+    <eLiterals name="3"/>
+    <eLiterals name="2" value="1"/>
+    <eLiterals name="EEnumLiteral2" value="2"/>
+    <eLiterals name="EEnumLiteral3" value="3"/>
+    <eLiterals name="EEnumLiteral4" value="4"/>
+    <eLiterals name="EEnumLiteral5" value="5"/>
+    <eLiterals name="EEnumLiteral6" value="6"/>
+    <eLiterals name="EEnumLiteral7" value="7"/>
+    <eLiterals name="EEnumLiteral8" value="8"/>
+    <eLiterals name="EEnumLiteral9" value="9"/>
+    <eLiterals name="EEnumLiteral10" value="10"/>
+    <eLiterals name="EEnumLiteral11" value="11"/>
+    <eLiterals name="EEnumLiteral12" value="12"/>
+    <eLiterals name="EEnumLiteral13" value="13"/>
+    <eLiterals name="EEnumLiteral14" value="14"/>
+    <eLiterals name="EEnumLiteral15" value="15"/>
+    <eLiterals name="1" value="16"/>
+    <eLiterals name="EEnumLiteral17" value="17"/>
+    <eLiterals name="EEnumLiteral18" value="18"/>
+    <eLiterals name="EEnumLiteral19" value="19"/>
+    <eLiterals name="EEnumLiteral20" value="20"/>
+    <eLiterals name="EEnumLiteral21" value="21"/>
+    <eLiterals name="EEnumLiteral22" value="22"/>
+    <eLiterals name="EEnumLiteral23" value="23"/>
+    <eLiterals name="EEnumLiteral24" value="24"/>
+    <eLiterals name="EEnumLiteral25" value="25"/>
+    <eLiterals name="EEnumLiteral26" value="26"/>
+    <eLiterals name="EEnumLiteral27" value="27"/>
+    <eLiterals name="EEnumLiteral28" value="28"/>
+    <eLiterals name="EEnumLiteral29" value="29"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Numerus">
+    <eLiterals name="Singular"/>
+    <eLiterals name="Plural" value="1"/>
   </eClassifiers>
 </ecore:EPackage>
