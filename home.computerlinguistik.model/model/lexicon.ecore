@@ -4,23 +4,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="Lexicon">
     <eStructuralFeatures xsi:type="ecore:EReference" name="eintraege" upperBound="-1"
         eType="#//Eintrag" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lg" eType="#//GrammatikalischeKategorie"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Eintrag">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="wort" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wortart" eType="#//Wortart"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Wortart">
-    <eLiterals name="Verb"/>
-    <eLiterals name="Nomen" value="1"/>
-    <eLiterals name="Pronomen" value="2"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GramatikalischeKategorien">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="person" eType="#//Person"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numerus"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Wortart"/>
+  <eClassifiers xsi:type="ecore:EClass" name=""/>
   <eClassifiers xsi:type="ecore:EEnum" name="Person">
-    <eLiterals name="3"/>
-    <eLiterals name="2" value="1"/>
     <eLiterals name="EEnumLiteral2" value="2"/>
     <eLiterals name="EEnumLiteral3" value="3"/>
     <eLiterals name="EEnumLiteral4" value="4"/>
@@ -35,7 +26,6 @@
     <eLiterals name="EEnumLiteral13" value="13"/>
     <eLiterals name="EEnumLiteral14" value="14"/>
     <eLiterals name="EEnumLiteral15" value="15"/>
-    <eLiterals name="1" value="16"/>
     <eLiterals name="EEnumLiteral17" value="17"/>
     <eLiterals name="EEnumLiteral18" value="18"/>
     <eLiterals name="EEnumLiteral19" value="19"/>
@@ -50,8 +40,15 @@
     <eLiterals name="EEnumLiteral28" value="28"/>
     <eLiterals name="EEnumLiteral29" value="29"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Numerus">
-    <eLiterals name="Singular"/>
-    <eLiterals name="Plural" value="1"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="Numerus"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GrammatikalischeKategorie">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bezeichnung"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="l1" eType="#//Lexicon"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Subkategoriesierung">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bezeichnung"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gramatikalischeKategorien"/>
   </eClassifiers>
 </ecore:EPackage>
