@@ -66,11 +66,11 @@
     <children xmi:type="notation:Node" xmi:id="_6SRRUNXCEeOF46z85VZQ_g" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_6SRRUdXCEeOF46z85VZQ_g" type="5001">
       <children xmi:type="notation:Node" xmi:id="__aLmUNXCEeOF46z85VZQ_g" type="2001">
-        <element xmi:type="ecore:EAttribute" href="lexicon.ecore#//Subkategoriesierung/bezeichnung"/>
+        <element xmi:type="ecore:EAttribute" href="lexicon.ecore#//Subkategorisierung/bezeichnung"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="__aLmUdXCEeOF46z85VZQ_g"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_BQZhENXDEeOF46z85VZQ_g" type="2001">
-        <element xmi:type="ecore:EAttribute" href="lexicon.ecore#//Subkategoriesierung/gramatikalischeKategorien"/>
+        <element xmi:type="ecore:EAttribute" href="lexicon.ecore#//Subkategorisierung/gramatikalischeKategorien"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_BQZhEdXDEeOF46z85VZQ_g"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_6SRRUtXCEeOF46z85VZQ_g"/>
@@ -83,7 +83,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_6SR4Y9XCEeOF46z85VZQ_g"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_6SQDMNXCEeOF46z85VZQ_g" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-    <element xmi:type="ecore:EClass" href="lexicon.ecore#//Subkategoriesierung"/>
+    <element xmi:type="ecore:EClass" href="lexicon.ecore#//Subkategorisierung"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6SQDMdXCEeOF46z85VZQ_g" x="545" y="85" height="169"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_Hz9wodVTEeO0vqqiXBnzcg"/>
