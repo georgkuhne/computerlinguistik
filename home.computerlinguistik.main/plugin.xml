@@ -7,7 +7,7 @@
          point="org.eclipse.core.runtime.applications">
       <application>
          <run
-               class="home.computerlinguistik.main.Application">
+               class="home.computerlinguistik.main.ComputerlinguistikApplication">
          </run>
       </application>
    </extension>
