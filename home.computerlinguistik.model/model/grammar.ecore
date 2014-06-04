@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="grammarmodel">
+  <eClassifiers xsi:type="ecore:EClass" name="AttributRegelTerm">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Typ" eType="#//AttributRegelTermTyp"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Wert" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AttributRegelTermTyp">
+    <eLiterals name="Oben"/>
+    <eLiterals name="Unten" value="1"/>
+    <eLiterals name="Konstante" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NichtTerminal">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Bezeichnung" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AttributRegeln" upperBound="-1"
+        eType="#//AttributRegel"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributRegel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Rechts" eType="#//AttributRegelTerm"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Links" eType="#//AttributRegelTerm"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Regel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Elternterminal" eType="#//NichtTerminal"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="KinderTerminale" upperBound="-1"
+        eType="#//NichtTerminal"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Wortart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>
