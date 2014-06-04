@@ -1,5 +1,9 @@
 package home.computerlinguistik.main;
 
+import home.computerlinguistik.lexiconmodel.Eintrag;
+import home.computerlinguistik.lexiconmodel.LexiconmodelFactory;
+import home.computerlinguistik.lexiconmodel.Wortart;
+
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.swt.widgets.Display;
@@ -15,7 +19,12 @@ public class Application implements IApplication {
 	 * @see org.eclipse.equinox.app.IApplication#start(org.eclipse.equinox.app.IApplicationContext)
 	 */
 	public Object start(IApplicationContext context) throws Exception {
+		
+		
 		Display display = PlatformUI.createDisplay();
+		Eintrag eintrag=		LexiconmodelFactory.eINSTANCE.createEintrag();
+		eintrag.getWort();
+		eintrag.getWortart();
 		try {
 			int returnCode = PlatformUI.createAndRunWorkbench(display, new ApplicationWorkbenchAdvisor());
 			if (returnCode == PlatformUI.RETURN_RESTART)
