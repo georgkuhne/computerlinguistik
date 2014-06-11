@@ -25,7 +25,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="l1" eType="#//Lexicon"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Subkategoriesierung">
+  <eClassifiers xsi:type="ecore:EClass" name="Subkategorisierung">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="bezeichnung"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="gramatikalischeKategorien"/>
   </eClassifiers>

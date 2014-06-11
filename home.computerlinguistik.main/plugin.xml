@@ -7,7 +7,7 @@
          point="org.eclipse.core.runtime.applications">
       <application>
          <run
-               class="home.computerlinguistik.main.Application">
+               class="home.computerlinguistik.main.ComputerlinguistikApplication">
          </run>
       </application>
    </extension>
@@ -41,14 +41,6 @@
             </command>
          </menu>
       </menuContribution>
-   </extension>
-   <extension
-         point="org.eclipse.ui.commands">
-      <command
-            defaultHandler="home.computerlinguistik.commandhandlers.OpenLexiconCommandHandler"
-            id="home.computerlinguistik.main.openlexconeditor"
-            name="home.computerlinguistik.main.openlexconeditor">
-      </command>
    </extension>
 
 </plugin>

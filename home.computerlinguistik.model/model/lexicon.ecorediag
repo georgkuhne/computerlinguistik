@@ -95,11 +95,11 @@
     <children xmi:type="notation:Node" xmi:id="_bqzj7-C6EeOwS4GoanvV3w" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_bqzj8OC6EeOwS4GoanvV3w" type="5001">
       <children xmi:type="notation:Node" xmi:id="_bqzj-OC6EeOwS4GoanvV3w" type="2001">
-        <element xmi:type="ecore:EAttribute" href="lexicon.ecore#//Subkategoriesierung/bezeichnung"/>
+        <element xmi:type="ecore:EAttribute" href="lexicon.ecore#//Subkategorisierung/bezeichnung"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_bqzj-eC6EeOwS4GoanvV3w"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_bqzj-uC6EeOwS4GoanvV3w" type="2001">
-        <element xmi:type="ecore:EAttribute" href="lexicon.ecore#//Subkategoriesierung/gramatikalischeKategorien"/>
+        <element xmi:type="ecore:EAttribute" href="lexicon.ecore#//Subkategorisierung/gramatikalischeKategorien"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_bqzj--C6EeOwS4GoanvV3w"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_bqzj8eC6EeOwS4GoanvV3w"/>
@@ -112,7 +112,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_bqzj9-C6EeOwS4GoanvV3w"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_bqzj7eC6EeOwS4GoanvV3w" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-    <element xmi:type="ecore:EClass" href="lexicon.ecore#//Subkategoriesierung"/>
+    <element xmi:type="ecore:EClass" href="lexicon.ecore#//Subkategorisierung"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bqzj7uC6EeOwS4GoanvV3w" x="1135" y="60"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_bqzj_OC6EeOwS4GoanvV3w" type="1001">
