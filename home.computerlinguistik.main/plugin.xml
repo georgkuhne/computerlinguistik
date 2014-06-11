@@ -42,5 +42,14 @@
          </menu>
       </menuContribution>
    </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="home.computerlinguistik.main.MainView"
+            id="hs.merseburg.miks13.compling.view"
+            name="name"
+            restorable="true">
+      </view>
+   </extension>
 
 </plugin>

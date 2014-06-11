@@ -31,8 +31,9 @@ public class ComputerlinguistikApplication implements IApplication {
 		boolean isFirstStart = PlatformUI.getPreferenceStore().getBoolean(
 				ConstantsGUI.PREFERENCE_ISFIRSTSTART);
 		if (isFirstStart) {
+
 			DialogDatabaseConfiguration dialog = new DialogDatabaseConfiguration(
-					new Shell(Display.getCurrent(), SWT.None));
+					new Shell(Display.getCurrent().getActiveShell(), SWT.None));
 			if (dialog.open() != Window.OK)
 				return IApplication.EXIT_OK;
 			PlatformUI.getPreferenceStore().setValue(
