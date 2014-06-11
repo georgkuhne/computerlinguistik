@@ -12,5 +12,8 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: home.computerlinguistik.lexiconmodel,
  home.computerlinguistik.lexiconmodel.impl,
- home.computerlinguistik.lexiconmodel.util
+ home.computerlinguistik.lexiconmodel.util,
+ grammarmodel,
+ grammarmodel.impl,
+ grammarmodel.util
 Bundle-ActivationPolicy: lazy
