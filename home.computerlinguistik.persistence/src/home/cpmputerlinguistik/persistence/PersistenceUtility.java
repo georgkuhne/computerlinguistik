@@ -1,5 +1,6 @@
 package home.cpmputerlinguistik.persistence;
 
+import grammarmodel.GrammarmodelPackage;
 import home.computerlinguistik.lexiconmodel.LexiconmodelPackage;
 
 import java.util.Collection;
@@ -42,7 +43,8 @@ public class PersistenceUtility {
 	}
 
 	private void mapEpackagesToDatastore() {
-		EPackage[] packages = { LexiconmodelPackage.eINSTANCE };
+		EPackage[] packages = { LexiconmodelPackage.eINSTANCE,
+				GrammarmodelPackage.eINSTANCE };
 		hbds.setEPackages(packages);
 
 	}
