@@ -39,6 +39,7 @@ public class Tab_Uebersicht extends Composite {
 		
 		Session session = PersistenceUtility.getINSTANCE().createSession();
 		
+		
 	}
 
 	@Override
