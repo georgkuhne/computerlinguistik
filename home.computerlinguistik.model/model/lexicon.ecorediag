@@ -50,10 +50,6 @@
   <children xmi:type="notation:Node" xmi:id="_bqqZ6OC6EeOwS4GoanvV3w" type="1001">
     <children xmi:type="notation:Node" xmi:id="_bqqZ6-C6EeOwS4GoanvV3w" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_bqqZ7OC6EeOwS4GoanvV3w" type="5001">
-      <children xmi:type="notation:Node" xmi:id="_bqqZ9OC6EeOwS4GoanvV3w" type="2001">
-        <element xmi:type="ecore:EAttribute" href="lexicon.ecore#//Auspraegung/grammatikalischeKategorie"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_bqqZ9eC6EeOwS4GoanvV3w"/>
-      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_bqqZ7eC6EeOwS4GoanvV3w"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_bqqZ7uC6EeOwS4GoanvV3w"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_bqqZ7-C6EeOwS4GoanvV3w"/>
@@ -74,10 +70,6 @@
         <element xmi:type="ecore:EAttribute" href="lexicon.ecore#//GrammatikalischeKategorie/bezeichnung"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_bqzj6eC6EeOwS4GoanvV3w"/>
       </children>
-      <children xmi:type="notation:Node" xmi:id="_bqzj6uC6EeOwS4GoanvV3w" type="2001">
-        <element xmi:type="ecore:EAttribute" href="lexicon.ecore#//GrammatikalischeKategorie/values"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_bqzj6-C6EeOwS4GoanvV3w"/>
-      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_bqzj4eC6EeOwS4GoanvV3w"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_bqzj4uC6EeOwS4GoanvV3w"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_bqzj4-C6EeOwS4GoanvV3w"/>
@@ -97,10 +89,6 @@
       <children xmi:type="notation:Node" xmi:id="_bqzj-OC6EeOwS4GoanvV3w" type="2001">
         <element xmi:type="ecore:EAttribute" href="lexicon.ecore#//Subkategorisierung/bezeichnung"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_bqzj-eC6EeOwS4GoanvV3w"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_bqzj-uC6EeOwS4GoanvV3w" type="2001">
-        <element xmi:type="ecore:EAttribute" href="lexicon.ecore#//Subkategorisierung/gramatikalischeKategorien"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_bqzj--C6EeOwS4GoanvV3w"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_bqzj8eC6EeOwS4GoanvV3w"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_bqzj8uC6EeOwS4GoanvV3w"/>
@@ -130,22 +118,6 @@
     <styles xmi:type="notation:ShapeStyle" xmi:id="_bqzj_eC6EeOwS4GoanvV3w" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="lexicon.ecore#//AuspraegungenContainer"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bqzj_uC6EeOwS4GoanvV3w" x="1100" y="170"/>
-  </children>
-  <children xmi:type="notation:Node" xmi:id="_bqzkCOC6EeOwS4GoanvV3w" type="1001">
-    <children xmi:type="notation:Node" xmi:id="_bqzkC-C6EeOwS4GoanvV3w" type="4001"/>
-    <children xmi:type="notation:Node" xmi:id="_bqzkDOC6EeOwS4GoanvV3w" type="5001">
-      <styles xmi:type="notation:DrawerStyle" xmi:id="_bqzkDeC6EeOwS4GoanvV3w"/>
-      <styles xmi:type="notation:SortingStyle" xmi:id="_bqzkDuC6EeOwS4GoanvV3w"/>
-      <styles xmi:type="notation:FilteringStyle" xmi:id="_bqzkD-C6EeOwS4GoanvV3w"/>
-    </children>
-    <children xmi:type="notation:Node" xmi:id="_bqzkEOC6EeOwS4GoanvV3w" type="5002">
-      <styles xmi:type="notation:DrawerStyle" xmi:id="_bqzkEeC6EeOwS4GoanvV3w"/>
-      <styles xmi:type="notation:SortingStyle" xmi:id="_bqzkEuC6EeOwS4GoanvV3w"/>
-      <styles xmi:type="notation:FilteringStyle" xmi:id="_bqzkE-C6EeOwS4GoanvV3w"/>
-    </children>
-    <styles xmi:type="notation:ShapeStyle" xmi:id="_bqzkCeC6EeOwS4GoanvV3w" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-    <element xmi:type="ecore:EClass" href="lexicon.ecore#//Auspraegungen"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bqzkCuC6EeOwS4GoanvV3w" x="1642"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_bhBVseC6EeOwS4GoanvV3w"/>
   <element xmi:type="ecore:EPackage" href="lexicon.ecore#/"/>

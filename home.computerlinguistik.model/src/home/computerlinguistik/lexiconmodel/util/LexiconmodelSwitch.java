@@ -78,6 +78,30 @@ public class LexiconmodelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case LexiconmodelPackage.GRAMMATIKALISCHE_KATEGORIE: {
+				GrammatikalischeKategorie grammatikalischeKategorie = (GrammatikalischeKategorie)theEObject;
+				T result = caseGrammatikalischeKategorie(grammatikalischeKategorie);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case LexiconmodelPackage.SUBKATEGORISIERUNG: {
+				Subkategorisierung subkategorisierung = (Subkategorisierung)theEObject;
+				T result = caseSubkategorisierung(subkategorisierung);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case LexiconmodelPackage.AUSPRAEGUNGEN_CONTAINER: {
+				AuspraegungenContainer auspraegungenContainer = (AuspraegungenContainer)theEObject;
+				T result = caseAuspraegungenContainer(auspraegungenContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case LexiconmodelPackage.AUSPRAEGUNG: {
+				Auspraegung auspraegung = (Auspraegung)theEObject;
+				T result = caseAuspraegung(auspraegung);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -109,6 +133,66 @@ public class LexiconmodelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEintrag(Eintrag object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Grammatikalische Kategorie</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Grammatikalische Kategorie</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGrammatikalischeKategorie(GrammatikalischeKategorie object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Subkategorisierung</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Subkategorisierung</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubkategorisierung(Subkategorisierung object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Auspraegungen Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Auspraegungen Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAuspraegungenContainer(AuspraegungenContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Auspraegung</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Auspraegung</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAuspraegung(Auspraegung object) {
 		return null;
 	}
 

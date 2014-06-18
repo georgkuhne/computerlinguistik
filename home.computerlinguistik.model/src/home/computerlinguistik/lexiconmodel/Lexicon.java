@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link home.computerlinguistik.lexiconmodel.Lexicon#getEintraege <em>Eintraege</em>}</li>
+ *   <li>{@link home.computerlinguistik.lexiconmodel.Lexicon#getGrammatikalischeKategorien <em>Grammatikalische Kategorien</em>}</li>
  * </ul>
  * </p>
  *
@@ -38,5 +39,21 @@ public interface Lexicon extends EObject {
 	 * @generated
 	 */
 	EList<Eintrag> getEintraege();
+
+	/**
+	 * Returns the value of the '<em><b>Grammatikalische Kategorien</b></em>' containment reference list.
+	 * The list contents are of type {@link home.computerlinguistik.lexiconmodel.GrammatikalischeKategorie}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Grammatikalische Kategorien</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Grammatikalische Kategorien</em>' containment reference list.
+	 * @see home.computerlinguistik.lexiconmodel.LexiconmodelPackage#getLexicon_GrammatikalischeKategorien()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<GrammatikalischeKategorie> getGrammatikalischeKategorien();
 
 } // Lexicon

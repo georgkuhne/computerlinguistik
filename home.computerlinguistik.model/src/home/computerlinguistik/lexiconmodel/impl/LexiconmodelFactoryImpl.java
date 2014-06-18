@@ -59,6 +59,10 @@ public class LexiconmodelFactoryImpl extends EFactoryImpl implements Lexiconmode
 		switch (eClass.getClassifierID()) {
 			case LexiconmodelPackage.LEXICON: return createLexicon();
 			case LexiconmodelPackage.EINTRAG: return createEintrag();
+			case LexiconmodelPackage.GRAMMATIKALISCHE_KATEGORIE: return createGrammatikalischeKategorie();
+			case LexiconmodelPackage.SUBKATEGORISIERUNG: return createSubkategorisierung();
+			case LexiconmodelPackage.AUSPRAEGUNGEN_CONTAINER: return createAuspraegungenContainer();
+			case LexiconmodelPackage.AUSPRAEGUNG: return createAuspraegung();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -112,6 +116,46 @@ public class LexiconmodelFactoryImpl extends EFactoryImpl implements Lexiconmode
 	public Eintrag createEintrag() {
 		EintragImpl eintrag = new EintragImpl();
 		return eintrag;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GrammatikalischeKategorie createGrammatikalischeKategorie() {
+		GrammatikalischeKategorieImpl grammatikalischeKategorie = new GrammatikalischeKategorieImpl();
+		return grammatikalischeKategorie;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Subkategorisierung createSubkategorisierung() {
+		SubkategorisierungImpl subkategorisierung = new SubkategorisierungImpl();
+		return subkategorisierung;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AuspraegungenContainer createAuspraegungenContainer() {
+		AuspraegungenContainerImpl auspraegungenContainer = new AuspraegungenContainerImpl();
+		return auspraegungenContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Auspraegung createAuspraegung() {
+		AuspraegungImpl auspraegung = new AuspraegungImpl();
+		return auspraegung;
 	}
 
 	/**

@@ -40,6 +40,42 @@ public interface LexiconmodelFactory extends EFactory {
 	Eintrag createEintrag();
 
 	/**
+	 * Returns a new object of class '<em>Grammatikalische Kategorie</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Grammatikalische Kategorie</em>'.
+	 * @generated
+	 */
+	GrammatikalischeKategorie createGrammatikalischeKategorie();
+
+	/**
+	 * Returns a new object of class '<em>Subkategorisierung</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Subkategorisierung</em>'.
+	 * @generated
+	 */
+	Subkategorisierung createSubkategorisierung();
+
+	/**
+	 * Returns a new object of class '<em>Auspraegungen Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Auspraegungen Container</em>'.
+	 * @generated
+	 */
+	AuspraegungenContainer createAuspraegungenContainer();
+
+	/**
+	 * Returns a new object of class '<em>Auspraegung</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Auspraegung</em>'.
+	 * @generated
+	 */
+	Auspraegung createAuspraegung();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -3,6 +3,7 @@
 package home.computerlinguistik.lexiconmodel.impl;
 
 import home.computerlinguistik.lexiconmodel.Eintrag;
+import home.computerlinguistik.lexiconmodel.GrammatikalischeKategorie;
 import home.computerlinguistik.lexiconmodel.Lexicon;
 import home.computerlinguistik.lexiconmodel.LexiconmodelPackage;
 import java.util.Collection;
@@ -22,6 +23,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link home.computerlinguistik.lexiconmodel.impl.LexiconImpl#getEintraege <em>Eintraege</em>}</li>
+ *   <li>{@link home.computerlinguistik.lexiconmodel.impl.LexiconImpl#getGrammatikalischeKategorien <em>Grammatikalische Kategorien</em>}</li>
  * </ul>
  * </p>
  *
@@ -37,6 +39,16 @@ public class LexiconImpl extends MinimalEObjectImpl.Container implements Lexicon
 	 * @ordered
 	 */
 	protected EList<Eintrag> eintraege;
+
+	/**
+	 * The cached value of the '{@link #getGrammatikalischeKategorien() <em>Grammatikalische Kategorien</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGrammatikalischeKategorien()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<GrammatikalischeKategorie> grammatikalischeKategorien;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,11 +86,25 @@ public class LexiconImpl extends MinimalEObjectImpl.Container implements Lexicon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<GrammatikalischeKategorie> getGrammatikalischeKategorien() {
+		if (grammatikalischeKategorien == null) {
+			grammatikalischeKategorien = new EObjectContainmentEList<GrammatikalischeKategorie>(GrammatikalischeKategorie.class, this, LexiconmodelPackage.LEXICON__GRAMMATIKALISCHE_KATEGORIEN);
+		}
+		return grammatikalischeKategorien;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case LexiconmodelPackage.LEXICON__EINTRAEGE:
 				return ((InternalEList<?>)getEintraege()).basicRemove(otherEnd, msgs);
+			case LexiconmodelPackage.LEXICON__GRAMMATIKALISCHE_KATEGORIEN:
+				return ((InternalEList<?>)getGrammatikalischeKategorien()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -93,6 +119,8 @@ public class LexiconImpl extends MinimalEObjectImpl.Container implements Lexicon
 		switch (featureID) {
 			case LexiconmodelPackage.LEXICON__EINTRAEGE:
 				return getEintraege();
+			case LexiconmodelPackage.LEXICON__GRAMMATIKALISCHE_KATEGORIEN:
+				return getGrammatikalischeKategorien();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -110,6 +138,10 @@ public class LexiconImpl extends MinimalEObjectImpl.Container implements Lexicon
 				getEintraege().clear();
 				getEintraege().addAll((Collection<? extends Eintrag>)newValue);
 				return;
+			case LexiconmodelPackage.LEXICON__GRAMMATIKALISCHE_KATEGORIEN:
+				getGrammatikalischeKategorien().clear();
+				getGrammatikalischeKategorien().addAll((Collection<? extends GrammatikalischeKategorie>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -125,6 +157,9 @@ public class LexiconImpl extends MinimalEObjectImpl.Container implements Lexicon
 			case LexiconmodelPackage.LEXICON__EINTRAEGE:
 				getEintraege().clear();
 				return;
+			case LexiconmodelPackage.LEXICON__GRAMMATIKALISCHE_KATEGORIEN:
+				getGrammatikalischeKategorien().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -139,6 +174,8 @@ public class LexiconImpl extends MinimalEObjectImpl.Container implements Lexicon
 		switch (featureID) {
 			case LexiconmodelPackage.LEXICON__EINTRAEGE:
 				return eintraege != null && !eintraege.isEmpty();
+			case LexiconmodelPackage.LEXICON__GRAMMATIKALISCHE_KATEGORIEN:
+				return grammatikalischeKategorien != null && !grammatikalischeKategorien.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

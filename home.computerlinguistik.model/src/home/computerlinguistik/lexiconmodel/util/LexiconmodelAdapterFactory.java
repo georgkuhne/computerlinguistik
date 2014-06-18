@@ -76,6 +76,22 @@ public class LexiconmodelAdapterFactory extends AdapterFactoryImpl {
 				return createEintragAdapter();
 			}
 			@Override
+			public Adapter caseGrammatikalischeKategorie(GrammatikalischeKategorie object) {
+				return createGrammatikalischeKategorieAdapter();
+			}
+			@Override
+			public Adapter caseSubkategorisierung(Subkategorisierung object) {
+				return createSubkategorisierungAdapter();
+			}
+			@Override
+			public Adapter caseAuspraegungenContainer(AuspraegungenContainer object) {
+				return createAuspraegungenContainerAdapter();
+			}
+			@Override
+			public Adapter caseAuspraegung(Auspraegung object) {
+				return createAuspraegungAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -120,6 +136,62 @@ public class LexiconmodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEintragAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link home.computerlinguistik.lexiconmodel.GrammatikalischeKategorie <em>Grammatikalische Kategorie</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see home.computerlinguistik.lexiconmodel.GrammatikalischeKategorie
+	 * @generated
+	 */
+	public Adapter createGrammatikalischeKategorieAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link home.computerlinguistik.lexiconmodel.Subkategorisierung <em>Subkategorisierung</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see home.computerlinguistik.lexiconmodel.Subkategorisierung
+	 * @generated
+	 */
+	public Adapter createSubkategorisierungAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link home.computerlinguistik.lexiconmodel.AuspraegungenContainer <em>Auspraegungen Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see home.computerlinguistik.lexiconmodel.AuspraegungenContainer
+	 * @generated
+	 */
+	public Adapter createAuspraegungenContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link home.computerlinguistik.lexiconmodel.Auspraegung <em>Auspraegung</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see home.computerlinguistik.lexiconmodel.Auspraegung
+	 * @generated
+	 */
+	public Adapter createAuspraegungAdapter() {
 		return null;
 	}
 

@@ -4,31 +4,47 @@
   <eClassifiers xsi:type="ecore:EClass" name="Lexicon">
     <eStructuralFeatures xsi:type="ecore:EReference" name="eintraege" upperBound="-1"
         eType="#//Eintrag" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="lg" eType="#//GrammatikalischeKategorie"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="grammatikalischeKategorien"
+        upperBound="-1" eType="#//GrammatikalischeKategorie" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Eintrag">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="wort" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="auspraegungenContainer"
+        upperBound="-1" eType="#//AuspraegungenContainer" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wortart" eType="#//Wortart"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        iD="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Wortart"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Auspraegung">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="grammatikalischeKategorie"
-        defaultValueLiteral=""/>
+  <eClassifiers xsi:type="ecore:EEnum" name="Wortart">
+    <eLiterals name="Nomen"/>
+    <eLiterals name="Adjektiv" value="1"/>
+    <eLiterals name="Verb" value="2"/>
+    <eLiterals name="Adverb" value="3"/>
+    <eLiterals name="Pronomen" value="4"/>
+    <eLiterals name="Numerale" value="5"/>
+    <eLiterals name="Artikel" value="6"/>
+    <eLiterals name="Praeposition" value="7" literal="Praeposition"/>
+    <eLiterals name="Junktoren" value="9" literal="Junktoren"/>
+    <eLiterals name="Interjektion" value="10" literal="Interjektion"/>
+    <eLiterals name="Partikel" value="11"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Person">
-    <eLiterals name="EEnumLiteral3" value="3"/>
-    <eLiterals name="EEnumLiteral4" value="4"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Numerus"/>
   <eClassifiers xsi:type="ecore:EClass" name="GrammatikalischeKategorie">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bezeichnung"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bezeichnung" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="possiblevalues" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="l1" eType="#//Lexicon"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Subkategorisierung">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bezeichnung"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gramatikalischeKategorien"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bezeichnung" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="auspraegungenContainer"
+        upperBound="-1" eType="#//AuspraegungenContainer" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AuspraegungenContainer"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Auspraegungen"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AuspraegungenContainer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="auspraegungen" upperBound="-1"
+        eType="#//Auspraegung"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Auspraegung">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="grammatikalischeKategorie"
+        eType="#//GrammatikalischeKategorie"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wert" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>
