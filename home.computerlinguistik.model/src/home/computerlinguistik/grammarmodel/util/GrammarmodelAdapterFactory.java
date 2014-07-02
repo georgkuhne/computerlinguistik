@@ -1,14 +1,12 @@
 /**
  */
-package grammarmodel.util;
+package home.computerlinguistik.grammarmodel.util;
 
-import grammarmodel.*;
+import home.computerlinguistik.grammarmodel.*;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see grammarmodel.GrammarmodelPackage
+ * @see home.computerlinguistik.grammarmodel.GrammarmodelPackage
  * @generated
  */
 public class GrammarmodelAdapterFactory extends AdapterFactoryImpl {
@@ -104,13 +102,13 @@ public class GrammarmodelAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link grammarmodel.AttributRegelTerm <em>Attribut Regel Term</em>}'.
+	 * Creates a new adapter for an object of class '{@link home.computerlinguistik.grammarmodel.AttributRegelTerm <em>Attribut Regel Term</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see grammarmodel.AttributRegelTerm
+	 * @see home.computerlinguistik.grammarmodel.AttributRegelTerm
 	 * @generated
 	 */
 	public Adapter createAttributRegelTermAdapter() {
@@ -118,13 +116,13 @@ public class GrammarmodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link grammarmodel.NichtTerminal <em>Nicht Terminal</em>}'.
+	 * Creates a new adapter for an object of class '{@link home.computerlinguistik.grammarmodel.NichtTerminal <em>Nicht Terminal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see grammarmodel.NichtTerminal
+	 * @see home.computerlinguistik.grammarmodel.NichtTerminal
 	 * @generated
 	 */
 	public Adapter createNichtTerminalAdapter() {
@@ -132,13 +130,13 @@ public class GrammarmodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link grammarmodel.AttributRegel <em>Attribut Regel</em>}'.
+	 * Creates a new adapter for an object of class '{@link home.computerlinguistik.grammarmodel.AttributRegel <em>Attribut Regel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see grammarmodel.AttributRegel
+	 * @see home.computerlinguistik.grammarmodel.AttributRegel
 	 * @generated
 	 */
 	public Adapter createAttributRegelAdapter() {
@@ -146,13 +144,13 @@ public class GrammarmodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link grammarmodel.Regel <em>Regel</em>}'.
+	 * Creates a new adapter for an object of class '{@link home.computerlinguistik.grammarmodel.Regel <em>Regel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see grammarmodel.Regel
+	 * @see home.computerlinguistik.grammarmodel.Regel
 	 * @generated
 	 */
 	public Adapter createRegelAdapter() {

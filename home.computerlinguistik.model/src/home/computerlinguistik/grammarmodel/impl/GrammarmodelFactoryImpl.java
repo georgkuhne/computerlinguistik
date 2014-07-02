@@ -1,16 +1,14 @@
 /**
  */
-package grammarmodel.impl;
+package home.computerlinguistik.grammarmodel.impl;
 
-import grammarmodel.*;
+import home.computerlinguistik.grammarmodel.*;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**

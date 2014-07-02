@@ -1,22 +1,18 @@
 /**
  */
-package grammarmodel.impl;
+package home.computerlinguistik.grammarmodel.impl;
 
-import grammarmodel.AttributRegel;
-import grammarmodel.GrammarmodelPackage;
-import grammarmodel.NichtTerminal;
+import home.computerlinguistik.grammarmodel.AttributRegel;
+import home.computerlinguistik.grammarmodel.GrammarmodelPackage;
+import home.computerlinguistik.grammarmodel.NichtTerminal;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
@@ -26,8 +22,8 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link grammarmodel.impl.NichtTerminalImpl#getBezeichnung <em>Bezeichnung</em>}</li>
- *   <li>{@link grammarmodel.impl.NichtTerminalImpl#getAttributRegeln <em>Attribut Regeln</em>}</li>
+ *   <li>{@link home.computerlinguistik.grammarmodel.impl.NichtTerminalImpl#getBezeichnung <em>Bezeichnung</em>}</li>
+ *   <li>{@link home.computerlinguistik.grammarmodel.impl.NichtTerminalImpl#getAttributRegeln <em>Attribut Regeln</em>}</li>
  * </ul>
  * </p>
  *

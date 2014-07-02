@@ -1,17 +1,15 @@
 /**
  */
-package grammarmodel.impl;
+package home.computerlinguistik.grammarmodel.impl;
 
-import grammarmodel.AttributRegel;
-import grammarmodel.AttributRegelTerm;
-import grammarmodel.GrammarmodelPackage;
+import home.computerlinguistik.grammarmodel.AttributRegel;
+import home.computerlinguistik.grammarmodel.AttributRegelTerm;
+import home.computerlinguistik.grammarmodel.GrammarmodelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -22,8 +20,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link grammarmodel.impl.AttributRegelImpl#getRechts <em>Rechts</em>}</li>
- *   <li>{@link grammarmodel.impl.AttributRegelImpl#getLinks <em>Links</em>}</li>
+ *   <li>{@link home.computerlinguistik.grammarmodel.impl.AttributRegelImpl#getRechts <em>Rechts</em>}</li>
+ *   <li>{@link home.computerlinguistik.grammarmodel.impl.AttributRegelImpl#getLinks <em>Links</em>}</li>
  * </ul>
  * </p>
  *

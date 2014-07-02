@@ -1,21 +1,20 @@
 /**
  */
-package grammarmodel.impl;
+package home.computerlinguistik.grammarmodel.impl;
 
-import grammarmodel.AttributRegel;
-import grammarmodel.AttributRegelTerm;
-import grammarmodel.AttributRegelTermTyp;
-import grammarmodel.GrammarmodelFactory;
-import grammarmodel.GrammarmodelPackage;
-import grammarmodel.NichtTerminal;
-import grammarmodel.Regel;
+import home.computerlinguistik.grammarmodel.AttributRegel;
+import home.computerlinguistik.grammarmodel.AttributRegelTerm;
+import home.computerlinguistik.grammarmodel.AttributRegelTermTyp;
+import home.computerlinguistik.grammarmodel.GrammarmodelFactory;
+import home.computerlinguistik.grammarmodel.GrammarmodelPackage;
+import home.computerlinguistik.grammarmodel.NichtTerminal;
+import home.computerlinguistik.grammarmodel.Regel;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -71,7 +70,7 @@ public class GrammarmodelPackageImpl extends EPackageImpl implements Grammarmode
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see grammarmodel.GrammarmodelPackage#eNS_URI
+	 * @see home.computerlinguistik.grammarmodel.GrammarmodelPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */

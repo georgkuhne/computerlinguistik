@@ -1,6 +1,6 @@
 package home.cpmputerlinguistik.persistence;
 
-import grammarmodel.GrammarmodelPackage;
+import home.computerlinguistik.grammarmodel.GrammarmodelPackage;
 import home.computerlinguistik.lexiconmodel.LexiconmodelPackage;
 
 import java.util.Collection;

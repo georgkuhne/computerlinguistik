@@ -18,7 +18,7 @@
       <!-- @generated grammar -->
       <package
             uri="grammar"
-            class="grammarmodel.GrammarmodelPackage"
+            class="home.computerlinguistik.grammarmodel.GrammarmodelPackage"
             genModel="model/grammar.genmodel"/>
    </extension>
 
