@@ -1,6 +1,6 @@
 /**
  */
-package grammarmodel;
+package home.computerlinguistik.grammarmodel;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see grammarmodel.GrammarmodelFactory
+ * @see home.computerlinguistik.grammarmodel.GrammarmodelFactory
  * @model kind="package"
  * @generated
  */
@@ -55,14 +55,14 @@ public interface GrammarmodelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	GrammarmodelPackage eINSTANCE = grammarmodel.impl.GrammarmodelPackageImpl.init();
+	GrammarmodelPackage eINSTANCE = home.computerlinguistik.grammarmodel.impl.GrammarmodelPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link grammarmodel.impl.AttributRegelTermImpl <em>Attribut Regel Term</em>}' class.
+	 * The meta object id for the '{@link home.computerlinguistik.grammarmodel.impl.AttributRegelTermImpl <em>Attribut Regel Term</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see grammarmodel.impl.AttributRegelTermImpl
-	 * @see grammarmodel.impl.GrammarmodelPackageImpl#getAttributRegelTerm()
+	 * @see home.computerlinguistik.grammarmodel.impl.AttributRegelTermImpl
+	 * @see home.computerlinguistik.grammarmodel.impl.GrammarmodelPackageImpl#getAttributRegelTerm()
 	 * @generated
 	 */
 	int ATTRIBUT_REGEL_TERM = 0;
@@ -104,11 +104,11 @@ public interface GrammarmodelPackage extends EPackage {
 	int ATTRIBUT_REGEL_TERM_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link grammarmodel.impl.NichtTerminalImpl <em>Nicht Terminal</em>}' class.
+	 * The meta object id for the '{@link home.computerlinguistik.grammarmodel.impl.NichtTerminalImpl <em>Nicht Terminal</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see grammarmodel.impl.NichtTerminalImpl
-	 * @see grammarmodel.impl.GrammarmodelPackageImpl#getNichtTerminal()
+	 * @see home.computerlinguistik.grammarmodel.impl.NichtTerminalImpl
+	 * @see home.computerlinguistik.grammarmodel.impl.GrammarmodelPackageImpl#getNichtTerminal()
 	 * @generated
 	 */
 	int NICHT_TERMINAL = 1;
@@ -150,11 +150,11 @@ public interface GrammarmodelPackage extends EPackage {
 	int NICHT_TERMINAL_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link grammarmodel.impl.AttributRegelImpl <em>Attribut Regel</em>}' class.
+	 * The meta object id for the '{@link home.computerlinguistik.grammarmodel.impl.AttributRegelImpl <em>Attribut Regel</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see grammarmodel.impl.AttributRegelImpl
-	 * @see grammarmodel.impl.GrammarmodelPackageImpl#getAttributRegel()
+	 * @see home.computerlinguistik.grammarmodel.impl.AttributRegelImpl
+	 * @see home.computerlinguistik.grammarmodel.impl.GrammarmodelPackageImpl#getAttributRegel()
 	 * @generated
 	 */
 	int ATTRIBUT_REGEL = 2;
@@ -196,11 +196,11 @@ public interface GrammarmodelPackage extends EPackage {
 	int ATTRIBUT_REGEL_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link grammarmodel.impl.RegelImpl <em>Regel</em>}' class.
+	 * The meta object id for the '{@link home.computerlinguistik.grammarmodel.impl.RegelImpl <em>Regel</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see grammarmodel.impl.RegelImpl
-	 * @see grammarmodel.impl.GrammarmodelPackageImpl#getRegel()
+	 * @see home.computerlinguistik.grammarmodel.impl.RegelImpl
+	 * @see home.computerlinguistik.grammarmodel.impl.GrammarmodelPackageImpl#getRegel()
 	 * @generated
 	 */
 	int REGEL = 3;
@@ -251,161 +251,161 @@ public interface GrammarmodelPackage extends EPackage {
 	int REGEL_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link grammarmodel.AttributRegelTermTyp <em>Attribut Regel Term Typ</em>}' enum.
+	 * The meta object id for the '{@link home.computerlinguistik.grammarmodel.AttributRegelTermTyp <em>Attribut Regel Term Typ</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see grammarmodel.AttributRegelTermTyp
-	 * @see grammarmodel.impl.GrammarmodelPackageImpl#getAttributRegelTermTyp()
+	 * @see home.computerlinguistik.grammarmodel.AttributRegelTermTyp
+	 * @see home.computerlinguistik.grammarmodel.impl.GrammarmodelPackageImpl#getAttributRegelTermTyp()
 	 * @generated
 	 */
 	int ATTRIBUT_REGEL_TERM_TYP = 4;
 
 
 	/**
-	 * Returns the meta object for class '{@link grammarmodel.AttributRegelTerm <em>Attribut Regel Term</em>}'.
+	 * Returns the meta object for class '{@link home.computerlinguistik.grammarmodel.AttributRegelTerm <em>Attribut Regel Term</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Attribut Regel Term</em>'.
-	 * @see grammarmodel.AttributRegelTerm
+	 * @see home.computerlinguistik.grammarmodel.AttributRegelTerm
 	 * @generated
 	 */
 	EClass getAttributRegelTerm();
 
 	/**
-	 * Returns the meta object for the attribute '{@link grammarmodel.AttributRegelTerm#getTyp <em>Typ</em>}'.
+	 * Returns the meta object for the attribute '{@link home.computerlinguistik.grammarmodel.AttributRegelTerm#getTyp <em>Typ</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Typ</em>'.
-	 * @see grammarmodel.AttributRegelTerm#getTyp()
+	 * @see home.computerlinguistik.grammarmodel.AttributRegelTerm#getTyp()
 	 * @see #getAttributRegelTerm()
 	 * @generated
 	 */
 	EAttribute getAttributRegelTerm_Typ();
 
 	/**
-	 * Returns the meta object for the attribute '{@link grammarmodel.AttributRegelTerm#getWert <em>Wert</em>}'.
+	 * Returns the meta object for the attribute '{@link home.computerlinguistik.grammarmodel.AttributRegelTerm#getWert <em>Wert</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Wert</em>'.
-	 * @see grammarmodel.AttributRegelTerm#getWert()
+	 * @see home.computerlinguistik.grammarmodel.AttributRegelTerm#getWert()
 	 * @see #getAttributRegelTerm()
 	 * @generated
 	 */
 	EAttribute getAttributRegelTerm_Wert();
 
 	/**
-	 * Returns the meta object for class '{@link grammarmodel.NichtTerminal <em>Nicht Terminal</em>}'.
+	 * Returns the meta object for class '{@link home.computerlinguistik.grammarmodel.NichtTerminal <em>Nicht Terminal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Nicht Terminal</em>'.
-	 * @see grammarmodel.NichtTerminal
+	 * @see home.computerlinguistik.grammarmodel.NichtTerminal
 	 * @generated
 	 */
 	EClass getNichtTerminal();
 
 	/**
-	 * Returns the meta object for the attribute '{@link grammarmodel.NichtTerminal#getBezeichnung <em>Bezeichnung</em>}'.
+	 * Returns the meta object for the attribute '{@link home.computerlinguistik.grammarmodel.NichtTerminal#getBezeichnung <em>Bezeichnung</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Bezeichnung</em>'.
-	 * @see grammarmodel.NichtTerminal#getBezeichnung()
+	 * @see home.computerlinguistik.grammarmodel.NichtTerminal#getBezeichnung()
 	 * @see #getNichtTerminal()
 	 * @generated
 	 */
 	EAttribute getNichtTerminal_Bezeichnung();
 
 	/**
-	 * Returns the meta object for the reference list '{@link grammarmodel.NichtTerminal#getAttributRegeln <em>Attribut Regeln</em>}'.
+	 * Returns the meta object for the reference list '{@link home.computerlinguistik.grammarmodel.NichtTerminal#getAttributRegeln <em>Attribut Regeln</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Attribut Regeln</em>'.
-	 * @see grammarmodel.NichtTerminal#getAttributRegeln()
+	 * @see home.computerlinguistik.grammarmodel.NichtTerminal#getAttributRegeln()
 	 * @see #getNichtTerminal()
 	 * @generated
 	 */
 	EReference getNichtTerminal_AttributRegeln();
 
 	/**
-	 * Returns the meta object for class '{@link grammarmodel.AttributRegel <em>Attribut Regel</em>}'.
+	 * Returns the meta object for class '{@link home.computerlinguistik.grammarmodel.AttributRegel <em>Attribut Regel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Attribut Regel</em>'.
-	 * @see grammarmodel.AttributRegel
+	 * @see home.computerlinguistik.grammarmodel.AttributRegel
 	 * @generated
 	 */
 	EClass getAttributRegel();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link grammarmodel.AttributRegel#getRechts <em>Rechts</em>}'.
+	 * Returns the meta object for the containment reference '{@link home.computerlinguistik.grammarmodel.AttributRegel#getRechts <em>Rechts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Rechts</em>'.
-	 * @see grammarmodel.AttributRegel#getRechts()
+	 * @see home.computerlinguistik.grammarmodel.AttributRegel#getRechts()
 	 * @see #getAttributRegel()
 	 * @generated
 	 */
 	EReference getAttributRegel_Rechts();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link grammarmodel.AttributRegel#getLinks <em>Links</em>}'.
+	 * Returns the meta object for the containment reference '{@link home.computerlinguistik.grammarmodel.AttributRegel#getLinks <em>Links</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Links</em>'.
-	 * @see grammarmodel.AttributRegel#getLinks()
+	 * @see home.computerlinguistik.grammarmodel.AttributRegel#getLinks()
 	 * @see #getAttributRegel()
 	 * @generated
 	 */
 	EReference getAttributRegel_Links();
 
 	/**
-	 * Returns the meta object for class '{@link grammarmodel.Regel <em>Regel</em>}'.
+	 * Returns the meta object for class '{@link home.computerlinguistik.grammarmodel.Regel <em>Regel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Regel</em>'.
-	 * @see grammarmodel.Regel
+	 * @see home.computerlinguistik.grammarmodel.Regel
 	 * @generated
 	 */
 	EClass getRegel();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link grammarmodel.Regel#getElternterminal <em>Elternterminal</em>}'.
+	 * Returns the meta object for the containment reference '{@link home.computerlinguistik.grammarmodel.Regel#getElternterminal <em>Elternterminal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Elternterminal</em>'.
-	 * @see grammarmodel.Regel#getElternterminal()
+	 * @see home.computerlinguistik.grammarmodel.Regel#getElternterminal()
 	 * @see #getRegel()
 	 * @generated
 	 */
 	EReference getRegel_Elternterminal();
 
 	/**
-	 * Returns the meta object for the reference list '{@link grammarmodel.Regel#getKinderTerminale <em>Kinder Terminale</em>}'.
+	 * Returns the meta object for the reference list '{@link home.computerlinguistik.grammarmodel.Regel#getKinderTerminale <em>Kinder Terminale</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Kinder Terminale</em>'.
-	 * @see grammarmodel.Regel#getKinderTerminale()
+	 * @see home.computerlinguistik.grammarmodel.Regel#getKinderTerminale()
 	 * @see #getRegel()
 	 * @generated
 	 */
 	EReference getRegel_KinderTerminale();
 
 	/**
-	 * Returns the meta object for the attribute '{@link grammarmodel.Regel#getWortart <em>Wortart</em>}'.
+	 * Returns the meta object for the attribute '{@link home.computerlinguistik.grammarmodel.Regel#getWortart <em>Wortart</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Wortart</em>'.
-	 * @see grammarmodel.Regel#getWortart()
+	 * @see home.computerlinguistik.grammarmodel.Regel#getWortart()
 	 * @see #getRegel()
 	 * @generated
 	 */
 	EAttribute getRegel_Wortart();
 
 	/**
-	 * Returns the meta object for enum '{@link grammarmodel.AttributRegelTermTyp <em>Attribut Regel Term Typ</em>}'.
+	 * Returns the meta object for enum '{@link home.computerlinguistik.grammarmodel.AttributRegelTermTyp <em>Attribut Regel Term Typ</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for enum '<em>Attribut Regel Term Typ</em>'.
-	 * @see grammarmodel.AttributRegelTermTyp
+	 * @see home.computerlinguistik.grammarmodel.AttributRegelTermTyp
 	 * @generated
 	 */
 	EEnum getAttributRegelTermTyp();
@@ -434,11 +434,11 @@ public interface GrammarmodelPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link grammarmodel.impl.AttributRegelTermImpl <em>Attribut Regel Term</em>}' class.
+		 * The meta object literal for the '{@link home.computerlinguistik.grammarmodel.impl.AttributRegelTermImpl <em>Attribut Regel Term</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see grammarmodel.impl.AttributRegelTermImpl
-		 * @see grammarmodel.impl.GrammarmodelPackageImpl#getAttributRegelTerm()
+		 * @see home.computerlinguistik.grammarmodel.impl.AttributRegelTermImpl
+		 * @see home.computerlinguistik.grammarmodel.impl.GrammarmodelPackageImpl#getAttributRegelTerm()
 		 * @generated
 		 */
 		EClass ATTRIBUT_REGEL_TERM = eINSTANCE.getAttributRegelTerm();
@@ -460,11 +460,11 @@ public interface GrammarmodelPackage extends EPackage {
 		EAttribute ATTRIBUT_REGEL_TERM__WERT = eINSTANCE.getAttributRegelTerm_Wert();
 
 		/**
-		 * The meta object literal for the '{@link grammarmodel.impl.NichtTerminalImpl <em>Nicht Terminal</em>}' class.
+		 * The meta object literal for the '{@link home.computerlinguistik.grammarmodel.impl.NichtTerminalImpl <em>Nicht Terminal</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see grammarmodel.impl.NichtTerminalImpl
-		 * @see grammarmodel.impl.GrammarmodelPackageImpl#getNichtTerminal()
+		 * @see home.computerlinguistik.grammarmodel.impl.NichtTerminalImpl
+		 * @see home.computerlinguistik.grammarmodel.impl.GrammarmodelPackageImpl#getNichtTerminal()
 		 * @generated
 		 */
 		EClass NICHT_TERMINAL = eINSTANCE.getNichtTerminal();
@@ -486,11 +486,11 @@ public interface GrammarmodelPackage extends EPackage {
 		EReference NICHT_TERMINAL__ATTRIBUT_REGELN = eINSTANCE.getNichtTerminal_AttributRegeln();
 
 		/**
-		 * The meta object literal for the '{@link grammarmodel.impl.AttributRegelImpl <em>Attribut Regel</em>}' class.
+		 * The meta object literal for the '{@link home.computerlinguistik.grammarmodel.impl.AttributRegelImpl <em>Attribut Regel</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see grammarmodel.impl.AttributRegelImpl
-		 * @see grammarmodel.impl.GrammarmodelPackageImpl#getAttributRegel()
+		 * @see home.computerlinguistik.grammarmodel.impl.AttributRegelImpl
+		 * @see home.computerlinguistik.grammarmodel.impl.GrammarmodelPackageImpl#getAttributRegel()
 		 * @generated
 		 */
 		EClass ATTRIBUT_REGEL = eINSTANCE.getAttributRegel();
@@ -512,11 +512,11 @@ public interface GrammarmodelPackage extends EPackage {
 		EReference ATTRIBUT_REGEL__LINKS = eINSTANCE.getAttributRegel_Links();
 
 		/**
-		 * The meta object literal for the '{@link grammarmodel.impl.RegelImpl <em>Regel</em>}' class.
+		 * The meta object literal for the '{@link home.computerlinguistik.grammarmodel.impl.RegelImpl <em>Regel</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see grammarmodel.impl.RegelImpl
-		 * @see grammarmodel.impl.GrammarmodelPackageImpl#getRegel()
+		 * @see home.computerlinguistik.grammarmodel.impl.RegelImpl
+		 * @see home.computerlinguistik.grammarmodel.impl.GrammarmodelPackageImpl#getRegel()
 		 * @generated
 		 */
 		EClass REGEL = eINSTANCE.getRegel();
@@ -546,11 +546,11 @@ public interface GrammarmodelPackage extends EPackage {
 		EAttribute REGEL__WORTART = eINSTANCE.getRegel_Wortart();
 
 		/**
-		 * The meta object literal for the '{@link grammarmodel.AttributRegelTermTyp <em>Attribut Regel Term Typ</em>}' enum.
+		 * The meta object literal for the '{@link home.computerlinguistik.grammarmodel.AttributRegelTermTyp <em>Attribut Regel Term Typ</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see grammarmodel.AttributRegelTermTyp
-		 * @see grammarmodel.impl.GrammarmodelPackageImpl#getAttributRegelTermTyp()
+		 * @see home.computerlinguistik.grammarmodel.AttributRegelTermTyp
+		 * @see home.computerlinguistik.grammarmodel.impl.GrammarmodelPackageImpl#getAttributRegelTermTyp()
 		 * @generated
 		 */
 		EEnum ATTRIBUT_REGEL_TERM_TYP = eINSTANCE.getAttributRegelTermTyp();

@@ -1,6 +1,6 @@
 /**
  */
-package grammarmodel;
+package home.computerlinguistik.grammarmodel;
 
 import org.eclipse.emf.ecore.EFactory;
 
@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see grammarmodel.GrammarmodelPackage
+ * @see home.computerlinguistik.grammarmodel.GrammarmodelPackage
  * @generated
  */
 public interface GrammarmodelFactory extends EFactory {
@@ -19,7 +19,7 @@ public interface GrammarmodelFactory extends EFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	GrammarmodelFactory eINSTANCE = grammarmodel.impl.GrammarmodelFactoryImpl.init();
+	GrammarmodelFactory eINSTANCE = home.computerlinguistik.grammarmodel.impl.GrammarmodelFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>Attribut Regel Term</em>'.

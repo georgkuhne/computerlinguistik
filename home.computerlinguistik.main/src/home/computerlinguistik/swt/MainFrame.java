@@ -9,12 +9,14 @@ public class MainFrame extends Composite {
 	public static final int WIDTH = 780;
 	public static final int HEIGHT = 550;
 	
-	public static final String TAB_1 = "Analyse";
-	public static final String TAB_2 = "Lexikon";
-	public static final String TAB_2_1 = "Wortarten";
-	public static final String TAB_2_2 = "Grammatik";
-	public static final String TAB_2_3 = "Grammatikalische Kategorien";
-	public static final String TAB_2_4 = "Subkategorisierung";
+	public static final String TAB_ANALYSE = "Analyse";
+	public static final String TAB_LEXICON = "Lexikon";
+	public static final String TAB_WORTARTEN = "Wortarten";
+	public static final String TAB_GRAMMATIK = "Grammatik";
+	public static final String TAB_GRAMMKAT = "Grammatikalische Kategorien";
+	public static final String TAB_SUBKAT = "Subkategorisierung";
+	public static final String TAB_GRAMMREG = "Regeln";
+	public static final String TAB_UEBERSICHT = "Übersicht";
 	
 
 	/**
@@ -29,40 +31,42 @@ public class MainFrame extends Composite {
 		folderMain.setBounds(10, 10, WIDTH, HEIGHT);
 		
 		TabItem tabItem1 = new TabItem(folderMain, SWT.NONE);
-		tabItem1.setText(TAB_1);
+		tabItem1.setText(TAB_ANALYSE);
 		
-		Composite composite_tab1= new Tab_Analyse(folderMain, SWT.NONE);
-		tabItem1.setControl(composite_tab1);
+		Composite composite_analyse= new Tab_Analyse(folderMain, SWT.NONE);
+		tabItem1.setControl(composite_analyse);
 		
 		TabItem tabItem2 = new TabItem(folderMain, SWT.NONE);
-		tabItem2.setText(TAB_2);
+		tabItem2.setText(TAB_LEXICON);
 		
 		TabFolder folderLexicon = new TabFolder(folderMain, SWT.NONE);
 		tabItem2.setControl(folderLexicon);
 		
-		TabItem tabItem_1 = new TabItem(folderLexicon, SWT.NONE);
-		tabItem_1.setText(TAB_2_1);
-		
-		Composite composite = new Tab_Wortarten(folderLexicon, SWT.NONE);
-		tabItem_1.setControl(composite);
-		
 		TabItem tabItem = new TabItem(folderLexicon, SWT.NONE);
-		tabItem.setText(TAB_2_2);
+		tabItem.setText(TAB_UEBERSICHT);
 		
-		Composite composite_1 = new Composite(folderLexicon, SWT.NONE);
-		tabItem.setControl(composite_1);
+		Composite composite_uebersicht = new Tab_Uebersicht(folderLexicon, SWT.NONE);
+		tabItem.setControl(composite_uebersicht);
 		
-		TabItem tabItem_2 = new TabItem(folderLexicon, SWT.NONE);
-		tabItem_2.setText(TAB_2_3);
+		TabItem tabItem3 = new TabItem(folderLexicon, SWT.NONE);
+		tabItem3.setText(TAB_WORTARTEN);
 		
-		Composite composite_2 = new Composite(folderLexicon, SWT.NONE);
-		tabItem_2.setControl(composite_2);
+		TabItem tabItem4 = new TabItem(folderMain, SWT.NONE);
+		tabItem4.setText(TAB_GRAMMATIK);
 		
-		TabItem tabItem_3 = new TabItem(folderLexicon, SWT.NONE);
-		tabItem_3.setText(TAB_2_4);
+		TabFolder folderGrammatik = new TabFolder(folderMain, SWT.NONE);
+		tabItem4.setControl(folderGrammatik);
 		
-		Composite composite_3 = new Composite(folderLexicon, SWT.NONE);
-		tabItem_3.setControl(composite_3);
+		TabItem tabItem5 = new TabItem(folderLexicon, SWT.NONE);
+		tabItem5.setText(TAB_GRAMMKAT);
+		
+		TabItem tabItem6 = new TabItem(folderGrammatik, SWT.NONE);
+		tabItem6.setText(TAB_SUBKAT);
+		
+		TabItem tabItem7 = new TabItem(folderGrammatik, SWT.NONE);
+		tabItem7.setText(TAB_GRAMMREG);
+
+
 
 
 
@@ -72,5 +76,4 @@ public class MainFrame extends Composite {
 	protected void checkSubclass() {
 		// Disable the check that prevents subclassing of SWT components
 	}
-
 }

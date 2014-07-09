@@ -1,6 +1,6 @@
 /**
  */
-package grammarmodel;
+package home.computerlinguistik.grammarmodel;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -12,12 +12,12 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link grammarmodel.AttributRegel#getRechts <em>Rechts</em>}</li>
- *   <li>{@link grammarmodel.AttributRegel#getLinks <em>Links</em>}</li>
+ *   <li>{@link home.computerlinguistik.grammarmodel.AttributRegel#getRechts <em>Rechts</em>}</li>
+ *   <li>{@link home.computerlinguistik.grammarmodel.AttributRegel#getLinks <em>Links</em>}</li>
  * </ul>
  * </p>
  *
- * @see grammarmodel.GrammarmodelPackage#getAttributRegel()
+ * @see home.computerlinguistik.grammarmodel.GrammarmodelPackage#getAttributRegel()
  * @model
  * @generated
  */
@@ -32,14 +32,14 @@ public interface AttributRegel extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Rechts</em>' containment reference.
 	 * @see #setRechts(AttributRegelTerm)
-	 * @see grammarmodel.GrammarmodelPackage#getAttributRegel_Rechts()
+	 * @see home.computerlinguistik.grammarmodel.GrammarmodelPackage#getAttributRegel_Rechts()
 	 * @model containment="true"
 	 * @generated
 	 */
 	AttributRegelTerm getRechts();
 
 	/**
-	 * Sets the value of the '{@link grammarmodel.AttributRegel#getRechts <em>Rechts</em>}' containment reference.
+	 * Sets the value of the '{@link home.computerlinguistik.grammarmodel.AttributRegel#getRechts <em>Rechts</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Rechts</em>' containment reference.
@@ -58,14 +58,14 @@ public interface AttributRegel extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Links</em>' containment reference.
 	 * @see #setLinks(AttributRegelTerm)
-	 * @see grammarmodel.GrammarmodelPackage#getAttributRegel_Links()
+	 * @see home.computerlinguistik.grammarmodel.GrammarmodelPackage#getAttributRegel_Links()
 	 * @model containment="true"
 	 * @generated
 	 */
 	AttributRegelTerm getLinks();
 
 	/**
-	 * Sets the value of the '{@link grammarmodel.AttributRegel#getLinks <em>Links</em>}' containment reference.
+	 * Sets the value of the '{@link home.computerlinguistik.grammarmodel.AttributRegel#getLinks <em>Links</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Links</em>' containment reference.

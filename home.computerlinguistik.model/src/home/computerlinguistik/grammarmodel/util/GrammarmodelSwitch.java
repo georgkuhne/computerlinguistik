@@ -1,12 +1,11 @@
 /**
  */
-package grammarmodel.util;
+package home.computerlinguistik.grammarmodel.util;
 
-import grammarmodel.*;
+import home.computerlinguistik.grammarmodel.*;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
 
 /**
@@ -19,7 +18,7 @@ import org.eclipse.emf.ecore.util.Switch;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see grammarmodel.GrammarmodelPackage
+ * @see home.computerlinguistik.grammarmodel.GrammarmodelPackage
  * @generated
  */
 public class GrammarmodelSwitch<T> extends Switch<T> {

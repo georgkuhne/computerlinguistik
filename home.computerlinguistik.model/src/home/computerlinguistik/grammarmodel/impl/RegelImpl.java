@@ -1,24 +1,20 @@
 /**
  */
-package grammarmodel.impl;
+package home.computerlinguistik.grammarmodel.impl;
 
-import grammarmodel.GrammarmodelPackage;
-import grammarmodel.NichtTerminal;
-import grammarmodel.Regel;
+import home.computerlinguistik.grammarmodel.GrammarmodelPackage;
+import home.computerlinguistik.grammarmodel.NichtTerminal;
+import home.computerlinguistik.grammarmodel.Regel;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
@@ -28,9 +24,9 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link grammarmodel.impl.RegelImpl#getElternterminal <em>Elternterminal</em>}</li>
- *   <li>{@link grammarmodel.impl.RegelImpl#getKinderTerminale <em>Kinder Terminale</em>}</li>
- *   <li>{@link grammarmodel.impl.RegelImpl#getWortart <em>Wortart</em>}</li>
+ *   <li>{@link home.computerlinguistik.grammarmodel.impl.RegelImpl#getElternterminal <em>Elternterminal</em>}</li>
+ *   <li>{@link home.computerlinguistik.grammarmodel.impl.RegelImpl#getKinderTerminale <em>Kinder Terminale</em>}</li>
+ *   <li>{@link home.computerlinguistik.grammarmodel.impl.RegelImpl#getWortart <em>Wortart</em>}</li>
  * </ul>
  * </p>
  *

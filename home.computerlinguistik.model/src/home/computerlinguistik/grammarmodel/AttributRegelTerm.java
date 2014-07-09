@@ -1,6 +1,6 @@
 /**
  */
-package grammarmodel;
+package home.computerlinguistik.grammarmodel;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -12,19 +12,19 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link grammarmodel.AttributRegelTerm#getTyp <em>Typ</em>}</li>
- *   <li>{@link grammarmodel.AttributRegelTerm#getWert <em>Wert</em>}</li>
+ *   <li>{@link home.computerlinguistik.grammarmodel.AttributRegelTerm#getTyp <em>Typ</em>}</li>
+ *   <li>{@link home.computerlinguistik.grammarmodel.AttributRegelTerm#getWert <em>Wert</em>}</li>
  * </ul>
  * </p>
  *
- * @see grammarmodel.GrammarmodelPackage#getAttributRegelTerm()
+ * @see home.computerlinguistik.grammarmodel.GrammarmodelPackage#getAttributRegelTerm()
  * @model
  * @generated
  */
 public interface AttributRegelTerm extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Typ</b></em>' attribute.
-	 * The literals are from the enumeration {@link grammarmodel.AttributRegelTermTyp}.
+	 * The literals are from the enumeration {@link home.computerlinguistik.grammarmodel.AttributRegelTermTyp}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Typ</em>' attribute isn't clear,
@@ -32,20 +32,20 @@ public interface AttributRegelTerm extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Typ</em>' attribute.
-	 * @see grammarmodel.AttributRegelTermTyp
+	 * @see home.computerlinguistik.grammarmodel.AttributRegelTermTyp
 	 * @see #setTyp(AttributRegelTermTyp)
-	 * @see grammarmodel.GrammarmodelPackage#getAttributRegelTerm_Typ()
+	 * @see home.computerlinguistik.grammarmodel.GrammarmodelPackage#getAttributRegelTerm_Typ()
 	 * @model
 	 * @generated
 	 */
 	AttributRegelTermTyp getTyp();
 
 	/**
-	 * Sets the value of the '{@link grammarmodel.AttributRegelTerm#getTyp <em>Typ</em>}' attribute.
+	 * Sets the value of the '{@link home.computerlinguistik.grammarmodel.AttributRegelTerm#getTyp <em>Typ</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Typ</em>' attribute.
-	 * @see grammarmodel.AttributRegelTermTyp
+	 * @see home.computerlinguistik.grammarmodel.AttributRegelTermTyp
 	 * @see #getTyp()
 	 * @generated
 	 */
@@ -61,14 +61,14 @@ public interface AttributRegelTerm extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Wert</em>' attribute.
 	 * @see #setWert(String)
-	 * @see grammarmodel.GrammarmodelPackage#getAttributRegelTerm_Wert()
+	 * @see home.computerlinguistik.grammarmodel.GrammarmodelPackage#getAttributRegelTerm_Wert()
 	 * @model
 	 * @generated
 	 */
 	String getWert();
 
 	/**
-	 * Sets the value of the '{@link grammarmodel.AttributRegelTerm#getWert <em>Wert</em>}' attribute.
+	 * Sets the value of the '{@link home.computerlinguistik.grammarmodel.AttributRegelTerm#getWert <em>Wert</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Wert</em>' attribute.
