@@ -86,13 +86,22 @@ public interface LexiconmodelPackage extends EPackage {
 	int LEXICON__GRAMMATIKALISCHE_KATEGORIEN = 1;
 
 	/**
+	 * The feature id for the '<em><b>Subkaterorisierungen</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LEXICON__SUBKATERORISIERUNGEN = 2;
+
+	/**
 	 * The number of structural features of the '<em>Lexicon</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LEXICON_FEATURE_COUNT = 2;
+	int LEXICON_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Lexicon</em>' class.
@@ -150,13 +159,31 @@ public interface LexiconmodelPackage extends EPackage {
 	int EINTRAG__ID = 3;
 
 	/**
+	 * The feature id for the '<em><b>Rollen</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EINTRAG__ROLLEN = 4;
+
+	/**
+	 * The feature id for the '<em><b>Subkaterorisierungen</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EINTRAG__SUBKATERORISIERUNGEN = 5;
+
+	/**
 	 * The number of structural features of the '<em>Eintrag</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EINTRAG_FEATURE_COUNT = 4;
+	int EINTRAG_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Eintrag</em>' class.
@@ -386,6 +413,17 @@ public interface LexiconmodelPackage extends EPackage {
 	EReference getLexicon_GrammatikalischeKategorien();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link home.computerlinguistik.lexiconmodel.Lexicon#getSubkaterorisierungen <em>Subkaterorisierungen</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Subkaterorisierungen</em>'.
+	 * @see home.computerlinguistik.lexiconmodel.Lexicon#getSubkaterorisierungen()
+	 * @see #getLexicon()
+	 * @generated
+	 */
+	EReference getLexicon_Subkaterorisierungen();
+
+	/**
 	 * Returns the meta object for class '{@link home.computerlinguistik.lexiconmodel.Eintrag <em>Eintrag</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -438,6 +476,28 @@ public interface LexiconmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getEintrag_ID();
+
+	/**
+	 * Returns the meta object for the reference list '{@link home.computerlinguistik.lexiconmodel.Eintrag#getRollen <em>Rollen</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Rollen</em>'.
+	 * @see home.computerlinguistik.lexiconmodel.Eintrag#getRollen()
+	 * @see #getEintrag()
+	 * @generated
+	 */
+	EReference getEintrag_Rollen();
+
+	/**
+	 * Returns the meta object for the reference list '{@link home.computerlinguistik.lexiconmodel.Eintrag#getSubkaterorisierungen <em>Subkaterorisierungen</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Subkaterorisierungen</em>'.
+	 * @see home.computerlinguistik.lexiconmodel.Eintrag#getSubkaterorisierungen()
+	 * @see #getEintrag()
+	 * @generated
+	 */
+	EReference getEintrag_Subkaterorisierungen();
 
 	/**
 	 * Returns the meta object for class '{@link home.computerlinguistik.lexiconmodel.GrammatikalischeKategorie <em>Grammatikalische Kategorie</em>}'.
@@ -616,6 +676,14 @@ public interface LexiconmodelPackage extends EPackage {
 		EReference LEXICON__GRAMMATIKALISCHE_KATEGORIEN = eINSTANCE.getLexicon_GrammatikalischeKategorien();
 
 		/**
+		 * The meta object literal for the '<em><b>Subkaterorisierungen</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LEXICON__SUBKATERORISIERUNGEN = eINSTANCE.getLexicon_Subkaterorisierungen();
+
+		/**
 		 * The meta object literal for the '{@link home.computerlinguistik.lexiconmodel.impl.EintragImpl <em>Eintrag</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -656,6 +724,22 @@ public interface LexiconmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute EINTRAG__ID = eINSTANCE.getEintrag_ID();
+
+		/**
+		 * The meta object literal for the '<em><b>Rollen</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EINTRAG__ROLLEN = eINSTANCE.getEintrag_Rollen();
+
+		/**
+		 * The meta object literal for the '<em><b>Subkaterorisierungen</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EINTRAG__SUBKATERORISIERUNGEN = eINSTANCE.getEintrag_Subkaterorisierungen();
 
 		/**
 		 * The meta object literal for the '{@link home.computerlinguistik.lexiconmodel.impl.GrammatikalischeKategorieImpl <em>Grammatikalische Kategorie</em>}' class.

@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link home.computerlinguistik.lexiconmodel.Lexicon#getEintraege <em>Eintraege</em>}</li>
  *   <li>{@link home.computerlinguistik.lexiconmodel.Lexicon#getGrammatikalischeKategorien <em>Grammatikalische Kategorien</em>}</li>
+ *   <li>{@link home.computerlinguistik.lexiconmodel.Lexicon#getSubkaterorisierungen <em>Subkaterorisierungen</em>}</li>
  * </ul>
  * </p>
  *
@@ -55,5 +56,21 @@ public interface Lexicon extends EObject {
 	 * @generated
 	 */
 	EList<GrammatikalischeKategorie> getGrammatikalischeKategorien();
+
+	/**
+	 * Returns the value of the '<em><b>Subkaterorisierungen</b></em>' containment reference list.
+	 * The list contents are of type {@link home.computerlinguistik.lexiconmodel.Subkategorisierung}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Subkaterorisierungen</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Subkaterorisierungen</em>' containment reference list.
+	 * @see home.computerlinguistik.lexiconmodel.LexiconmodelPackage#getLexicon_Subkaterorisierungen()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Subkategorisierung> getSubkaterorisierungen();
 
 } // Lexicon

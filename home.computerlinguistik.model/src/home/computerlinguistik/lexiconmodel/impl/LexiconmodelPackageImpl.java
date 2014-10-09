@@ -169,6 +169,15 @@ public class LexiconmodelPackageImpl extends EPackageImpl implements Lexiconmode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getLexicon_Subkaterorisierungen() {
+		return (EReference)lexiconEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEintrag() {
 		return eintragEClass;
 	}
@@ -207,6 +216,24 @@ public class LexiconmodelPackageImpl extends EPackageImpl implements Lexiconmode
 	 */
 	public EAttribute getEintrag_ID() {
 		return (EAttribute)eintragEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEintrag_Rollen() {
+		return (EReference)eintragEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEintrag_Subkaterorisierungen() {
+		return (EReference)eintragEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -348,12 +375,15 @@ public class LexiconmodelPackageImpl extends EPackageImpl implements Lexiconmode
 		lexiconEClass = createEClass(LEXICON);
 		createEReference(lexiconEClass, LEXICON__EINTRAEGE);
 		createEReference(lexiconEClass, LEXICON__GRAMMATIKALISCHE_KATEGORIEN);
+		createEReference(lexiconEClass, LEXICON__SUBKATERORISIERUNGEN);
 
 		eintragEClass = createEClass(EINTRAG);
 		createEAttribute(eintragEClass, EINTRAG__WORT);
 		createEReference(eintragEClass, EINTRAG__AUSPRAEGUNGEN_CONTAINER);
 		createEAttribute(eintragEClass, EINTRAG__WORTART);
 		createEAttribute(eintragEClass, EINTRAG__ID);
+		createEReference(eintragEClass, EINTRAG__ROLLEN);
+		createEReference(eintragEClass, EINTRAG__SUBKATERORISIERUNGEN);
 
 		grammatikalischeKategorieEClass = createEClass(GRAMMATIKALISCHE_KATEGORIE);
 		createEAttribute(grammatikalischeKategorieEClass, GRAMMATIKALISCHE_KATEGORIE__BEZEICHNUNG);
@@ -407,12 +437,15 @@ public class LexiconmodelPackageImpl extends EPackageImpl implements Lexiconmode
 		initEClass(lexiconEClass, Lexicon.class, "Lexicon", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLexicon_Eintraege(), this.getEintrag(), null, "eintraege", null, 0, -1, Lexicon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLexicon_GrammatikalischeKategorien(), this.getGrammatikalischeKategorie(), null, "grammatikalischeKategorien", null, 0, -1, Lexicon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLexicon_Subkaterorisierungen(), this.getSubkategorisierung(), null, "subkaterorisierungen", null, 0, -1, Lexicon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eintragEClass, Eintrag.class, "Eintrag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEintrag_Wort(), ecorePackage.getEString(), "wort", null, 0, 1, Eintrag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEintrag_AuspraegungenContainer(), this.getAuspraegungenContainer(), null, "auspraegungenContainer", null, 0, -1, Eintrag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEintrag_Wortart(), this.getWortart(), "wortart", null, 0, 1, Eintrag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEintrag_ID(), ecorePackage.getELong(), "ID", null, 0, 1, Eintrag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEintrag_ID(), ecorePackage.getELong(), "ID", null, 0, 1, Eintrag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEintrag_Rollen(), this.getSubkategorisierung(), null, "rollen", null, 0, -1, Eintrag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEintrag_Subkaterorisierungen(), this.getSubkategorisierung(), null, "subkaterorisierungen", null, 0, -1, Eintrag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(grammatikalischeKategorieEClass, GrammatikalischeKategorie.class, "GrammatikalischeKategorie", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGrammatikalischeKategorie_Bezeichnung(), ecorePackage.getEString(), "bezeichnung", null, 0, 1, GrammatikalischeKategorie.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

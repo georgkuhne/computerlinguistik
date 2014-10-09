@@ -5,6 +5,7 @@ package home.computerlinguistik.lexiconmodel.impl;
 import home.computerlinguistik.lexiconmodel.AuspraegungenContainer;
 import home.computerlinguistik.lexiconmodel.Eintrag;
 import home.computerlinguistik.lexiconmodel.LexiconmodelPackage;
+import home.computerlinguistik.lexiconmodel.Subkategorisierung;
 import home.computerlinguistik.lexiconmodel.Wortart;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
@@ -15,6 +16,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -28,6 +30,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link home.computerlinguistik.lexiconmodel.impl.EintragImpl#getAuspraegungenContainer <em>Auspraegungen Container</em>}</li>
  *   <li>{@link home.computerlinguistik.lexiconmodel.impl.EintragImpl#getWortart <em>Wortart</em>}</li>
  *   <li>{@link home.computerlinguistik.lexiconmodel.impl.EintragImpl#getID <em>ID</em>}</li>
+ *   <li>{@link home.computerlinguistik.lexiconmodel.impl.EintragImpl#getRollen <em>Rollen</em>}</li>
+ *   <li>{@link home.computerlinguistik.lexiconmodel.impl.EintragImpl#getSubkaterorisierungen <em>Subkaterorisierungen</em>}</li>
  * </ul>
  * </p>
  *
@@ -97,6 +101,24 @@ public class EintragImpl extends MinimalEObjectImpl.Container implements Eintrag
 	 * @ordered
 	 */
 	protected long id = ID_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getRollen() <em>Rollen</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRollen()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Subkategorisierung> rollen;
+	/**
+	 * The cached value of the '{@link #getSubkaterorisierungen() <em>Subkaterorisierungen</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubkaterorisierungen()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Subkategorisierung> subkaterorisierungen;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -196,6 +218,30 @@ public class EintragImpl extends MinimalEObjectImpl.Container implements Eintrag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Subkategorisierung> getRollen() {
+		if (rollen == null) {
+			rollen = new EObjectResolvingEList<Subkategorisierung>(Subkategorisierung.class, this, LexiconmodelPackage.EINTRAG__ROLLEN);
+		}
+		return rollen;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Subkategorisierung> getSubkaterorisierungen() {
+		if (subkaterorisierungen == null) {
+			subkaterorisierungen = new EObjectResolvingEList<Subkategorisierung>(Subkategorisierung.class, this, LexiconmodelPackage.EINTRAG__SUBKATERORISIERUNGEN);
+		}
+		return subkaterorisierungen;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -221,6 +267,10 @@ public class EintragImpl extends MinimalEObjectImpl.Container implements Eintrag
 				return getWortart();
 			case LexiconmodelPackage.EINTRAG__ID:
 				return getID();
+			case LexiconmodelPackage.EINTRAG__ROLLEN:
+				return getRollen();
+			case LexiconmodelPackage.EINTRAG__SUBKATERORISIERUNGEN:
+				return getSubkaterorisierungen();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -247,6 +297,14 @@ public class EintragImpl extends MinimalEObjectImpl.Container implements Eintrag
 			case LexiconmodelPackage.EINTRAG__ID:
 				setID((Long)newValue);
 				return;
+			case LexiconmodelPackage.EINTRAG__ROLLEN:
+				getRollen().clear();
+				getRollen().addAll((Collection<? extends Subkategorisierung>)newValue);
+				return;
+			case LexiconmodelPackage.EINTRAG__SUBKATERORISIERUNGEN:
+				getSubkaterorisierungen().clear();
+				getSubkaterorisierungen().addAll((Collection<? extends Subkategorisierung>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -271,6 +329,12 @@ public class EintragImpl extends MinimalEObjectImpl.Container implements Eintrag
 			case LexiconmodelPackage.EINTRAG__ID:
 				setID(ID_EDEFAULT);
 				return;
+			case LexiconmodelPackage.EINTRAG__ROLLEN:
+				getRollen().clear();
+				return;
+			case LexiconmodelPackage.EINTRAG__SUBKATERORISIERUNGEN:
+				getSubkaterorisierungen().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -291,6 +355,10 @@ public class EintragImpl extends MinimalEObjectImpl.Container implements Eintrag
 				return wortart != WORTART_EDEFAULT;
 			case LexiconmodelPackage.EINTRAG__ID:
 				return id != ID_EDEFAULT;
+			case LexiconmodelPackage.EINTRAG__ROLLEN:
+				return rollen != null && !rollen.isEmpty();
+			case LexiconmodelPackage.EINTRAG__SUBKATERORISIERUNGEN:
+				return subkaterorisierungen != null && !subkaterorisierungen.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

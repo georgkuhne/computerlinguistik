@@ -6,6 +6,7 @@ import home.computerlinguistik.lexiconmodel.Eintrag;
 import home.computerlinguistik.lexiconmodel.GrammatikalischeKategorie;
 import home.computerlinguistik.lexiconmodel.Lexicon;
 import home.computerlinguistik.lexiconmodel.LexiconmodelPackage;
+import home.computerlinguistik.lexiconmodel.Subkategorisierung;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -24,6 +25,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link home.computerlinguistik.lexiconmodel.impl.LexiconImpl#getEintraege <em>Eintraege</em>}</li>
  *   <li>{@link home.computerlinguistik.lexiconmodel.impl.LexiconImpl#getGrammatikalischeKategorien <em>Grammatikalische Kategorien</em>}</li>
+ *   <li>{@link home.computerlinguistik.lexiconmodel.impl.LexiconImpl#getSubkaterorisierungen <em>Subkaterorisierungen</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,6 +51,16 @@ public class LexiconImpl extends MinimalEObjectImpl.Container implements Lexicon
 	 * @ordered
 	 */
 	protected EList<GrammatikalischeKategorie> grammatikalischeKategorien;
+
+	/**
+	 * The cached value of the '{@link #getSubkaterorisierungen() <em>Subkaterorisierungen</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubkaterorisierungen()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Subkategorisierung> subkaterorisierungen;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -98,6 +110,18 @@ public class LexiconImpl extends MinimalEObjectImpl.Container implements Lexicon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Subkategorisierung> getSubkaterorisierungen() {
+		if (subkaterorisierungen == null) {
+			subkaterorisierungen = new EObjectContainmentEList<Subkategorisierung>(Subkategorisierung.class, this, LexiconmodelPackage.LEXICON__SUBKATERORISIERUNGEN);
+		}
+		return subkaterorisierungen;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -105,6 +129,8 @@ public class LexiconImpl extends MinimalEObjectImpl.Container implements Lexicon
 				return ((InternalEList<?>)getEintraege()).basicRemove(otherEnd, msgs);
 			case LexiconmodelPackage.LEXICON__GRAMMATIKALISCHE_KATEGORIEN:
 				return ((InternalEList<?>)getGrammatikalischeKategorien()).basicRemove(otherEnd, msgs);
+			case LexiconmodelPackage.LEXICON__SUBKATERORISIERUNGEN:
+				return ((InternalEList<?>)getSubkaterorisierungen()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -121,6 +147,8 @@ public class LexiconImpl extends MinimalEObjectImpl.Container implements Lexicon
 				return getEintraege();
 			case LexiconmodelPackage.LEXICON__GRAMMATIKALISCHE_KATEGORIEN:
 				return getGrammatikalischeKategorien();
+			case LexiconmodelPackage.LEXICON__SUBKATERORISIERUNGEN:
+				return getSubkaterorisierungen();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -142,6 +170,10 @@ public class LexiconImpl extends MinimalEObjectImpl.Container implements Lexicon
 				getGrammatikalischeKategorien().clear();
 				getGrammatikalischeKategorien().addAll((Collection<? extends GrammatikalischeKategorie>)newValue);
 				return;
+			case LexiconmodelPackage.LEXICON__SUBKATERORISIERUNGEN:
+				getSubkaterorisierungen().clear();
+				getSubkaterorisierungen().addAll((Collection<? extends Subkategorisierung>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -160,6 +192,9 @@ public class LexiconImpl extends MinimalEObjectImpl.Container implements Lexicon
 			case LexiconmodelPackage.LEXICON__GRAMMATIKALISCHE_KATEGORIEN:
 				getGrammatikalischeKategorien().clear();
 				return;
+			case LexiconmodelPackage.LEXICON__SUBKATERORISIERUNGEN:
+				getSubkaterorisierungen().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -176,6 +211,8 @@ public class LexiconImpl extends MinimalEObjectImpl.Container implements Lexicon
 				return eintraege != null && !eintraege.isEmpty();
 			case LexiconmodelPackage.LEXICON__GRAMMATIKALISCHE_KATEGORIEN:
 				return grammatikalischeKategorien != null && !grammatikalischeKategorien.isEmpty();
+			case LexiconmodelPackage.LEXICON__SUBKATERORISIERUNGEN:
+				return subkaterorisierungen != null && !subkaterorisierungen.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
