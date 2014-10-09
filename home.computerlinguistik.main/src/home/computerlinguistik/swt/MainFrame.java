@@ -46,7 +46,7 @@ public class MainFrame extends Composite {
 		TabItem tabItem = new TabItem(folderLexicon, SWT.NONE);
 		tabItem.setText(TAB_UEBERSICHT);
 
-		Composite composite_uebersicht = new Tab_Uebersicht(folderLexicon,
+		Composite composite_uebersicht = new Tab_Lexicon_Uebersicht(folderLexicon,
 				SWT.NONE);
 		tabItem.setControl(composite_uebersicht);
 
