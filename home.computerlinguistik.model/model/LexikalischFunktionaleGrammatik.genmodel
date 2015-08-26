@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/home.computerlinguistik.model/src" modelPluginID="home.computerlinguistik.model"
+    modelName="LexikalischFunktionaleGrammatik" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>LexikalischFunktionaleGrammatik.ecore</foreignModel>
+  <genPackages prefix="Model" disposableProviderFactory="true" ecorePackage="LexikalischFunktionaleGrammatik.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="LexikalischFunktionaleGrammatik.ecore#//WertTyp">
+      <genEnumLiterals ecoreEnumLiteral="LexikalischFunktionaleGrammatik.ecore#//WertTyp/Merkmal"/>
+      <genEnumLiterals ecoreEnumLiteral="LexikalischFunktionaleGrammatik.ecore#//WertTyp/Funktion"/>
+    </genEnums>
+    <genClasses ecoreClass="LexikalischFunktionaleGrammatik.ecore#//LexikalischFunktionaleGrammatik">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LexikalischFunktionaleGrammatik.ecore#//LexikalischFunktionaleGrammatik/funktionen"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference LexikalischFunktionaleGrammatik.ecore#//LexikalischFunktionaleGrammatik/merkmale"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LexikalischFunktionaleGrammatik.ecore#//LexikalischFunktionaleGrammatik/grammatik"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LexikalischFunktionaleGrammatik.ecore#//LexikalischFunktionaleGrammatik/lexikon"/>
+    </genClasses>
+    <genClasses ecoreClass="LexikalischFunktionaleGrammatik.ecore#//FStruktur">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LexikalischFunktionaleGrammatik.ecore#//FStruktur/attributWertePaare"/>
+    </genClasses>
+    <genClasses ecoreClass="LexikalischFunktionaleGrammatik.ecore#//Grammatik">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LexikalischFunktionaleGrammatik.ecore#//Grammatik/terminale"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LexikalischFunktionaleGrammatik.ecore#//Grammatik/s0"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LexikalischFunktionaleGrammatik.ecore#//Grammatik/nichtTerminale"/>
+    </genClasses>
+    <genClasses ecoreClass="LexikalischFunktionaleGrammatik.ecore#//Lexikon">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LexikalischFunktionaleGrammatik.ecore#//Lexikon/eintraege"/>
+    </genClasses>
+    <genClasses ecoreClass="LexikalischFunktionaleGrammatik.ecore#//LexikonEintrag">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LexikalischFunktionaleGrammatik.ecore#//LexikonEintrag/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference LexikalischFunktionaleGrammatik.ecore#//LexikonEintrag/wortart"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LexikalischFunktionaleGrammatik.ecore#//LexikonEintrag/auspraegungen"/>
+    </genClasses>
+    <genClasses ecoreClass="LexikalischFunktionaleGrammatik.ecore#//AttributWertePaar">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LexikalischFunktionaleGrammatik.ecore#//AttributWertePaar/wertTyp"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference LexikalischFunktionaleGrammatik.ecore#//AttributWertePaar/funktion"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference LexikalischFunktionaleGrammatik.ecore#//AttributWertePaar/funktionsWert"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference LexikalischFunktionaleGrammatik.ecore#//AttributWertePaar/merkmal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LexikalischFunktionaleGrammatik.ecore#//AttributWertePaar/merkmalsWert"/>
+    </genClasses>
+    <genClasses ecoreClass="LexikalischFunktionaleGrammatik.ecore#//Funktion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LexikalischFunktionaleGrammatik.ecore#//Funktion/Name"/>
+    </genClasses>
+    <genClasses ecoreClass="LexikalischFunktionaleGrammatik.ecore#//Merkmal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LexikalischFunktionaleGrammatik.ecore#//Merkmal/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LexikalischFunktionaleGrammatik.ecore#//Merkmal/moeglicheWerte"/>
+    </genClasses>
+    <genClasses ecoreClass="LexikalischFunktionaleGrammatik.ecore#//Terminal"/>
+    <genClasses ecoreClass="LexikalischFunktionaleGrammatik.ecore#//Nichterminal"/>
+    <genClasses ecoreClass="LexikalischFunktionaleGrammatik.ecore#//AbleitungsRegel">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference LexikalischFunktionaleGrammatik.ecore#//AbleitungsRegel/von"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference LexikalischFunktionaleGrammatik.ecore#//AbleitungsRegel/auf"/>
+    </genClasses>
+    <genClasses ecoreClass="LexikalischFunktionaleGrammatik.ecore#//TerminalNichtTerminal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LexikalischFunktionaleGrammatik.ecore#//TerminalNichtTerminal/name"/>
+    </genClasses>
+    <genClasses ecoreClass="LexikalischFunktionaleGrammatik.ecore#//AnnotiertesTerminalNichtTerminal">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LexikalischFunktionaleGrammatik.ecore#//AnnotiertesTerminalNichtTerminal/Aufwaertspfeil"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LexikalischFunktionaleGrammatik.ecore#//AnnotiertesTerminalNichtTerminal/Abwaertspfeil"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
