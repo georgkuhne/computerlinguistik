@@ -1,11 +1,11 @@
 package home.cpmputerlinguistik.persistence;
 
-import home.computerlinguistik.grammarmodel.GrammarmodelPackage;
-import home.computerlinguistik.lexiconmodel.LexiconmodelPackage;
-
 import java.util.Collection;
 import java.util.List;
 import java.util.Properties;
+
+import model.LexikalischFunktionaleGrammatik;
+import model.ModelPackage;
 
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.teneo.hibernate.HbDataStore;
@@ -43,8 +43,7 @@ public class PersistenceUtility {
 	}
 
 	private void mapEpackagesToDatastore() {
-		EPackage[] packages = { LexiconmodelPackage.eINSTANCE,
-				GrammarmodelPackage.eINSTANCE };
+		EPackage[] packages = { ModelPackage.eINSTANCE };
 		hbds.setEPackages(packages);
 
 	}
@@ -58,6 +57,20 @@ public class PersistenceUtility {
 
 		}
 
+	}
+
+	public static final LexikalischFunktionaleGrammatik getLexikalischFunktionaleGrammatikById(
+			long IDWB, Session session) {
+		String fromClause = "LexikalischFunktionaleGrammatik";
+		String whereClause = "LexikalischFunktionaleGrammatik.ID=:id";
+		String[] variables = { "id" };
+		Object[] substitutions = { IDWB };
+		List<?> list = getRows(session, fromClause, whereClause, variables,
+				substitutions);
+		if (!list.isEmpty()) {
+			return (LexikalischFunktionaleGrammatik) list.get(0);
+		}
+		return null;
 	}
 
 	/**
@@ -191,6 +204,7 @@ public class PersistenceUtility {
 			return results;
 		} catch (Exception e) {
 			e.printStackTrace();
+
 			return null;
 		} finally {
 			session.close();
@@ -586,6 +600,33 @@ public class PersistenceUtility {
 		session.flush();
 		List<?> results = query.list();
 		return results;
+	}
+
+	@SuppressWarnings("rawtypes")
+	public static List<?> getAll(Session session, String fromClause,
+			String[] variables, Object[] substitutions) {
+		try {
+			session.beginTransaction();
+			Query query = session.createQuery("FROM " + fromClause); //$NON-NLS-1$
+
+			if (variables != null)
+				for (int i = 0; i < variables.length; i++) {
+					if (substitutions[i] instanceof Collection)
+						query.setParameterList(variables[i],
+								(Collection) substitutions[i]);
+					else
+						query.setParameter(variables[i], substitutions[i]);
+				}
+
+			session.getTransaction().commit();
+			List<?> results = query.list();
+			session.flush();
+			return results;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+		}
 	}
 
 	/**

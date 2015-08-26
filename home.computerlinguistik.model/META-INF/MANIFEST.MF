@@ -10,10 +10,7 @@ Bundle-Activator: home.computerlinguistik.model.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: home.computerlinguistik.grammarmodel,
- home.computerlinguistik.grammarmodel.impl,
- home.computerlinguistik.grammarmodel.util,
- home.computerlinguistik.lexiconmodel,
- home.computerlinguistik.lexiconmodel.impl,
- home.computerlinguistik.lexiconmodel.util
+Export-Package: model,
+ model.impl,
+ model.util
 Bundle-ActivationPolicy: lazy
