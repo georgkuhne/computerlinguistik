@@ -1,8 +1,21 @@
 package home.computerlinguistik.main.gui.lexiconeintrag;
 
+import java.util.ArrayList;
+
+import model.AttributWertePaar;
+import model.FStruktur;
+import model.LexikalischFunktionaleGrammatik;
+import model.LexikonEintrag;
+import model.ModelFactory;
+import model.Terminal;
+import model.WertTyp;
+
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.ComboViewer;
+import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
@@ -14,6 +27,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
@@ -23,18 +37,42 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
 
 public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
-	private Text text;
+	private Text t_name;
 	private Table table;
+	private TableViewer viewerTableFstruktur;
+	private ComboViewer viewerComboTerminal;
+	private LexikalischFunktionaleGrammatik grammar;
+	private boolean editmode=false;
+	private LexikonEintrag eintrag;
+	private ComboViewer viewerComboAuspraegungSelector;
+	private Button btnHinzufgen;
+	private ArrayList<FStruktur>auspraegungen;
+	/**
+	 * Create the dialog.
+	 * 
+	 * @param parentShell
+	 * @wbp.parser.constructor
+	 */
+	public DialogCreateNewOrEditLexiconEintrag(Shell parentShell,LexikalischFunktionaleGrammatik grammar1) {
+		super(parentShell);
+		grammar=grammar1;
+		auspraegungen=new ArrayList<FStruktur>();
+		
+	}
 
 	/**
 	 * Create the dialog.
 	 * 
 	 * @param parentShell
 	 */
-	public DialogCreateNewOrEditLexiconEintrag(Shell parentShell) {
+	public DialogCreateNewOrEditLexiconEintrag(Shell parentShell,LexikalischFunktionaleGrammatik grammar1,LexikonEintrag eintrag1) {
 		super(parentShell);
+		grammar=grammar1;
+		editmode=true;
+		eintrag=eintrag1;
 	}
 
+	
 	/**
 	 * Create contents of the dialog.
 	 * 
@@ -53,12 +91,12 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 		lblName.setLayoutData(fd_lblName);
 		lblName.setText("Name:");
 
-		text = new Text(container, SWT.BORDER);
+		t_name = new Text(container, SWT.BORDER);
 		FormData fd_text = new FormData();
 		fd_text.top = new FormAttachment(0, 10);
 		fd_text.left = new FormAttachment(20);
 		fd_text.width = 300;
-		text.setLayoutData(fd_text);
+		t_name.setLayoutData(fd_text);
 
 		Label lblTerminal = new Label(container, SWT.NONE);
 		FormData fd_lblTerminal = new FormData();
@@ -68,8 +106,8 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 		lblTerminal.setLayoutData(fd_lblTerminal);
 		lblTerminal.setText("Terminal:");
 
-		ComboViewer comboViewer = new ComboViewer(container, SWT.NONE);
-		Combo comboTerminal = comboViewer.getCombo();
+		viewerComboTerminal = new ComboViewer(container, SWT.NONE);
+		Combo comboTerminal = viewerComboTerminal.getCombo();
 		FormData fd_comboTerminal = new FormData();
 		fd_comboTerminal.top = new FormAttachment(lblName, 20);
 		fd_comboTerminal.left = new FormAttachment(20);
@@ -88,8 +126,8 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 		fd_grpFstruktur.left = new FormAttachment(0, 10);
 		grpFstruktur.setLayoutData(fd_grpFstruktur);
 
-		ComboViewer comboViewer_1 = new ComboViewer(grpFstruktur, SWT.NONE);
-		Combo comboAuspraegung = comboViewer_1.getCombo();
+		 viewerComboAuspraegungSelector = new ComboViewer(grpFstruktur, SWT.NONE);
+		Combo comboAuspraegung = viewerComboAuspraegungSelector.getCombo();
 		FormData fd_comboAuspraegung = new FormData();
 		comboAuspraegung.setLayoutData(fd_comboAuspraegung);
 
@@ -102,7 +140,7 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 		lblAusprgung.setLayoutData(fd_lblAusprgung);
 		lblAusprgung.setText("Auspr\u00E4gung:");
 
-		Button btnHinzufgen = new Button(grpFstruktur, SWT.NONE);
+		 btnHinzufgen = new Button(grpFstruktur, SWT.NONE);
 		fd_comboAuspraegung.right = new FormAttachment(100, -425);
 		FormData fd_btnHinzufgen = new FormData();
 		fd_btnHinzufgen.top = new FormAttachment(comboAuspraegung, -2, SWT.TOP);
@@ -117,9 +155,9 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 		btnEntfernen.setLayoutData(fd_btnEntfernen);
 		btnEntfernen.setText("entfernen");
 
-		TableViewer tableViewerFstruktur = new TableViewer(grpFstruktur,
+		 viewerTableFstruktur = new TableViewer(grpFstruktur,
 				SWT.BORDER | SWT.FULL_SELECTION);
-		table = tableViewerFstruktur.getTable();
+		table = viewerTableFstruktur.getTable();
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
 		FormData fd_table = new FormData();
@@ -130,13 +168,13 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 		table.setLayoutData(fd_table);
 
 		TableViewerColumn tableViewerColumn = new TableViewerColumn(
-				tableViewerFstruktur, SWT.NONE);
+				viewerTableFstruktur, SWT.NONE);
 		TableColumn tblclmnMerkmalfunktion = tableViewerColumn.getColumn();
 		tblclmnMerkmalfunktion.setWidth(143);
 		tblclmnMerkmalfunktion.setText("Merkmal/Funktion");
 
 		TableViewerColumn tableViewerColumn_1 = new TableViewerColumn(
-				tableViewerFstruktur, SWT.NONE);
+				viewerTableFstruktur, SWT.NONE);
 		TableColumn tblclmnWert = tableViewerColumn_1.getColumn();
 		tblclmnWert.setWidth(100);
 		tblclmnWert.setText("Wert");
@@ -188,8 +226,55 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 		fd_btnEntfernen_1.right = new FormAttachment(lblNewLabel, 0, SWT.RIGHT);
 		btnEntfernen_1.setLayoutData(fd_btnEntfernen_1);
 		btnEntfernen_1.setText("entfernen");
-
+		initViewer();
 		return container;
+	}
+
+	private void initViewer() {
+	//Set ArrayContentProvider to viewers
+	viewerComboAuspraegungSelector.setContentProvider(new ArrayContentProvider());
+	viewerComboTerminal.setContentProvider(new ArrayContentProvider());
+	viewerTableFstruktur.setContentProvider(new ArrayContentProvider());
+
+	//set LabelProvider to viewers
+	viewerComboAuspraegungSelector.setLabelProvider(new LabelProvider(){@Override
+	
+	public String getText(Object element) {
+	FStruktur fs=(FStruktur)element;
+	
+		return "Auspraegung"+auspraegungen.indexOf(fs);
+	}});
+	
+	viewerComboTerminal.setLabelProvider(new LabelProvider(){@Override
+	public String getText(Object element) {
+		Terminal terminal=(Terminal) element;
+		return terminal.getName();
+	}});
+	TableViewerColumn col = createTableViewerColumn("Merkmal/Funktion", 50, 0);
+	col.setLabelProvider(new ColumnLabelProvider(){@Override
+	public String getText(Object element) {
+		AttributWertePaar paar=(AttributWertePaar) element;
+		return paar.getMerkmal().getName();
+	}});
+	
+	col = createTableViewerColumn("Wert", 50, 1);
+	col.setLabelProvider(new ColumnLabelProvider(){@Override
+	public String getText(Object element) {
+		AttributWertePaar paar=(AttributWertePaar) element;
+		int type = paar.getWertTyp().getValue();
+		String returnwert="";
+		switch (type) {
+		case WertTyp.FUNKTION_VALUE:		
+			break;
+		case WertTyp.MERKMAL_VALUE:		
+			returnwert=paar.getMerkmalsWert();
+			break;
+		default:
+			break;
+		}
+		return returnwert;
+	}});
+	viewerTableFstruktur.getTable().setHeaderVisible(true);
 	}
 
 	/**
@@ -211,5 +296,22 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 	@Override
 	protected Point getInitialSize() {
 		return new Point(619, 466);
+	}
+	
+	public static void test(){
+		DialogCreateNewOrEditLexiconEintrag dia=new DialogCreateNewOrEditLexiconEintrag(Display.getDefault().getActiveShell(),ModelFactory.eINSTANCE.createLexikalischFunktionaleGrammatik());
+		dia.open();
+	}
+
+	protected TableViewerColumn createTableViewerColumn(String title,
+			int bound, final int colNumber) {
+		final TableViewerColumn viewerColumn = new TableViewerColumn(
+				viewerTableFstruktur, SWT.NONE);
+		final TableColumn column = viewerColumn.getColumn();
+		column.setText(title);
+		column.setWidth(bound);
+		column.setResizable(false);
+		column.setMoveable(false);
+		return viewerColumn;
 	}
 }

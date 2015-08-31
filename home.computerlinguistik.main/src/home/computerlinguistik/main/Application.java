@@ -1,5 +1,6 @@
 package home.computerlinguistik.main;
 
+import home.computerlinguistik.main.gui.lexiconeintrag.DialogCreateNewOrEditLexiconEintrag;
 import home.cpmputerlinguistik.persistence.PersistenceUtility;
 import home.cpmputerlinguistik.persistence.dialog.DialogDatabaseConfiguration;
 
@@ -25,6 +26,7 @@ public class Application implements IApplication {
 	 */
 	public Object start(IApplicationContext context) {
 		Display display = PlatformUI.createDisplay();
+		DialogCreateNewOrEditLexiconEintrag.test();
 		PlatformUI.getPreferenceStore().setDefault(
 				ConstantsGUI.PREFERENCE_ISFIRSTSTART, true);
 		boolean isFirstStart = PlatformUI.getPreferenceStore().getBoolean(
