@@ -4,21 +4,30 @@ import java.util.ArrayList;
 
 import model.AttributWertePaar;
 import model.FStruktur;
+import model.Funktion;
 import model.LexikalischFunktionaleGrammatik;
 import model.LexikonEintrag;
+import model.Merkmal;
+import model.MerkmalFunktion;
 import model.ModelFactory;
 import model.Terminal;
 import model.WertTyp;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.ComboViewer;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
@@ -42,22 +51,27 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 	private TableViewer viewerTableFstruktur;
 	private ComboViewer viewerComboTerminal;
 	private LexikalischFunktionaleGrammatik grammar;
-	private boolean editmode=false;
+	private boolean editmode = false;
 	private LexikonEintrag eintrag;
 	private ComboViewer viewerComboAuspraegungSelector;
 	private Button btnHinzufgen;
-	private ArrayList<FStruktur>auspraegungen;
+	private ArrayList<FStruktur> auspraegungen;
+	private ComboViewer viewerComboMerkmalFKT;
+	private ComboViewer viewerComboWertFKT;
+
 	/**
 	 * Create the dialog.
 	 * 
 	 * @param parentShell
 	 * @wbp.parser.constructor
 	 */
-	public DialogCreateNewOrEditLexiconEintrag(Shell parentShell,LexikalischFunktionaleGrammatik grammar1) {
+	public DialogCreateNewOrEditLexiconEintrag(Shell parentShell,
+			LexikalischFunktionaleGrammatik grammar1) {
 		super(parentShell);
-		grammar=grammar1;
-		auspraegungen=new ArrayList<FStruktur>();
-		
+		grammar = grammar1;
+		eintrag = ModelFactory.eINSTANCE.createLexikonEintrag();
+		auspraegungen = new ArrayList(eintrag.getAuspraegungen());
+
 	}
 
 	/**
@@ -65,14 +79,14 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 	 * 
 	 * @param parentShell
 	 */
-	public DialogCreateNewOrEditLexiconEintrag(Shell parentShell,LexikalischFunktionaleGrammatik grammar1,LexikonEintrag eintrag1) {
+	public DialogCreateNewOrEditLexiconEintrag(Shell parentShell,
+			LexikalischFunktionaleGrammatik grammar1, LexikonEintrag eintrag1) {
 		super(parentShell);
-		grammar=grammar1;
-		editmode=true;
-		eintrag=eintrag1;
+		grammar = grammar1;
+		editmode = true;
+		eintrag = eintrag1;
 	}
 
-	
 	/**
 	 * Create contents of the dialog.
 	 * 
@@ -126,7 +140,7 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 		fd_grpFstruktur.left = new FormAttachment(0, 10);
 		grpFstruktur.setLayoutData(fd_grpFstruktur);
 
-		 viewerComboAuspraegungSelector = new ComboViewer(grpFstruktur, SWT.NONE);
+		viewerComboAuspraegungSelector = new ComboViewer(grpFstruktur, SWT.NONE);
 		Combo comboAuspraegung = viewerComboAuspraegungSelector.getCombo();
 		FormData fd_comboAuspraegung = new FormData();
 		comboAuspraegung.setLayoutData(fd_comboAuspraegung);
@@ -140,7 +154,13 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 		lblAusprgung.setLayoutData(fd_lblAusprgung);
 		lblAusprgung.setText("Auspr\u00E4gung:");
 
-		 btnHinzufgen = new Button(grpFstruktur, SWT.NONE);
+		btnHinzufgen = new Button(grpFstruktur, SWT.NONE);
+		btnHinzufgen.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				addAuspraegung();
+			}
+		});
 		fd_comboAuspraegung.right = new FormAttachment(100, -425);
 		FormData fd_btnHinzufgen = new FormData();
 		fd_btnHinzufgen.top = new FormAttachment(comboAuspraegung, -2, SWT.TOP);
@@ -155,8 +175,8 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 		btnEntfernen.setLayoutData(fd_btnEntfernen);
 		btnEntfernen.setText("entfernen");
 
-		 viewerTableFstruktur = new TableViewer(grpFstruktur,
-				SWT.BORDER | SWT.FULL_SELECTION);
+		viewerTableFstruktur = new TableViewer(grpFstruktur, SWT.BORDER
+				| SWT.FULL_SELECTION);
 		table = viewerTableFstruktur.getTable();
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
@@ -201,19 +221,26 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 		lblWert.setLayoutData(fd_lblWert);
 		lblWert.setText("Wert");
 
-		Combo comboMerkmalFKT = new Combo(grpFstruktur, SWT.NONE);
+		viewerComboMerkmalFKT = new ComboViewer(grpFstruktur, SWT.NONE);
+		Combo comboMerkmalFKT = viewerComboMerkmalFKT.getCombo();
 		FormData fd_comboMerkmalFKT = new FormData();
 		fd_comboMerkmalFKT.top = new FormAttachment(lblNewLabel);
 		fd_comboMerkmalFKT.left = new FormAttachment(btnEntfernen, 0, SWT.LEFT);
 		comboMerkmalFKT.setLayoutData(fd_comboMerkmalFKT);
-
-		Combo comboWert = new Combo(grpFstruktur, SWT.NONE);
+		viewerComboWertFKT = new ComboViewer(grpFstruktur, SWT.NONE);
+		Combo comboWert = viewerComboWertFKT.getCombo();
 		FormData fd_comboWert = new FormData();
 		fd_comboWert.top = new FormAttachment(table, 0, SWT.TOP);
 		fd_comboWert.left = new FormAttachment(comboMerkmalFKT, 16);
 		comboWert.setLayoutData(fd_comboWert);
 
 		Button btnHinzufgen_1 = new Button(grpFstruktur, SWT.NONE);
+		btnHinzufgen_1.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				addMerkmalFKTToFstruktur();
+			}
+		});
 		FormData fd_btnHinzufgen_1 = new FormData();
 		fd_btnHinzufgen_1.top = new FormAttachment(table, 0, SWT.TOP);
 		fd_btnHinzufgen_1.left = new FormAttachment(comboWert, 12);
@@ -230,51 +257,154 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 		return container;
 	}
 
-	private void initViewer() {
-	//Set ArrayContentProvider to viewers
-	viewerComboAuspraegungSelector.setContentProvider(new ArrayContentProvider());
-	viewerComboTerminal.setContentProvider(new ArrayContentProvider());
-	viewerTableFstruktur.setContentProvider(new ArrayContentProvider());
+	protected void addMerkmalFKTToFstruktur() {
+		StructuredSelection selection = (StructuredSelection) viewerComboMerkmalFKT
+				.getSelection();
+		if (selection.isEmpty())
+			return;
+		MerkmalFunktion mf = (MerkmalFunktion) selection.getFirstElement();
+		AttributWertePaar wertpar = ModelFactory.eINSTANCE
+				.createAttributWertePaar();
+		if (mf instanceof Merkmal) {
 
-	//set LabelProvider to viewers
-	viewerComboAuspraegungSelector.setLabelProvider(new LabelProvider(){@Override
-	
-	public String getText(Object element) {
-	FStruktur fs=(FStruktur)element;
-	
-		return "Auspraegung"+auspraegungen.indexOf(fs);
-	}});
-	
-	viewerComboTerminal.setLabelProvider(new LabelProvider(){@Override
-	public String getText(Object element) {
-		Terminal terminal=(Terminal) element;
-		return terminal.getName();
-	}});
-	TableViewerColumn col = createTableViewerColumn("Merkmal/Funktion", 50, 0);
-	col.setLabelProvider(new ColumnLabelProvider(){@Override
-	public String getText(Object element) {
-		AttributWertePaar paar=(AttributWertePaar) element;
-		return paar.getMerkmal().getName();
-	}});
-	
-	col = createTableViewerColumn("Wert", 50, 1);
-	col.setLabelProvider(new ColumnLabelProvider(){@Override
-	public String getText(Object element) {
-		AttributWertePaar paar=(AttributWertePaar) element;
-		int type = paar.getWertTyp().getValue();
-		String returnwert="";
-		switch (type) {
-		case WertTyp.FUNKTION_VALUE:		
-			break;
-		case WertTyp.MERKMAL_VALUE:		
-			returnwert=paar.getMerkmalsWert();
-			break;
-		default:
-			break;
+		} else {
+			wertpar.setWertTyp(WertTyp.FUNKTION);
+			wertpar.setFunktion((Funktion) mf);
+			EList fstruktur = (EList) viewerTableFstruktur.getInput();
+			fstruktur.add(wertpar);
+			viewerTableFstruktur.refresh();
 		}
-		return returnwert;
-	}});
-	viewerTableFstruktur.getTable().setHeaderVisible(true);
+	}
+
+	protected void addAuspraegung() {
+		auspraegungen.add(ModelFactory.eINSTANCE.createFStruktur());
+		viewerComboAuspraegungSelector.refresh();
+		viewerComboAuspraegungSelector.getCCombo().select(
+				auspraegungen.size() - 1);
+		viewerTableFstruktur
+				.setInput(auspraegungen.get(auspraegungen.size() - 1));
+	}
+
+	private void initViewer() {
+		// Set ArrayContentProvider to viewers
+		viewerComboAuspraegungSelector
+				.setContentProvider(new ArrayContentProvider());
+		viewerComboTerminal.setContentProvider(new ArrayContentProvider());
+		viewerTableFstruktur.setContentProvider(new ArrayContentProvider());
+		viewerComboMerkmalFKT.setContentProvider(new ArrayContentProvider());
+		viewerComboWertFKT.setContentProvider(new ArrayContentProvider());
+
+		// set LabelProvider to viewers
+		viewerComboMerkmalFKT.setLabelProvider(new LabelProvider() {
+			@Override
+			public String getText(Object element) {
+				MerkmalFunktion m = (MerkmalFunktion) element;
+				return m.getName();
+			}
+		});
+		viewerComboWertFKT.setLabelProvider(new LabelProvider() {
+			@Override
+			public String getText(Object element) {
+
+				return (String) element;
+			}
+		});
+		viewerComboAuspraegungSelector.setLabelProvider(new LabelProvider() {
+			@Override
+			public String getText(Object element) {
+				FStruktur fs = (FStruktur) element;
+
+				return "Auspraegung" + auspraegungen.indexOf(fs);
+			}
+		});
+
+		viewerComboTerminal.setLabelProvider(new LabelProvider() {
+			@Override
+			public String getText(Object element) {
+				Terminal terminal = (Terminal) element;
+				return terminal.getName();
+			}
+		});
+		TableViewerColumn col = createTableViewerColumn("Merkmal/Funktion", 50,
+				0);
+		col.setLabelProvider(new ColumnLabelProvider() {
+			@Override
+			public String getText(Object element) {
+				AttributWertePaar paar = (AttributWertePaar) element;
+				return paar.getMerkmal().getName();
+			}
+		});
+
+		col = createTableViewerColumn("Wert", 50, 1);
+		col.setLabelProvider(new ColumnLabelProvider() {
+			@Override
+			public String getText(Object element) {
+				AttributWertePaar paar = (AttributWertePaar) element;
+				int type = paar.getWertTyp().getValue();
+				String returnwert = "";
+				switch (type) {
+				case WertTyp.FUNKTION_VALUE:
+					break;
+				case WertTyp.MERKMAL_VALUE:
+					returnwert = paar.getMerkmalsWert();
+					break;
+				default:
+					break;
+				}
+				return returnwert;
+			}
+		});
+
+		viewerTableFstruktur.getTable().setHeaderVisible(true);
+		viewerComboTerminal.setInput(grammar.getGrammatik().getTerminale());
+		viewerComboAuspraegungSelector.setInput(auspraegungen);
+		if (auspraegungen.size() > 0) {
+			viewerComboAuspraegungSelector.getCombo().select(0);
+			viewerTableFstruktur.setInput(auspraegungen.get(0)
+					.getAttributWertePaare());
+			viewerTableFstruktur.refresh();
+		}
+		viewerComboMerkmalFKT
+				.addSelectionChangedListener(new ISelectionChangedListener() {
+
+					@Override
+					public void selectionChanged(SelectionChangedEvent event) {
+						StructuredSelection selection = (StructuredSelection) event
+								.getSelection();
+						if (selection.isEmpty())
+							return;
+						MerkmalFunktion mf = (MerkmalFunktion) selection
+								.getFirstElement();
+						Merkmal merkmal;
+						if (mf instanceof Funktion) {
+							viewerComboWertFKT
+									.setInput(new ArrayList<String>());
+							viewerComboWertFKT.refresh();
+							return;
+						} else
+
+							merkmal = (Merkmal) mf;
+						viewerComboWertFKT.setInput(new ArrayList<String>(
+								merkmal.getMoeglicheWerte()));
+						viewerComboWertFKT.refresh();
+
+					}
+				});
+		viewerComboAuspraegungSelector
+				.addSelectionChangedListener(new ISelectionChangedListener() {
+
+					@Override
+					public void selectionChanged(SelectionChangedEvent event) {
+						StructuredSelection selection = (StructuredSelection) event
+								.getSelection();
+						if (selection.isEmpty())
+							return;
+						viewerTableFstruktur.setInput(((FStruktur) selection
+								.getFirstElement()).getAttributWertePaare());
+						viewerTableFstruktur.refresh();
+
+					}
+				});
 	}
 
 	/**
@@ -297,9 +427,11 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 	protected Point getInitialSize() {
 		return new Point(619, 466);
 	}
-	
-	public static void test(){
-		DialogCreateNewOrEditLexiconEintrag dia=new DialogCreateNewOrEditLexiconEintrag(Display.getDefault().getActiveShell(),ModelFactory.eINSTANCE.createLexikalischFunktionaleGrammatik());
+
+	public static void test() {
+		DialogCreateNewOrEditLexiconEintrag dia = new DialogCreateNewOrEditLexiconEintrag(
+				Display.getDefault().getActiveShell(),
+				ModelFactory.eINSTANCE.createLexikalischFunktionaleGrammatik());
 		dia.open();
 	}
 
