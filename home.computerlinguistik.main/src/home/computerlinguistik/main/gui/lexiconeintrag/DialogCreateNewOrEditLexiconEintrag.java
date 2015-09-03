@@ -248,6 +248,12 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 		btnHinzufgen_1.setText("hinzuf\u00FCgen");
 
 		Button btnEntfernen_1 = new Button(grpFstruktur, SWT.NONE);
+		btnEntfernen_1.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				entfernenAttributWertpaar();
+			}
+		});
 		FormData fd_btnEntfernen_1 = new FormData();
 		fd_btnEntfernen_1.top = new FormAttachment(comboMerkmalFKT, 6);
 		fd_btnEntfernen_1.right = new FormAttachment(lblNewLabel, 0, SWT.RIGHT);
@@ -257,21 +263,42 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 		return container;
 	}
 
+	protected void entfernenAttributWertpaar() {
+		StructuredSelection selection = (StructuredSelection) viewerTableFstruktur
+				.getSelection();
+		if (selection.isEmpty())
+			return;
+		viewerTableFstruktur.remove(selection.getFirstElement());
+
+	}
+
 	protected void addMerkmalFKTToFstruktur() {
+		if (viewerTableFstruktur.getInput()==null) {
+			return;
+		}
 		StructuredSelection selection = (StructuredSelection) viewerComboMerkmalFKT
 				.getSelection();
 		if (selection.isEmpty())
 			return;
 		MerkmalFunktion mf = (MerkmalFunktion) selection.getFirstElement();
-		AttributWertePaar wertpar = ModelFactory.eINSTANCE
+		AttributWertePaar wertpaar = ModelFactory.eINSTANCE
 				.createAttributWertePaar();
 		if (mf instanceof Merkmal) {
+			StructuredSelection wertselection = (StructuredSelection) viewerComboWertFKT
+					.getSelection();
+			if (wertselection.isEmpty())
+				return;
+			String wert = (String) wertselection.getFirstElement();
+			wertpaar.setMerkmal((Merkmal) mf);
+			wertpaar.setWertTyp(WertTyp.MERKMAL);
+			wertpaar.setMerkmalsWert(wert);
+			viewerTableFstruktur.add(wertpaar);
+			viewerTableFstruktur.refresh();
 
 		} else {
-			wertpar.setWertTyp(WertTyp.FUNKTION);
-			wertpar.setFunktion((Funktion) mf);
-			EList fstruktur = (EList) viewerTableFstruktur.getInput();
-			fstruktur.add(wertpar);
+			wertpaar.setFunktion((Funktion) mf);
+			wertpaar.setWertTyp(WertTyp.FUNKTION);
+			viewerTableFstruktur.add(wertpaar);
 			viewerTableFstruktur.refresh();
 		}
 	}
