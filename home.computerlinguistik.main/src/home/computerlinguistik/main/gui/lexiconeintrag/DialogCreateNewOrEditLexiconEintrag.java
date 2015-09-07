@@ -55,7 +55,7 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 	private LexikonEintrag eintrag;
 	private ComboViewer viewerComboAuspraegungSelector;
 	private Button btnHinzufgen;
-	private ArrayList<FStruktur> auspraegungen;
+	private EList<FStruktur> auspraegungen;
 	private ComboViewer viewerComboMerkmalFKT;
 	private ComboViewer viewerComboWertFKT;
 
@@ -70,10 +70,15 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 		super(parentShell);
 		grammar = grammar1;
 		eintrag = ModelFactory.eINSTANCE.createLexikonEintrag();
-		auspraegungen = new ArrayList(eintrag.getAuspraegungen());
+		auspraegungen = eintrag.getAuspraegungen();
 
 	}
 
+	
+	public LexikonEintrag getEintrag() {
+		return eintrag;
+	}
+	
 	/**
 	 * Create the dialog.
 	 * 
@@ -143,11 +148,13 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 		viewerComboAuspraegungSelector = new ComboViewer(grpFstruktur, SWT.NONE);
 		Combo comboAuspraegung = viewerComboAuspraegungSelector.getCombo();
 		FormData fd_comboAuspraegung = new FormData();
-		comboAuspraegung.setLayoutData(fd_comboAuspraegung);
 
 		Label lblAusprgung = new Label(grpFstruktur, SWT.NONE);
 		fd_comboAuspraegung.left = new FormAttachment(lblAusprgung, 19);
 		fd_comboAuspraegung.top = new FormAttachment(lblAusprgung, -3, SWT.TOP);
+		fd_comboAuspraegung.width = 100;
+		comboAuspraegung.setLayoutData(fd_comboAuspraegung);
+
 		FormData fd_lblAusprgung = new FormData();
 		fd_lblAusprgung.top = new FormAttachment(0, 10);
 		fd_lblAusprgung.left = new FormAttachment(0);
@@ -161,7 +168,7 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 				addAuspraegung();
 			}
 		});
-		fd_comboAuspraegung.right = new FormAttachment(100, -425);
+		
 		FormData fd_btnHinzufgen = new FormData();
 		fd_btnHinzufgen.top = new FormAttachment(comboAuspraegung, -2, SWT.TOP);
 		fd_btnHinzufgen.left = new FormAttachment(comboAuspraegung, 25);
@@ -226,12 +233,14 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 		FormData fd_comboMerkmalFKT = new FormData();
 		fd_comboMerkmalFKT.top = new FormAttachment(lblNewLabel);
 		fd_comboMerkmalFKT.left = new FormAttachment(btnEntfernen, 0, SWT.LEFT);
+		fd_comboMerkmalFKT.width=100;
 		comboMerkmalFKT.setLayoutData(fd_comboMerkmalFKT);
 		viewerComboWertFKT = new ComboViewer(grpFstruktur, SWT.NONE);
 		Combo comboWert = viewerComboWertFKT.getCombo();
 		FormData fd_comboWert = new FormData();
 		fd_comboWert.top = new FormAttachment(table, 0, SWT.TOP);
 		fd_comboWert.left = new FormAttachment(comboMerkmalFKT, 16);
+		fd_comboWert.width=100;
 		comboWert.setLayoutData(fd_comboWert);
 
 		Button btnHinzufgen_1 = new Button(grpFstruktur, SWT.NONE);
@@ -306,6 +315,7 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 	protected void addAuspraegung() {
 		auspraegungen.add(ModelFactory.eINSTANCE.createFStruktur());
 		viewerComboAuspraegungSelector.refresh();
+		
 		viewerComboAuspraegungSelector.getCCombo().select(
 				auspraegungen.size() - 1);
 		viewerTableFstruktur
@@ -452,7 +462,7 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 	 */
 	@Override
 	protected Point getInitialSize() {
-		return new Point(619, 466);
+		return new Point(701, 466);
 	}
 
 	public static void test() {

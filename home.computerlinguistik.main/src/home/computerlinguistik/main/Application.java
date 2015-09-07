@@ -26,7 +26,6 @@ public class Application implements IApplication {
 	 */
 	public Object start(IApplicationContext context) {
 		Display display = PlatformUI.createDisplay();
-		DialogCreateNewOrEditLexiconEintrag.test();
 		PlatformUI.getPreferenceStore().setDefault(
 				ConstantsGUI.PREFERENCE_ISFIRSTSTART, true);
 		boolean isFirstStart = PlatformUI.getPreferenceStore().getBoolean(

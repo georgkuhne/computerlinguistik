@@ -6,6 +6,7 @@ import home.cpmputerlinguistik.persistence.PersistenceUtility;
 import java.util.List;
 
 import model.LexikalischFunktionaleGrammatik;
+import model.Lexikon;
 import model.ModelFactory;
 
 import org.eclipse.jface.viewers.ArrayContentProvider;
@@ -27,6 +28,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
+import org.xml.sax.ext.LexicalHandler;
 
 public class CompositeBrowseGrammar extends Composite {
 	MainView mainView;
@@ -146,6 +148,8 @@ public class CompositeBrowseGrammar extends Composite {
 			String grammarname = dialog.getWBSName();
 			LexikalischFunktionaleGrammatik wissensbasis = ModelFactory.eINSTANCE
 					.createLexikalischFunktionaleGrammatik();
+			Lexikon lexikon=ModelFactory.eINSTANCE.createLexikon();
+			wissensbasis.setLexikon(lexikon);
 			wissensbasis.setName(grammarname);
 			wissensbasis.setGrammatik(ModelFactory.eINSTANCE.createGrammatik());
 			PersistenceUtility.getINSTANCE().save(wissensbasis);

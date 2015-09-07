@@ -41,7 +41,7 @@ public class CompositeBrowseLexikon extends AbstractCompositeBrowse {
 		session.flush();
 		session.close();
 	}
-	
+
 	@Override
 	protected void delete() {
 		// TODO Auto-generated method stub
@@ -56,27 +56,22 @@ public class CompositeBrowseLexikon extends AbstractCompositeBrowse {
 
 	@Override
 	protected void createNew() {
-		LexikalischFunktionaleGrammatik grammar = PersistenceUtility
-				.getLexikalischFunktionaleGrammatikById(grammarid,
-						session);
-	}
-		DialogCreateNewOrEditLexiconEintrag dialog = new DialogCreateNewOrEditLexiconEintrag(
-				Display.getCurrent().getActiveShell());
-		if (dialog.open() == DialogCreateNewOrEditMerkmal.OK) {
-			Session session = PersistenceUtility.getINSTANCE().createSession();
-			if (dialog.getName().trim().length() != 0) {
-				Merkmal merkmal = ModelFactory.eINSTANCE.createMerkmal();
-				merkmal.setName(dialog.getName());
-				LexikalischFunktionaleGrammatik grammar = PersistenceUtility
-						.getLexikalischFunktionaleGrammatikById(grammarid,
-								session);
-				merkmal.getMoeglicheWerte().addAll(dialog.getWerte());
-				grammar.getMerkmale().add(merkmal);
+		Session session = PersistenceUtility.getINSTANCE().createSession();
 
-				session.flush();
-				session.close();
-				refreshTable();
-			}
+		LexikalischFunktionaleGrammatik grammar = PersistenceUtility
+				.getLexikalischFunktionaleGrammatikById(grammarid, session);
+
+		DialogCreateNewOrEditLexiconEintrag dialog = new DialogCreateNewOrEditLexiconEintrag(
+				Display.getCurrent().getActiveShell(), grammar);
+		if (dialog.open() == DialogCreateNewOrEditMerkmal.OK) {
+
+			LexikonEintrag eintrag = dialog.getEintrag();
+			grammar.getLexikon().getEintraege().add(eintrag);
+			session.save(eintrag);
+			session.flush();
+			refreshTable();
+		}
+		session.close();
 	}
 
 	@Override
@@ -90,7 +85,7 @@ public class CompositeBrowseLexikon extends AbstractCompositeBrowse {
 
 			}
 		});
-		 col = createTableViewerColumn("Terminal", 100, 0); //$NON-NLS-1$
+		col = createTableViewerColumn("Terminal", 100, 0); //$NON-NLS-1$
 		col.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
