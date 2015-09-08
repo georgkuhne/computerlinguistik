@@ -1,6 +1,7 @@
 package home.computerlinguistik.main.gui.lexiconeintrag;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import model.AttributWertePaar;
 import model.FStruktur;
@@ -26,6 +27,8 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Point;
@@ -74,11 +77,10 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 
 	}
 
-	
 	public LexikonEintrag getEintrag() {
 		return eintrag;
 	}
-	
+
 	/**
 	 * Create the dialog.
 	 * 
@@ -90,6 +92,8 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 		grammar = grammar1;
 		editmode = true;
 		eintrag = eintrag1;
+		auspraegungen = eintrag.getAuspraegungen();
+
 	}
 
 	/**
@@ -116,7 +120,14 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 		fd_text.left = new FormAttachment(20);
 		fd_text.width = 300;
 		t_name.setLayoutData(fd_text);
+		t_name.addModifyListener(new ModifyListener() {
 
+			@Override
+			public void modifyText(ModifyEvent e) {
+				if (t_name.getText().trim().length() > 0)
+					eintrag.setName(t_name.getText());
+			}
+		});
 		Label lblTerminal = new Label(container, SWT.NONE);
 		FormData fd_lblTerminal = new FormData();
 		fd_lblTerminal.top = new FormAttachment(lblName, 20);
@@ -126,6 +137,7 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 		lblTerminal.setText("Terminal:");
 
 		viewerComboTerminal = new ComboViewer(container, SWT.NONE);
+
 		Combo comboTerminal = viewerComboTerminal.getCombo();
 		FormData fd_comboTerminal = new FormData();
 		fd_comboTerminal.top = new FormAttachment(lblName, 20);
@@ -168,7 +180,7 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 				addAuspraegung();
 			}
 		});
-		
+
 		FormData fd_btnHinzufgen = new FormData();
 		fd_btnHinzufgen.top = new FormAttachment(comboAuspraegung, -2, SWT.TOP);
 		fd_btnHinzufgen.left = new FormAttachment(comboAuspraegung, 25);
@@ -193,18 +205,6 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 		fd_table.bottom = new FormAttachment(100, -15);
 		fd_table.left = new FormAttachment(0, 16);
 		table.setLayoutData(fd_table);
-
-		TableViewerColumn tableViewerColumn = new TableViewerColumn(
-				viewerTableFstruktur, SWT.NONE);
-		TableColumn tblclmnMerkmalfunktion = tableViewerColumn.getColumn();
-		tblclmnMerkmalfunktion.setWidth(143);
-		tblclmnMerkmalfunktion.setText("Merkmal/Funktion");
-
-		TableViewerColumn tableViewerColumn_1 = new TableViewerColumn(
-				viewerTableFstruktur, SWT.NONE);
-		TableColumn tblclmnWert = tableViewerColumn_1.getColumn();
-		tblclmnWert.setWidth(100);
-		tblclmnWert.setText("Wert");
 
 		Label label = new Label(grpFstruktur, SWT.SEPARATOR | SWT.HORIZONTAL);
 		FormData fd_label = new FormData();
@@ -233,14 +233,14 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 		FormData fd_comboMerkmalFKT = new FormData();
 		fd_comboMerkmalFKT.top = new FormAttachment(lblNewLabel);
 		fd_comboMerkmalFKT.left = new FormAttachment(btnEntfernen, 0, SWT.LEFT);
-		fd_comboMerkmalFKT.width=100;
+		fd_comboMerkmalFKT.width = 100;
 		comboMerkmalFKT.setLayoutData(fd_comboMerkmalFKT);
 		viewerComboWertFKT = new ComboViewer(grpFstruktur, SWT.NONE);
 		Combo comboWert = viewerComboWertFKT.getCombo();
 		FormData fd_comboWert = new FormData();
 		fd_comboWert.top = new FormAttachment(table, 0, SWT.TOP);
 		fd_comboWert.left = new FormAttachment(comboMerkmalFKT, 16);
-		fd_comboWert.width=100;
+		fd_comboWert.width = 100;
 		comboWert.setLayoutData(fd_comboWert);
 
 		Button btnHinzufgen_1 = new Button(grpFstruktur, SWT.NONE);
@@ -282,7 +282,7 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 	}
 
 	protected void addMerkmalFKTToFstruktur() {
-		if (viewerTableFstruktur.getInput()==null) {
+		if (viewerTableFstruktur.getInput() == null) {
 			return;
 		}
 		StructuredSelection selection = (StructuredSelection) viewerComboMerkmalFKT
@@ -301,12 +301,17 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 			wertpaar.setMerkmal((Merkmal) mf);
 			wertpaar.setWertTyp(WertTyp.MERKMAL);
 			wertpaar.setMerkmalsWert(wert);
-			viewerTableFstruktur.add(wertpaar);
+			List list = (List) viewerTableFstruktur.getInput();
+			list.add(wertpaar);
 			viewerTableFstruktur.refresh();
 
 		} else {
 			wertpaar.setFunktion((Funktion) mf);
 			wertpaar.setWertTyp(WertTyp.FUNKTION);
+			List list = (List) viewerTableFstruktur.getInput();
+			list.add(wertpaar);
+			viewerTableFstruktur.refresh();
+
 			viewerTableFstruktur.add(wertpaar);
 			viewerTableFstruktur.refresh();
 		}
@@ -315,9 +320,9 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 	protected void addAuspraegung() {
 		auspraegungen.add(ModelFactory.eINSTANCE.createFStruktur());
 		viewerComboAuspraegungSelector.refresh();
-		
-		viewerComboAuspraegungSelector.getCCombo().select(
-				auspraegungen.size() - 1);
+
+		// viewerComboAuspraegungSelector.getCCombo().select(
+		// auspraegungen.size() - 1);
 		viewerTableFstruktur
 				.setInput(auspraegungen.get(auspraegungen.size() - 1));
 	}
@@ -339,6 +344,10 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 				return m.getName();
 			}
 		});
+		ArrayList<MerkmalFunktion> input = new ArrayList<>();
+		input.addAll(grammar.getFunktionen());
+		input.addAll(grammar.getMerkmale());
+		viewerComboMerkmalFKT.setInput(input);
 		viewerComboWertFKT.setLabelProvider(new LabelProvider() {
 			@Override
 			public String getText(Object element) {
@@ -362,8 +371,8 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 				return terminal.getName();
 			}
 		});
-		TableViewerColumn col = createTableViewerColumn("Merkmal/Funktion", 50,
-				0);
+		TableViewerColumn col = createTableViewerColumn("Merkmal/Funktion",
+				100, 0);
 		col.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
@@ -372,7 +381,7 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 			}
 		});
 
-		col = createTableViewerColumn("Wert", 50, 1);
+		col = createTableViewerColumn("Wert", 100, 1);
 		col.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
@@ -421,8 +430,7 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 						} else
 
 							merkmal = (Merkmal) mf;
-						viewerComboWertFKT.setInput(new ArrayList<String>(
-								merkmal.getMoeglicheWerte()));
+						viewerComboWertFKT.setInput(merkmal.getMoeglicheWerte());
 						viewerComboWertFKT.refresh();
 
 					}
@@ -440,6 +448,20 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 								.getFirstElement()).getAttributWertePaare());
 						viewerTableFstruktur.refresh();
 
+					}
+				});
+
+		viewerComboTerminal
+				.addSelectionChangedListener(new ISelectionChangedListener() {
+
+					@Override
+					public void selectionChanged(SelectionChangedEvent event) {
+						StructuredSelection selection = (StructuredSelection) event
+								.getSelection();
+						if (selection.isEmpty())
+							return;
+						eintrag.setWortart((Terminal) selection
+								.getFirstElement());
 					}
 				});
 	}

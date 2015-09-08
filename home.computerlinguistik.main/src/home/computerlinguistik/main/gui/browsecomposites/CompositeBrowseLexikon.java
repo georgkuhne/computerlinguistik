@@ -8,10 +8,9 @@ import java.util.List;
 
 import model.LexikalischFunktionaleGrammatik;
 import model.LexikonEintrag;
-import model.Merkmal;
-import model.ModelFactory;
 
 import org.eclipse.jface.viewers.ColumnLabelProvider;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
@@ -44,34 +43,80 @@ public class CompositeBrowseLexikon extends AbstractCompositeBrowse {
 
 	@Override
 	protected void delete() {
-		// TODO Auto-generated method stub
+		StructuredSelection selection = (StructuredSelection) tableViewer
+				.getSelection();
+		if (selection.isEmpty())
+			return;
+		Session session = PersistenceUtility.getINSTANCE().createSession();
+		try {
+
+			LexikalischFunktionaleGrammatik grammar = PersistenceUtility
+					.getLexikalischFunktionaleGrammatikById(grammarid, session);
+
+			LexikonEintrag eintrag = (LexikonEintrag) selection
+					.getFirstElement();
+			session.update(eintrag);
+			grammar.getLexikon().getEintraege()
+					.remove(selection.getFirstElement());
+			session.save(grammar);
+			session.flush();
+		} finally {
+			session.close();
+			refreshTable();
+
+		}
 
 	}
 
 	@Override
 	protected void edit() {
-		// TODO Auto-generated method stub
+		StructuredSelection selection = (StructuredSelection) tableViewer
+				.getSelection();
+		if (selection.isEmpty())
+			return;
+		LexikonEintrag eintrag1 = (LexikonEintrag) selection.getFirstElement();
+		Session session = PersistenceUtility.getINSTANCE().createSession();
+		session.update(eintrag1);
+		try {
 
+			LexikalischFunktionaleGrammatik grammar = PersistenceUtility
+					.getLexikalischFunktionaleGrammatikById(grammarid, session);
+			DialogCreateNewOrEditLexiconEintrag dialog = new DialogCreateNewOrEditLexiconEintrag(
+					Display.getCurrent().getActiveShell(), grammar,
+					(LexikonEintrag) eintrag1);
+			if (dialog.open() == DialogCreateNewOrEditMerkmal.OK) {
+				LexikonEintrag eintrag = dialog.getEintrag();
+				session.save(eintrag);
+				session.flush();
+
+			}
+		} finally {
+			session.close();
+			refreshTable();
+		}
 	}
 
 	@Override
 	protected void createNew() {
+
 		Session session = PersistenceUtility.getINSTANCE().createSession();
+		try {
+			LexikalischFunktionaleGrammatik grammar = PersistenceUtility
+					.getLexikalischFunktionaleGrammatikById(grammarid, session);
 
-		LexikalischFunktionaleGrammatik grammar = PersistenceUtility
-				.getLexikalischFunktionaleGrammatikById(grammarid, session);
+			DialogCreateNewOrEditLexiconEintrag dialog = new DialogCreateNewOrEditLexiconEintrag(
+					Display.getCurrent().getActiveShell(), grammar);
+			if (dialog.open() == DialogCreateNewOrEditMerkmal.OK) {
+				LexikonEintrag eintrag = dialog.getEintrag();
+				grammar.getLexikon().getEintraege().add(eintrag);
+				session.save(grammar);
+				session.flush();
+				refreshTable();
+			}
+		} finally {
+			session.close();
 
-		DialogCreateNewOrEditLexiconEintrag dialog = new DialogCreateNewOrEditLexiconEintrag(
-				Display.getCurrent().getActiveShell(), grammar);
-		if (dialog.open() == DialogCreateNewOrEditMerkmal.OK) {
-
-			LexikonEintrag eintrag = dialog.getEintrag();
-			grammar.getLexikon().getEintraege().add(eintrag);
-			session.save(eintrag);
-			session.flush();
-			refreshTable();
 		}
-		session.close();
 	}
 
 	@Override
@@ -90,7 +135,7 @@ public class CompositeBrowseLexikon extends AbstractCompositeBrowse {
 			@Override
 			public String getText(Object element) {
 				LexikonEintrag wb = (LexikonEintrag) element;
-				return "" + wb.getWortart(); //$NON-NLS-1$
+				return "" + wb.getWortart().getName(); //$NON-NLS-1$
 
 			}
 		});
