@@ -42,26 +42,26 @@ public interface Grammatik extends EObject {
 	EList<Terminal> getTerminale();
 
 	/**
-	 * Returns the value of the '<em><b>S0</b></em>' containment reference.
+	 * Returns the value of the '<em><b>S0</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>S0</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>S0</em>' containment reference.
+	 * @return the value of the '<em>S0</em>' reference.
 	 * @see #setS0(Nichterminal)
 	 * @see model.ModelPackage#getGrammatik_S0()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	Nichterminal getS0();
 
 	/**
-	 * Sets the value of the '{@link model.Grammatik#getS0 <em>S0</em>}' containment reference.
+	 * Sets the value of the '{@link model.Grammatik#getS0 <em>S0</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>S0</em>' containment reference.
+	 * @param value the new value of the '<em>S0</em>' reference.
 	 * @see #getS0()
 	 * @generated
 	 */

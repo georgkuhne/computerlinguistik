@@ -66,6 +66,8 @@
         eType="#//MerkmalFunktion" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Abwaertspfeil" upperBound="-1"
         eType="#//MerkmalFunktion" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="terminalNichtTerminal"
+        eType="#//TerminalNichtTerminal"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MerkmalFunktion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

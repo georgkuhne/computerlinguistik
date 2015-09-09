@@ -50,7 +50,7 @@ public class GrammatikImpl extends MinimalEObjectImpl.Container implements Gramm
 	protected EList<Terminal> terminale;
 
 	/**
-	 * The cached value of the '{@link #getS0() <em>S0</em>}' containment reference.
+	 * The cached value of the '{@link #getS0() <em>S0</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getS0()
@@ -106,6 +106,14 @@ public class GrammatikImpl extends MinimalEObjectImpl.Container implements Gramm
 	 * @generated
 	 */
 	public Nichterminal getS0() {
+		if (s0 != null && s0.eIsProxy()) {
+			InternalEObject oldS0 = (InternalEObject)s0;
+			s0 = (Nichterminal)eResolveProxy(oldS0);
+			if (s0 != oldS0) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.GRAMMATIK__S0, oldS0, s0));
+			}
+		}
 		return s0;
 	}
 
@@ -114,14 +122,8 @@ public class GrammatikImpl extends MinimalEObjectImpl.Container implements Gramm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetS0(Nichterminal newS0, NotificationChain msgs) {
-		Nichterminal oldS0 = s0;
-		s0 = newS0;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.GRAMMATIK__S0, oldS0, newS0);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public Nichterminal basicGetS0() {
+		return s0;
 	}
 
 	/**
@@ -130,17 +132,10 @@ public class GrammatikImpl extends MinimalEObjectImpl.Container implements Gramm
 	 * @generated
 	 */
 	public void setS0(Nichterminal newS0) {
-		if (newS0 != s0) {
-			NotificationChain msgs = null;
-			if (s0 != null)
-				msgs = ((InternalEObject)s0).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.GRAMMATIK__S0, null, msgs);
-			if (newS0 != null)
-				msgs = ((InternalEObject)newS0).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.GRAMMATIK__S0, null, msgs);
-			msgs = basicSetS0(newS0, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.GRAMMATIK__S0, newS0, newS0));
+		Nichterminal oldS0 = s0;
+		s0 = newS0;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.GRAMMATIK__S0, oldS0, s0));
 	}
 
 	/**
@@ -165,8 +160,6 @@ public class GrammatikImpl extends MinimalEObjectImpl.Container implements Gramm
 		switch (featureID) {
 			case ModelPackage.GRAMMATIK__TERMINALE:
 				return ((InternalEList<?>)getTerminale()).basicRemove(otherEnd, msgs);
-			case ModelPackage.GRAMMATIK__S0:
-				return basicSetS0(null, msgs);
 			case ModelPackage.GRAMMATIK__NICHT_TERMINALE:
 				return ((InternalEList<?>)getNichtTerminale()).basicRemove(otherEnd, msgs);
 		}
@@ -184,7 +177,8 @@ public class GrammatikImpl extends MinimalEObjectImpl.Container implements Gramm
 			case ModelPackage.GRAMMATIK__TERMINALE:
 				return getTerminale();
 			case ModelPackage.GRAMMATIK__S0:
-				return getS0();
+				if (resolve) return getS0();
+				return basicGetS0();
 			case ModelPackage.GRAMMATIK__NICHT_TERMINALE:
 				return getNichtTerminale();
 		}

@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link model.AnnotiertesTerminalNichtTerminal#getAufwaertspfeil <em>Aufwaertspfeil</em>}</li>
  *   <li>{@link model.AnnotiertesTerminalNichtTerminal#getAbwaertspfeil <em>Abwaertspfeil</em>}</li>
+ *   <li>{@link model.AnnotiertesTerminalNichtTerminal#getTerminalNichtTerminal <em>Terminal Nicht Terminal</em>}</li>
  * </ul>
  * </p>
  *
@@ -55,5 +56,31 @@ public interface AnnotiertesTerminalNichtTerminal extends EObject {
 	 * @generated
 	 */
 	EList<MerkmalFunktion> getAbwaertspfeil();
+
+	/**
+	 * Returns the value of the '<em><b>Terminal Nicht Terminal</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Terminal Nicht Terminal</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Terminal Nicht Terminal</em>' reference.
+	 * @see #setTerminalNichtTerminal(TerminalNichtTerminal)
+	 * @see model.ModelPackage#getAnnotiertesTerminalNichtTerminal_TerminalNichtTerminal()
+	 * @model
+	 * @generated
+	 */
+	TerminalNichtTerminal getTerminalNichtTerminal();
+
+	/**
+	 * Sets the value of the '{@link model.AnnotiertesTerminalNichtTerminal#getTerminalNichtTerminal <em>Terminal Nicht Terminal</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Terminal Nicht Terminal</em>' reference.
+	 * @see #getTerminalNichtTerminal()
+	 * @generated
+	 */
+	void setTerminalNichtTerminal(TerminalNichtTerminal value);
 
 } // AnnotiertesTerminalNichtTerminal

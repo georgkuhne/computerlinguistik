@@ -6,10 +6,13 @@ import java.util.Collection;
 import model.AnnotiertesTerminalNichtTerminal;
 import model.MerkmalFunktion;
 import model.ModelPackage;
+import model.TerminalNichtTerminal;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -23,6 +26,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link model.impl.AnnotiertesTerminalNichtTerminalImpl#getAufwaertspfeil <em>Aufwaertspfeil</em>}</li>
  *   <li>{@link model.impl.AnnotiertesTerminalNichtTerminalImpl#getAbwaertspfeil <em>Abwaertspfeil</em>}</li>
+ *   <li>{@link model.impl.AnnotiertesTerminalNichtTerminalImpl#getTerminalNichtTerminal <em>Terminal Nicht Terminal</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,6 +52,16 @@ public class AnnotiertesTerminalNichtTerminalImpl extends MinimalEObjectImpl.Con
 	 * @ordered
 	 */
 	protected EList<MerkmalFunktion> abwaertspfeil;
+
+	/**
+	 * The cached value of the '{@link #getTerminalNichtTerminal() <em>Terminal Nicht Terminal</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTerminalNichtTerminal()
+	 * @generated
+	 * @ordered
+	 */
+	protected TerminalNichtTerminal terminalNichtTerminal;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,6 +111,44 @@ public class AnnotiertesTerminalNichtTerminalImpl extends MinimalEObjectImpl.Con
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public TerminalNichtTerminal getTerminalNichtTerminal() {
+		if (terminalNichtTerminal != null && terminalNichtTerminal.eIsProxy()) {
+			InternalEObject oldTerminalNichtTerminal = (InternalEObject)terminalNichtTerminal;
+			terminalNichtTerminal = (TerminalNichtTerminal)eResolveProxy(oldTerminalNichtTerminal);
+			if (terminalNichtTerminal != oldTerminalNichtTerminal) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.ANNOTIERTES_TERMINAL_NICHT_TERMINAL__TERMINAL_NICHT_TERMINAL, oldTerminalNichtTerminal, terminalNichtTerminal));
+			}
+		}
+		return terminalNichtTerminal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TerminalNichtTerminal basicGetTerminalNichtTerminal() {
+		return terminalNichtTerminal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTerminalNichtTerminal(TerminalNichtTerminal newTerminalNichtTerminal) {
+		TerminalNichtTerminal oldTerminalNichtTerminal = terminalNichtTerminal;
+		terminalNichtTerminal = newTerminalNichtTerminal;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ANNOTIERTES_TERMINAL_NICHT_TERMINAL__TERMINAL_NICHT_TERMINAL, oldTerminalNichtTerminal, terminalNichtTerminal));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -120,6 +172,9 @@ public class AnnotiertesTerminalNichtTerminalImpl extends MinimalEObjectImpl.Con
 				return getAufwaertspfeil();
 			case ModelPackage.ANNOTIERTES_TERMINAL_NICHT_TERMINAL__ABWAERTSPFEIL:
 				return getAbwaertspfeil();
+			case ModelPackage.ANNOTIERTES_TERMINAL_NICHT_TERMINAL__TERMINAL_NICHT_TERMINAL:
+				if (resolve) return getTerminalNichtTerminal();
+				return basicGetTerminalNichtTerminal();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -141,6 +196,9 @@ public class AnnotiertesTerminalNichtTerminalImpl extends MinimalEObjectImpl.Con
 				getAbwaertspfeil().clear();
 				getAbwaertspfeil().addAll((Collection<? extends MerkmalFunktion>)newValue);
 				return;
+			case ModelPackage.ANNOTIERTES_TERMINAL_NICHT_TERMINAL__TERMINAL_NICHT_TERMINAL:
+				setTerminalNichtTerminal((TerminalNichtTerminal)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -159,6 +217,9 @@ public class AnnotiertesTerminalNichtTerminalImpl extends MinimalEObjectImpl.Con
 			case ModelPackage.ANNOTIERTES_TERMINAL_NICHT_TERMINAL__ABWAERTSPFEIL:
 				getAbwaertspfeil().clear();
 				return;
+			case ModelPackage.ANNOTIERTES_TERMINAL_NICHT_TERMINAL__TERMINAL_NICHT_TERMINAL:
+				setTerminalNichtTerminal((TerminalNichtTerminal)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -175,6 +236,8 @@ public class AnnotiertesTerminalNichtTerminalImpl extends MinimalEObjectImpl.Con
 				return aufwaertspfeil != null && !aufwaertspfeil.isEmpty();
 			case ModelPackage.ANNOTIERTES_TERMINAL_NICHT_TERMINAL__ABWAERTSPFEIL:
 				return abwaertspfeil != null && !abwaertspfeil.isEmpty();
+			case ModelPackage.ANNOTIERTES_TERMINAL_NICHT_TERMINAL__TERMINAL_NICHT_TERMINAL:
+				return terminalNichtTerminal != null;
 		}
 		return super.eIsSet(featureID);
 	}

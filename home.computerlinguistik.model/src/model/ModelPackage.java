@@ -196,7 +196,7 @@ public interface ModelPackage extends EPackage {
 	int GRAMMATIK__TERMINALE = 0;
 
 	/**
-	 * The feature id for the '<em><b>S0</b></em>' containment reference.
+	 * The feature id for the '<em><b>S0</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -702,13 +702,22 @@ public interface ModelPackage extends EPackage {
 	int ANNOTIERTES_TERMINAL_NICHT_TERMINAL__ABWAERTSPFEIL = 1;
 
 	/**
+	 * The feature id for the '<em><b>Terminal Nicht Terminal</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTIERTES_TERMINAL_NICHT_TERMINAL__TERMINAL_NICHT_TERMINAL = 2;
+
+	/**
 	 * The number of structural features of the '<em>Annotiertes Terminal Nicht Terminal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTIERTES_TERMINAL_NICHT_TERMINAL_FEATURE_COUNT = 2;
+	int ANNOTIERTES_TERMINAL_NICHT_TERMINAL_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Annotiertes Terminal Nicht Terminal</em>' class.
@@ -849,10 +858,10 @@ public interface ModelPackage extends EPackage {
 	EReference getGrammatik_Terminale();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link model.Grammatik#getS0 <em>S0</em>}'.
+	 * Returns the meta object for the reference '{@link model.Grammatik#getS0 <em>S0</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>S0</em>'.
+	 * @return the meta object for the reference '<em>S0</em>'.
 	 * @see model.Grammatik#getS0()
 	 * @see #getGrammatik()
 	 * @generated
@@ -1136,6 +1145,17 @@ public interface ModelPackage extends EPackage {
 	EReference getAnnotiertesTerminalNichtTerminal_Abwaertspfeil();
 
 	/**
+	 * Returns the meta object for the reference '{@link model.AnnotiertesTerminalNichtTerminal#getTerminalNichtTerminal <em>Terminal Nicht Terminal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Terminal Nicht Terminal</em>'.
+	 * @see model.AnnotiertesTerminalNichtTerminal#getTerminalNichtTerminal()
+	 * @see #getAnnotiertesTerminalNichtTerminal()
+	 * @generated
+	 */
+	EReference getAnnotiertesTerminalNichtTerminal_TerminalNichtTerminal();
+
+	/**
 	 * Returns the meta object for class '{@link model.MerkmalFunktion <em>Merkmal Funktion</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1284,7 +1304,7 @@ public interface ModelPackage extends EPackage {
 		EReference GRAMMATIK__TERMINALE = eINSTANCE.getGrammatik_Terminale();
 
 		/**
-		 * The meta object literal for the '<em><b>S0</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>S0</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1518,6 +1538,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ANNOTIERTES_TERMINAL_NICHT_TERMINAL__ABWAERTSPFEIL = eINSTANCE.getAnnotiertesTerminalNichtTerminal_Abwaertspfeil();
+
+		/**
+		 * The meta object literal for the '<em><b>Terminal Nicht Terminal</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANNOTIERTES_TERMINAL_NICHT_TERMINAL__TERMINAL_NICHT_TERMINAL = eINSTANCE.getAnnotiertesTerminalNichtTerminal_TerminalNichtTerminal();
 
 		/**
 		 * The meta object literal for the '{@link model.impl.MerkmalFunktionImpl <em>Merkmal Funktion</em>}' class.
