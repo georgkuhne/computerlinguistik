@@ -335,7 +335,7 @@ public class DialogNewOrEditRulre extends Dialog {
 			@Override
 			public String getText(Object element) {
 				AnnotiertesTerminalNichtTerminal n = (AnnotiertesTerminalNichtTerminal) element;
-				return "";
+				return n.getTerminalNichtTerminal().getName();
 			}
 		});
 		viewerListPfeilDown.setLabelProvider(new LabelProvider() {
@@ -373,7 +373,12 @@ public class DialogNewOrEditRulre extends Dialog {
 								.getSelection();
 						if (selection.isEmpty())
 							return;
-						regel.setVon((Nichterminal) selection.getFirstElement());
+						AnnotiertesTerminalNichtTerminal an = (AnnotiertesTerminalNichtTerminal) event;
+						viewerListPfeilDown.setInput(an.getAbwaertspfeil());
+						viewerListPfeilUP.setInput(an.getAufwaertspfeil());
+						viewerListPfeilDown.refresh();
+						viewerListPfeilUP.refresh();
+
 					}
 				});
 
