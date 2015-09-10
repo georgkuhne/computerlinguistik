@@ -4,6 +4,7 @@ import model.AbleitungsRegel;
 import model.AnnotiertesTerminalNichtTerminal;
 import model.Funktion;
 import model.LexikalischFunktionaleGrammatik;
+import model.MerkmalFunktion;
 import model.ModelFactory;
 import model.Nichterminal;
 import model.TerminalNichtTerminal;
@@ -12,6 +13,7 @@ import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ComboViewer;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.ListViewer;
@@ -48,6 +50,7 @@ public class DialogNewOrEditRulre extends Dialog {
 
 	private AbleitungsRegel regel;
 	private LexikalischFunktionaleGrammatik grammatik;
+	protected AnnotiertesTerminalNichtTerminal selectedTerminalNichterminal;
 
 	/**
 	 * 
@@ -251,7 +254,7 @@ public class DialogNewOrEditRulre extends Dialog {
 		btnEntfernen_1.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				removeFromPfeilAb();
+				removeFromPfeilUP();
 
 			}
 		});
@@ -373,9 +376,9 @@ public class DialogNewOrEditRulre extends Dialog {
 								.getSelection();
 						if (selection.isEmpty())
 							return;
-						AnnotiertesTerminalNichtTerminal an = (AnnotiertesTerminalNichtTerminal) event;
-						viewerListPfeilDown.setInput(an.getAbwaertspfeil());
-						viewerListPfeilUP.setInput(an.getAufwaertspfeil());
+						 selectedTerminalNichterminal = (AnnotiertesTerminalNichtTerminal) event;
+						viewerListPfeilDown.setInput(selectedTerminalNichterminal.getAbwaertspfeil());
+						viewerListPfeilUP.setInput(selectedTerminalNichterminal.getAufwaertspfeil());
 						viewerListPfeilDown.refresh();
 						viewerListPfeilUP.refresh();
 
@@ -385,23 +388,41 @@ public class DialogNewOrEditRulre extends Dialog {
 	}
 
 	protected void removeFromPfeilDown() {
-		// TODO Auto-generated method stub
-
+		ISelection selection=viewerListPfeilDown.getSelection();
+		if(selection.isEmpty())
+			return;
+		selectedTerminalNichterminal.getAbwaertspfeil().remove(selection);
+		viewerListPfeilDown.setInput(selectedTerminalNichterminal.getAbwaertspfeil());
 	}
 
 	protected void addToPfeilDown() {
-		// TODO Auto-generated method stub
-
+		StructuredSelection selection=	(StructuredSelection) viewerComboPFeilDown.getSelection();
+		if(selection.isEmpty())
+			return;
+		MerkmalFunktion mf=(MerkmalFunktion) selection.getFirstElement();
+		selectedTerminalNichterminal.getAbwaertspfeil().add(mf);
+		viewerComboPFeilDown.setInput(selectedTerminalNichterminal.getAbwaertspfeil());
+		
 	}
 
-	protected void removeFromPfeilAb() {
-		// TODO Auto-generated method stub
+	protected void removeFromPfeilUP() {
+		ISelection selection=viewerListPfeilUP.getSelection();
+		if(selection.isEmpty())
+			return;
+		selectedTerminalNichterminal.getAufwaertspfeil().remove(selection);
+		viewerListPfeilUP.setInput(selectedTerminalNichterminal.getAufwaertspfeil());
+	
 
 	}
 
 	protected void addToPfeilAuf() {
-		// TODO Auto-generated method stub
-
+	StructuredSelection selection=	(StructuredSelection) viewerComboPfeilUp.getSelection();
+	if(selection.isEmpty())
+		return;
+	MerkmalFunktion mf=(MerkmalFunktion) selection.getFirstElement();
+	selectedTerminalNichterminal.getAufwaertspfeil().add(mf);
+	viewerComboPfeilUp.setInput(selectedTerminalNichterminal.getAufwaertspfeil());
+	
 	}
 
 	protected void removeFromZiel() {
