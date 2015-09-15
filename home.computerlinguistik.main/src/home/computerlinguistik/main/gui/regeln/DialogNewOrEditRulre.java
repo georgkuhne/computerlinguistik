@@ -1,5 +1,7 @@
 package home.computerlinguistik.main.gui.regeln;
 
+import java.util.ArrayList;
+
 import model.AbleitungsRegel;
 import model.AnnotiertesTerminalNichtTerminal;
 import model.Funktion;
@@ -64,6 +66,10 @@ public class DialogNewOrEditRulre extends Dialog {
 		super(parentShell);
 		grammatik = grammatik1;
 		regel = regel1;
+	}
+
+	public AbleitungsRegel getRegel() {
+		return regel;
 	}
 
 	/**
@@ -208,7 +214,7 @@ public class DialogNewOrEditRulre extends Dialog {
 
 		viewerComboPfeilUp = new ComboViewer(grpAnnotationen, SWT.NONE);
 		Combo combo_2 = viewerComboPfeilUp.getCombo();
-		fd_list_1.right = new FormAttachment(100, -618);
+		fd_list_1.width = 100;
 		FormData fd_combo_2 = new FormData();
 		fd_combo_2.top = new FormAttachment(list_1, 1, SWT.TOP);
 		fd_combo_2.left = new FormAttachment(list_1, 6);
@@ -248,6 +254,7 @@ public class DialogNewOrEditRulre extends Dialog {
 		FormData fd_combo_3 = new FormData();
 		fd_combo_3.left = new FormAttachment(list_2, 17);
 		fd_combo_3.top = new FormAttachment(list_1, 1, SWT.TOP);
+		fd_combo_3.width = 100;
 		combo_3.setLayoutData(fd_combo_3);
 
 		Button btnEntfernen_1 = new Button(grpAnnotationen, SWT.NONE);
@@ -372,67 +379,121 @@ public class DialogNewOrEditRulre extends Dialog {
 
 					@Override
 					public void selectionChanged(SelectionChangedEvent event) {
-						StructuredSelection selection = (StructuredSelection) viewerComboStartNichterminal
+						StructuredSelection selection = (StructuredSelection) viewerListAbbildungZiel
 								.getSelection();
 						if (selection.isEmpty())
 							return;
-						 selectedTerminalNichterminal = (AnnotiertesTerminalNichtTerminal) event;
-						viewerListPfeilDown.setInput(selectedTerminalNichterminal.getAbwaertspfeil());
-						viewerListPfeilUP.setInput(selectedTerminalNichterminal.getAufwaertspfeil());
+						selectedTerminalNichterminal = (AnnotiertesTerminalNichtTerminal) selection
+								.getFirstElement();
+						viewerListPfeilDown
+								.setInput(selectedTerminalNichterminal
+										.getAbwaertspfeil());
+						viewerListPfeilUP.setInput(selectedTerminalNichterminal
+								.getAufwaertspfeil());
 						viewerListPfeilDown.refresh();
 						viewerListPfeilUP.refresh();
 
 					}
 				});
 
+		viewerComboPFeilDown.setInput(grammatik.getFunktionen());
+		viewerComboPfeilUp.setInput(grammatik.getFunktionen());
+		viewerComboStartNichterminal.setInput(grammatik.getGrammatik()
+				.getNichtTerminale());
+		ArrayList<TerminalNichtTerminal> listziel = new ArrayList<TerminalNichtTerminal>();
+		listziel.addAll(grammatik.getGrammatik().getNichtTerminale());
+		listziel.addAll(grammatik.getGrammatik().getTerminale());
+		viewerComboZiel.setInput(listziel);
+		if (regel.getVon() instanceof Nichterminal) {
+			final StructuredSelection selection = new StructuredSelection(
+					regel.getVon());
+			viewerComboStartNichterminal.setSelection(selection);
+			viewerComboStartNichterminal.refresh();
+		}
+		viewerListAbbildungZiel.setInput(regel.getAuf());
+
 	}
 
 	protected void removeFromPfeilDown() {
-		ISelection selection=viewerListPfeilDown.getSelection();
-		if(selection.isEmpty())
+		ISelection selection = viewerListPfeilDown.getSelection();
+		if (selection.isEmpty())
 			return;
 		selectedTerminalNichterminal.getAbwaertspfeil().remove(selection);
-		viewerListPfeilDown.setInput(selectedTerminalNichterminal.getAbwaertspfeil());
+		viewerListPfeilDown.setInput(selectedTerminalNichterminal
+				.getAbwaertspfeil());
+		viewerListPfeilDown.refresh();
+
 	}
 
 	protected void addToPfeilDown() {
-		StructuredSelection selection=	(StructuredSelection) viewerComboPFeilDown.getSelection();
-		if(selection.isEmpty())
+		StructuredSelection selection = (StructuredSelection) viewerComboPFeilDown
+				.getSelection();
+		if (selection.isEmpty() || selectedTerminalNichterminal == null)
 			return;
-		MerkmalFunktion mf=(MerkmalFunktion) selection.getFirstElement();
+		MerkmalFunktion mf = (MerkmalFunktion) selection.getFirstElement();
 		selectedTerminalNichterminal.getAbwaertspfeil().add(mf);
-		viewerComboPFeilDown.setInput(selectedTerminalNichterminal.getAbwaertspfeil());
-		
+		viewerListPfeilDown.setInput(selectedTerminalNichterminal
+				.getAbwaertspfeil());
+		viewerListPfeilDown.refresh();
+
 	}
 
 	protected void removeFromPfeilUP() {
-		ISelection selection=viewerListPfeilUP.getSelection();
-		if(selection.isEmpty())
+		ISelection selection = viewerListPfeilUP.getSelection();
+		if (selection.isEmpty() || selectedTerminalNichterminal == null)
 			return;
+
 		selectedTerminalNichterminal.getAufwaertspfeil().remove(selection);
-		viewerListPfeilUP.setInput(selectedTerminalNichterminal.getAufwaertspfeil());
-	
+		viewerListPfeilUP.setInput(selectedTerminalNichterminal
+				.getAufwaertspfeil());
+		viewerListPfeilUP.refresh();
 
 	}
 
 	protected void addToPfeilAuf() {
-	StructuredSelection selection=	(StructuredSelection) viewerComboPfeilUp.getSelection();
-	if(selection.isEmpty())
-		return;
-	MerkmalFunktion mf=(MerkmalFunktion) selection.getFirstElement();
-	selectedTerminalNichterminal.getAufwaertspfeil().add(mf);
-	viewerComboPfeilUp.setInput(selectedTerminalNichterminal.getAufwaertspfeil());
-	
+		StructuredSelection selection = (StructuredSelection) viewerComboPfeilUp
+				.getSelection();
+		if (selection.isEmpty())
+			return;
+		MerkmalFunktion mf = (MerkmalFunktion) selection.getFirstElement();
+		selectedTerminalNichterminal.getAufwaertspfeil().add(mf);
+		viewerListPfeilUP.setInput(selectedTerminalNichterminal
+				.getAufwaertspfeil());
+		viewerListPfeilUP.refresh();
+
 	}
 
 	protected void removeFromZiel() {
-		// TODO Auto-generated method stub
+		StructuredSelection selection = (StructuredSelection) viewerListAbbildungZiel
+				.getSelection();
+		if (selection.isEmpty())
+			return;
+		AnnotiertesTerminalNichtTerminal annotiertesTerminalNichtTerminal = (AnnotiertesTerminalNichtTerminal) selection
+				.getFirstElement();
+		if (selectedTerminalNichterminal
+				.equals(annotiertesTerminalNichtTerminal)) {
+			selectedTerminalNichterminal = null;
+			viewerListPfeilDown.setInput(new ArrayList());
+			viewerListPfeilUP.setInput(new ArrayList());
+
+		}
+		regel.getAuf().remove(annotiertesTerminalNichtTerminal);
+		viewerListAbbildungZiel.setInput(regel.getAuf());
 
 	}
 
 	protected void addToZiel() {
-		// TODO Auto-generated method stub
-
+		StructuredSelection selection = (StructuredSelection) viewerComboZiel
+				.getSelection();
+		if (selection.isEmpty())
+			return;
+		TerminalNichtTerminal tn = (TerminalNichtTerminal) selection
+				.getFirstElement();
+		AnnotiertesTerminalNichtTerminal atn = ModelFactory.eINSTANCE
+				.createAnnotiertesTerminalNichtTerminal();
+		atn.setTerminalNichtTerminal(tn);
+		regel.getAuf().add(atn);
+		viewerListAbbildungZiel.setInput(regel.getAuf());
 	}
 
 	/**

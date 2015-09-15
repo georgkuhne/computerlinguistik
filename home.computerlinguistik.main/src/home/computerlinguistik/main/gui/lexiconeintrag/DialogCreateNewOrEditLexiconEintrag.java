@@ -128,6 +128,9 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 					eintrag.setName(t_name.getText());
 			}
 		});
+		if (eintrag.getName() != null && eintrag.getName().trim().length() > 0) {
+			t_name.setText(eintrag.getName());
+		}
 		Label lblTerminal = new Label(container, SWT.NONE);
 		FormData fd_lblTerminal = new FormData();
 		fd_lblTerminal.top = new FormAttachment(lblName, 20);
@@ -377,6 +380,9 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 			@Override
 			public String getText(Object element) {
 				AttributWertePaar paar = (AttributWertePaar) element;
+				if (paar.getMerkmal() == null) {
+					return paar.getFunktion().getName();
+				}
 				return paar.getMerkmal().getName();
 			}
 		});

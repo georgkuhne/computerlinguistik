@@ -323,6 +323,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getGrammatik_Regeln() {
+		return (EReference)grammatikEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLexikon() {
 		return lexikonEClass;
 	}
@@ -622,6 +631,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(grammatikEClass, GRAMMATIK__TERMINALE);
 		createEReference(grammatikEClass, GRAMMATIK__S0);
 		createEReference(grammatikEClass, GRAMMATIK__NICHT_TERMINALE);
+		createEReference(grammatikEClass, GRAMMATIK__REGELN);
 
 		lexikonEClass = createEClass(LEXIKON);
 		createEReference(lexikonEClass, LEXIKON__EINTRAEGE);
@@ -715,6 +725,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getGrammatik_Terminale(), this.getTerminal(), null, "terminale", null, 0, -1, Grammatik.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGrammatik_S0(), this.getNichterminal(), null, "s0", null, 0, 1, Grammatik.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGrammatik_NichtTerminale(), this.getNichterminal(), null, "nichtTerminale", null, 0, -1, Grammatik.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGrammatik_Regeln(), this.getAbleitungsRegel(), null, "regeln", null, 0, -1, Grammatik.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(lexikonEClass, Lexikon.class, "Lexikon", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLexikon_Eintraege(), this.getLexikonEintrag(), null, "eintraege", null, 0, -1, Lexikon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -748,8 +759,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getTerminalNichtTerminal_Name(), ecorePackage.getEString(), "name", null, 0, 1, TerminalNichtTerminal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(annotiertesTerminalNichtTerminalEClass, AnnotiertesTerminalNichtTerminal.class, "AnnotiertesTerminalNichtTerminal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAnnotiertesTerminalNichtTerminal_Aufwaertspfeil(), this.getMerkmalFunktion(), null, "Aufwaertspfeil", null, 0, -1, AnnotiertesTerminalNichtTerminal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAnnotiertesTerminalNichtTerminal_Abwaertspfeil(), this.getMerkmalFunktion(), null, "Abwaertspfeil", null, 0, -1, AnnotiertesTerminalNichtTerminal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAnnotiertesTerminalNichtTerminal_Aufwaertspfeil(), this.getMerkmalFunktion(), null, "Aufwaertspfeil", null, 0, -1, AnnotiertesTerminalNichtTerminal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAnnotiertesTerminalNichtTerminal_Abwaertspfeil(), this.getMerkmalFunktion(), null, "Abwaertspfeil", null, 0, -1, AnnotiertesTerminalNichtTerminal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAnnotiertesTerminalNichtTerminal_TerminalNichtTerminal(), this.getTerminalNichtTerminal(), null, "terminalNichtTerminal", null, 0, 1, AnnotiertesTerminalNichtTerminal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(merkmalFunktionEClass, MerkmalFunktion.class, "MerkmalFunktion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -1,8 +1,18 @@
 package home.computerlinguistik.main.gui;
 
 import home.computerlinguistik.main.MainView;
+import home.computerlinguistik.main.algorithm.earlyparser.EarlyParser;
+import home.computerlinguistik.main.algorithm.earlyparser.WordNotInLexikonException;
+import home.cpmputerlinguistik.persistence.PersistenceUtility;
 
+import java.util.ArrayList;
+
+import model.LexikalischFunktionaleGrammatik;
+import model.LexikonEintrag;
+
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.FormAttachment;
@@ -14,9 +24,11 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Text;
+import org.hibernate.Session;
 
-public class CompositeMain extends Composite {
+public class CompositeMain extends Composite implements GrammarSelectedListener {
 	private Text text;
+	private long grammarId;
 
 	/**
 	 * Create the composite.
@@ -26,6 +38,7 @@ public class CompositeMain extends Composite {
 	 */
 	public CompositeMain(Composite parent, int style) {
 		super(parent, style);
+		MainView.getInstance().addGrammarSelectedListener(this);
 		setLayout(new FormLayout());
 
 		TabFolder tabFolder = new TabFolder(this, SWT.NONE);
@@ -82,8 +95,14 @@ public class CompositeMain extends Composite {
 		fd_text.top = new FormAttachment(lblEingabe, 6);
 		fd_text.left = new FormAttachment(0);
 		text.setLayoutData(fd_text);
-
+		text.setText("the little baby needs a bed");
 		Button btnValidieren = new Button(composite, SWT.NONE);
+		btnValidieren.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				validieren();
+			}
+		});
 		FormData fd_btnValidieren = new FormData();
 		fd_btnValidieren.top = new FormAttachment(text, 6);
 		fd_btnValidieren.right = new FormAttachment(text, 0, SWT.RIGHT);
@@ -97,6 +116,33 @@ public class CompositeMain extends Composite {
 		tbtmGrammatikeditor.setControl(compositegrammatik);
 	}
 
+	protected void validieren() {
+		if (text.getText().trim().length() < 1) {
+			return;
+		}
+
+		Session session = PersistenceUtility.getINSTANCE().createSession();
+		LexikalischFunktionaleGrammatik grammatik = PersistenceUtility
+				.getLexikalischFunktionaleGrammatikById(grammarId, session);
+		ArrayList<LexikonEintrag> eintraege = null;
+		try {
+			eintraege = EarlyParser.parseWords(text.getText(), grammatik);
+		} catch (WordNotInLexikonException e) {
+			MessageDialog.openWarning(getShell(), "Wort nicht gefunden",
+					"Das Wort \"" + e.getWord()
+							+ "\" wurde nicht im Lexikon gefunden");
+
+			session.close();
+			return;
+		}
+		if (EarlyParser.getInstance().performEarlyParser(grammatik, eintraege)) {
+
+		} else {
+		}
+
+		session.close();
+	}
+
 	protected void close() {
 		MainView.getInstance().closeGrammar();
 	}
@@ -106,8 +152,8 @@ public class CompositeMain extends Composite {
 		// Disable the check that prevents subclassing of SWT components
 	}
 
-	public void openGrammar(long grammarid) {
-		// TODO Auto-generated method stub
-
+	@Override
+	public void updateGrammarSelection(long grammarId1) {
+		grammarId = grammarId1;
 	}
 }

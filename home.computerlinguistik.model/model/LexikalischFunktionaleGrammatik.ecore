@@ -24,6 +24,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="s0" eType="#//Nichterminal"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nichtTerminale" upperBound="-1"
         eType="#//Nichterminal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="regeln" upperBound="-1"
+        eType="#//AbleitungsRegel" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Lexikon">
     <eStructuralFeatures xsi:type="ecore:EReference" name="eintraege" upperBound="-1"
@@ -63,9 +65,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AnnotiertesTerminalNichtTerminal">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Aufwaertspfeil" upperBound="-1"
-        eType="#//MerkmalFunktion" containment="true"/>
+        eType="#//MerkmalFunktion"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Abwaertspfeil" upperBound="-1"
-        eType="#//MerkmalFunktion" containment="true"/>
+        eType="#//MerkmalFunktion"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="terminalNichtTerminal"
         eType="#//TerminalNichtTerminal"/>
   </eClassifiers>

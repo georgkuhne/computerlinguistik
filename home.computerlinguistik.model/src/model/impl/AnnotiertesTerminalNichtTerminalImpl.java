@@ -8,14 +8,12 @@ import model.MerkmalFunktion;
 import model.ModelPackage;
 import model.TerminalNichtTerminal;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class AnnotiertesTerminalNichtTerminalImpl extends MinimalEObjectImpl.Container implements AnnotiertesTerminalNichtTerminal {
 	/**
-	 * The cached value of the '{@link #getAufwaertspfeil() <em>Aufwaertspfeil</em>}' containment reference list.
+	 * The cached value of the '{@link #getAufwaertspfeil() <em>Aufwaertspfeil</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAufwaertspfeil()
@@ -44,7 +42,7 @@ public class AnnotiertesTerminalNichtTerminalImpl extends MinimalEObjectImpl.Con
 	protected EList<MerkmalFunktion> aufwaertspfeil;
 
 	/**
-	 * The cached value of the '{@link #getAbwaertspfeil() <em>Abwaertspfeil</em>}' containment reference list.
+	 * The cached value of the '{@link #getAbwaertspfeil() <em>Abwaertspfeil</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAbwaertspfeil()
@@ -89,7 +87,7 @@ public class AnnotiertesTerminalNichtTerminalImpl extends MinimalEObjectImpl.Con
 	 */
 	public EList<MerkmalFunktion> getAufwaertspfeil() {
 		if (aufwaertspfeil == null) {
-			aufwaertspfeil = new EObjectContainmentEList<MerkmalFunktion>(MerkmalFunktion.class, this, ModelPackage.ANNOTIERTES_TERMINAL_NICHT_TERMINAL__AUFWAERTSPFEIL);
+			aufwaertspfeil = new EObjectResolvingEList<MerkmalFunktion>(MerkmalFunktion.class, this, ModelPackage.ANNOTIERTES_TERMINAL_NICHT_TERMINAL__AUFWAERTSPFEIL);
 		}
 		return aufwaertspfeil;
 	}
@@ -101,7 +99,7 @@ public class AnnotiertesTerminalNichtTerminalImpl extends MinimalEObjectImpl.Con
 	 */
 	public EList<MerkmalFunktion> getAbwaertspfeil() {
 		if (abwaertspfeil == null) {
-			abwaertspfeil = new EObjectContainmentEList<MerkmalFunktion>(MerkmalFunktion.class, this, ModelPackage.ANNOTIERTES_TERMINAL_NICHT_TERMINAL__ABWAERTSPFEIL);
+			abwaertspfeil = new EObjectResolvingEList<MerkmalFunktion>(MerkmalFunktion.class, this, ModelPackage.ANNOTIERTES_TERMINAL_NICHT_TERMINAL__ABWAERTSPFEIL);
 		}
 		return abwaertspfeil;
 	}
@@ -142,22 +140,6 @@ public class AnnotiertesTerminalNichtTerminalImpl extends MinimalEObjectImpl.Con
 		terminalNichtTerminal = newTerminalNichtTerminal;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ANNOTIERTES_TERMINAL_NICHT_TERMINAL__TERMINAL_NICHT_TERMINAL, oldTerminalNichtTerminal, terminalNichtTerminal));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ModelPackage.ANNOTIERTES_TERMINAL_NICHT_TERMINAL__AUFWAERTSPFEIL:
-				return ((InternalEList<?>)getAufwaertspfeil()).basicRemove(otherEnd, msgs);
-			case ModelPackage.ANNOTIERTES_TERMINAL_NICHT_TERMINAL__ABWAERTSPFEIL:
-				return ((InternalEList<?>)getAbwaertspfeil()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

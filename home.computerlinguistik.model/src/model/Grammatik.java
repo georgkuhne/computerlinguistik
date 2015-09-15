@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link model.Grammatik#getTerminale <em>Terminale</em>}</li>
  *   <li>{@link model.Grammatik#getS0 <em>S0</em>}</li>
  *   <li>{@link model.Grammatik#getNichtTerminale <em>Nicht Terminale</em>}</li>
+ *   <li>{@link model.Grammatik#getRegeln <em>Regeln</em>}</li>
  * </ul>
  * </p>
  *
@@ -82,5 +83,21 @@ public interface Grammatik extends EObject {
 	 * @generated
 	 */
 	EList<Nichterminal> getNichtTerminale();
+
+	/**
+	 * Returns the value of the '<em><b>Regeln</b></em>' containment reference list.
+	 * The list contents are of type {@link model.AbleitungsRegel}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Regeln</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Regeln</em>' containment reference list.
+	 * @see model.ModelPackage#getGrammatik_Regeln()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<AbleitungsRegel> getRegeln();
 
 } // Grammatik

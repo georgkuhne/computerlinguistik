@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface AnnotiertesTerminalNichtTerminal extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Aufwaertspfeil</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Aufwaertspfeil</b></em>' reference list.
 	 * The list contents are of type {@link model.MerkmalFunktion}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -34,15 +34,15 @@ public interface AnnotiertesTerminalNichtTerminal extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Aufwaertspfeil</em>' containment reference list.
+	 * @return the value of the '<em>Aufwaertspfeil</em>' reference list.
 	 * @see model.ModelPackage#getAnnotiertesTerminalNichtTerminal_Aufwaertspfeil()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<MerkmalFunktion> getAufwaertspfeil();
 
 	/**
-	 * Returns the value of the '<em><b>Abwaertspfeil</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Abwaertspfeil</b></em>' reference list.
 	 * The list contents are of type {@link model.MerkmalFunktion}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -50,9 +50,9 @@ public interface AnnotiertesTerminalNichtTerminal extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abwaertspfeil</em>' containment reference list.
+	 * @return the value of the '<em>Abwaertspfeil</em>' reference list.
 	 * @see model.ModelPackage#getAnnotiertesTerminalNichtTerminal_Abwaertspfeil()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<MerkmalFunktion> getAbwaertspfeil();

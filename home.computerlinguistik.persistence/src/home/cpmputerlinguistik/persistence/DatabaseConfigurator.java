@@ -49,8 +49,8 @@ public class DatabaseConfigurator {
 		properties.setProperty(Environment.HBM2DDL_AUTO, "update"); //$NON-NLS-1$
 		properties.setProperty(Environment.DIALECT, getHibernateDialect());
 		properties.setProperty(Environment.DRIVER, "org.h2.Driver");
-		properties.setProperty(Environment.FORMAT_SQL, "true");
-		properties.setProperty(Environment.SHOW_SQL, "true");
+		properties.setProperty(Environment.FORMAT_SQL, "false");
+		properties.setProperty(Environment.SHOW_SQL, "false");
 		return properties;
 	}
 

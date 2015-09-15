@@ -111,10 +111,10 @@ public class CompositeBrowseLexikon extends AbstractCompositeBrowse {
 				grammar.getLexikon().getEintraege().add(eintrag);
 				session.save(grammar);
 				session.flush();
-				refreshTable();
 			}
 		} finally {
 			session.close();
+			refreshTable();
 
 		}
 	}

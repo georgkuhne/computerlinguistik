@@ -214,13 +214,22 @@ public interface ModelPackage extends EPackage {
 	int GRAMMATIK__NICHT_TERMINALE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Regeln</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAMMATIK__REGELN = 3;
+
+	/**
 	 * The number of structural features of the '<em>Grammatik</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAMMATIK_FEATURE_COUNT = 3;
+	int GRAMMATIK_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Grammatik</em>' class.
@@ -684,7 +693,7 @@ public interface ModelPackage extends EPackage {
 	int ANNOTIERTES_TERMINAL_NICHT_TERMINAL = 12;
 
 	/**
-	 * The feature id for the '<em><b>Aufwaertspfeil</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Aufwaertspfeil</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -693,7 +702,7 @@ public interface ModelPackage extends EPackage {
 	int ANNOTIERTES_TERMINAL_NICHT_TERMINAL__AUFWAERTSPFEIL = 0;
 
 	/**
-	 * The feature id for the '<em><b>Abwaertspfeil</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Abwaertspfeil</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -878,6 +887,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGrammatik_NichtTerminale();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link model.Grammatik#getRegeln <em>Regeln</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Regeln</em>'.
+	 * @see model.Grammatik#getRegeln()
+	 * @see #getGrammatik()
+	 * @generated
+	 */
+	EReference getGrammatik_Regeln();
 
 	/**
 	 * Returns the meta object for class '{@link model.Lexikon <em>Lexikon</em>}'.
@@ -1123,10 +1143,10 @@ public interface ModelPackage extends EPackage {
 	EClass getAnnotiertesTerminalNichtTerminal();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link model.AnnotiertesTerminalNichtTerminal#getAufwaertspfeil <em>Aufwaertspfeil</em>}'.
+	 * Returns the meta object for the reference list '{@link model.AnnotiertesTerminalNichtTerminal#getAufwaertspfeil <em>Aufwaertspfeil</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Aufwaertspfeil</em>'.
+	 * @return the meta object for the reference list '<em>Aufwaertspfeil</em>'.
 	 * @see model.AnnotiertesTerminalNichtTerminal#getAufwaertspfeil()
 	 * @see #getAnnotiertesTerminalNichtTerminal()
 	 * @generated
@@ -1134,10 +1154,10 @@ public interface ModelPackage extends EPackage {
 	EReference getAnnotiertesTerminalNichtTerminal_Aufwaertspfeil();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link model.AnnotiertesTerminalNichtTerminal#getAbwaertspfeil <em>Abwaertspfeil</em>}'.
+	 * Returns the meta object for the reference list '{@link model.AnnotiertesTerminalNichtTerminal#getAbwaertspfeil <em>Abwaertspfeil</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Abwaertspfeil</em>'.
+	 * @return the meta object for the reference list '<em>Abwaertspfeil</em>'.
 	 * @see model.AnnotiertesTerminalNichtTerminal#getAbwaertspfeil()
 	 * @see #getAnnotiertesTerminalNichtTerminal()
 	 * @generated
@@ -1318,6 +1338,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GRAMMATIK__NICHT_TERMINALE = eINSTANCE.getGrammatik_NichtTerminale();
+
+		/**
+		 * The meta object literal for the '<em><b>Regeln</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GRAMMATIK__REGELN = eINSTANCE.getGrammatik_Regeln();
 
 		/**
 		 * The meta object literal for the '{@link model.impl.LexikonImpl <em>Lexikon</em>}' class.
@@ -1524,7 +1552,7 @@ public interface ModelPackage extends EPackage {
 		EClass ANNOTIERTES_TERMINAL_NICHT_TERMINAL = eINSTANCE.getAnnotiertesTerminalNichtTerminal();
 
 		/**
-		 * The meta object literal for the '<em><b>Aufwaertspfeil</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Aufwaertspfeil</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1532,7 +1560,7 @@ public interface ModelPackage extends EPackage {
 		EReference ANNOTIERTES_TERMINAL_NICHT_TERMINAL__AUFWAERTSPFEIL = eINSTANCE.getAnnotiertesTerminalNichtTerminal_Aufwaertspfeil();
 
 		/**
-		 * The meta object literal for the '<em><b>Abwaertspfeil</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Abwaertspfeil</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

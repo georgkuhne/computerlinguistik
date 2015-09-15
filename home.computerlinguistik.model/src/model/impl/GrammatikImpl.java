@@ -4,6 +4,7 @@ package model.impl;
 
 import java.util.Collection;
 
+import model.AbleitungsRegel;
 import model.Grammatik;
 import model.ModelPackage;
 import model.Nichterminal;
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link model.impl.GrammatikImpl#getTerminale <em>Terminale</em>}</li>
  *   <li>{@link model.impl.GrammatikImpl#getS0 <em>S0</em>}</li>
  *   <li>{@link model.impl.GrammatikImpl#getNichtTerminale <em>Nicht Terminale</em>}</li>
+ *   <li>{@link model.impl.GrammatikImpl#getRegeln <em>Regeln</em>}</li>
  * </ul>
  * </p>
  *
@@ -68,6 +70,16 @@ public class GrammatikImpl extends MinimalEObjectImpl.Container implements Gramm
 	 * @ordered
 	 */
 	protected EList<Nichterminal> nichtTerminale;
+
+	/**
+	 * The cached value of the '{@link #getRegeln() <em>Regeln</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRegeln()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<AbleitungsRegel> regeln;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -155,6 +167,18 @@ public class GrammatikImpl extends MinimalEObjectImpl.Container implements Gramm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<AbleitungsRegel> getRegeln() {
+		if (regeln == null) {
+			regeln = new EObjectContainmentEList<AbleitungsRegel>(AbleitungsRegel.class, this, ModelPackage.GRAMMATIK__REGELN);
+		}
+		return regeln;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -162,6 +186,8 @@ public class GrammatikImpl extends MinimalEObjectImpl.Container implements Gramm
 				return ((InternalEList<?>)getTerminale()).basicRemove(otherEnd, msgs);
 			case ModelPackage.GRAMMATIK__NICHT_TERMINALE:
 				return ((InternalEList<?>)getNichtTerminale()).basicRemove(otherEnd, msgs);
+			case ModelPackage.GRAMMATIK__REGELN:
+				return ((InternalEList<?>)getRegeln()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -181,6 +207,8 @@ public class GrammatikImpl extends MinimalEObjectImpl.Container implements Gramm
 				return basicGetS0();
 			case ModelPackage.GRAMMATIK__NICHT_TERMINALE:
 				return getNichtTerminale();
+			case ModelPackage.GRAMMATIK__REGELN:
+				return getRegeln();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -205,6 +233,10 @@ public class GrammatikImpl extends MinimalEObjectImpl.Container implements Gramm
 				getNichtTerminale().clear();
 				getNichtTerminale().addAll((Collection<? extends Nichterminal>)newValue);
 				return;
+			case ModelPackage.GRAMMATIK__REGELN:
+				getRegeln().clear();
+				getRegeln().addAll((Collection<? extends AbleitungsRegel>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -226,6 +258,9 @@ public class GrammatikImpl extends MinimalEObjectImpl.Container implements Gramm
 			case ModelPackage.GRAMMATIK__NICHT_TERMINALE:
 				getNichtTerminale().clear();
 				return;
+			case ModelPackage.GRAMMATIK__REGELN:
+				getRegeln().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -244,6 +279,8 @@ public class GrammatikImpl extends MinimalEObjectImpl.Container implements Gramm
 				return s0 != null;
 			case ModelPackage.GRAMMATIK__NICHT_TERMINALE:
 				return nichtTerminale != null && !nichtTerminale.isEmpty();
+			case ModelPackage.GRAMMATIK__REGELN:
+				return regeln != null && !regeln.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
