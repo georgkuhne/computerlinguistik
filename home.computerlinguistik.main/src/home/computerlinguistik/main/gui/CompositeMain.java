@@ -3,6 +3,7 @@ package home.computerlinguistik.main.gui;
 import home.computerlinguistik.main.MainView;
 import home.computerlinguistik.main.algorithm.earlyparser.EarlyParser;
 import home.computerlinguistik.main.algorithm.earlyparser.WordNotInLexikonException;
+import home.computerlinguistik.main.gui.showvalidationresult.DialogResults;
 import home.cpmputerlinguistik.persistence.PersistenceUtility;
 
 import java.util.ArrayList;
@@ -136,8 +137,13 @@ public class CompositeMain extends Composite implements GrammarSelectedListener 
 			return;
 		}
 		if (EarlyParser.getInstance().performEarlyParser(grammatik, eintraege)) {
-
+			//earlysucceed
+			
 		} else {
+			DialogResults dialog=new DialogResults(getShell());
+			dialog.setEarlyProgressString(EarlyParser.getInstance().getAusgabeEarly());
+			dialog.open();
+			//earlyfailed
 		}
 
 		session.close();

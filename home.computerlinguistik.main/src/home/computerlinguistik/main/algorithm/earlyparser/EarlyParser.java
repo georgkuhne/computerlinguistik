@@ -17,23 +17,51 @@ public class EarlyParser {
 	static EarlyParser instance = new EarlyParser();
 	LexikalischFunktionaleGrammatik grammar;
 	private ArrayList<LexikonEintrag> woerter;
-
+	private ArrayList<Zustandsmenge> zustandsMengen;
+String ausgabeEarly="";
+private GrammarTreeNode grammarTreeRoot;
+public String getAusgabeEarly() {
+	return ausgabeEarly;
+}
 	public static EarlyParser getInstance() {
 		return instance;
 	}
-
+	public ArrayList<Zustandsmenge> getZustaende() {
+	return zustandsMengen;
+	}
 	public boolean performEarlyParser(LexikalischFunktionaleGrammatik grammar,
 			ArrayList<LexikonEintrag> woerter) {
 		this.grammar = grammar;
 		this.woerter = woerter;
+		boolean finalZustandFound = false;
 		// init
+		grammarTreeRoot=null;
 		Nichterminal startNichterminal = grammar.getGrammatik().getS0();
-		ArrayList<Zustandsmenge> zustaende = parseText();
-
+		zustandsMengen = parseText();
+		ArrayList<Zustand> lastzustaende = zustandsMengen.get(zustandsMengen.size()-1).getZustaende();
+		for (Iterator iterator = lastzustaende.iterator(); iterator.hasNext();) {
+			Zustand zustand = (Zustand) iterator.next();
+			if((zustand.getRegel().getVon().equals(startNichterminal)&&zustand.getTeilungsPosition()==zustandsMengen.size()-1));
+			finalZustandFound = true;
+		}
+		if(!finalZustandFound)
 		return false;
+		
+		 grammarTreeRoot=	buildgrammarTree(zustandsMengen);
+		
+		return true;
+	}
+	public GrammarTreeNode getGrammarTreeRoot() {
+		return grammarTreeRoot;
 	}
 
+	private GrammarTreeNode buildgrammarTree(ArrayList<Zustandsmenge> zustandsMengen2) {
+		return null;
+		// TODO Auto-generated method stub
+		
+	}
 	private ArrayList<Zustandsmenge> parseText() {
+	ausgabeEarly="";
 		// lege Zustände an
 		ArrayList<Zustandsmenge> chart = new ArrayList<>();
 		for (int i = 0; i <= woerter.size(); i++) {
@@ -45,7 +73,7 @@ public class EarlyParser {
 			AbleitungsRegel ableitungsRegel = (AbleitungsRegel) iterator.next();
 			Zustand z = new Zustand(ableitungsRegel, 0, 0);
 			chart.get(0).getZustaende().add(z);
-			System.err.println("INIT:	" + getZustandsString(z));
+		ausgabeEarly+=	"INIT:	" + getZustandsString(z)+"\n";
 		}
 		for (int i = 0; i < chart.size(); i++) {
 
@@ -123,8 +151,8 @@ public class EarlyParser {
 										zustand1.teilungsPosition + 1,
 										zustand1.nrUrsprungsmenge);
 								q1.getZustaende().add(z);
-								System.err.println("COMP:	"
-										+ getZustandsString(z));
+								ausgabeEarly+="COMP:	"
+										+ getZustandsString(z)+"\n";
 
 								hinzugefuegt = true;
 							}
@@ -151,7 +179,7 @@ public class EarlyParser {
 					Zustand z = new Zustand(zustand0.getRegel(),
 							zustand0.getTeilungsPosition() + 1, q0.i);
 					q1.getZustaende().add(z);
-					System.err.println("SCAN:	" + getZustandsString(z));
+					ausgabeEarly+="SCAN:	" + getZustandsString(z)+"\n";
 				}
 			}
 		}
@@ -208,8 +236,8 @@ public class EarlyParser {
 							if (!q1.containsRegel(regel)) {
 								Zustand z = new Zustand(regel, 0, q1.i);
 								q1.getZustaende().add(z);
-								System.err.println("PRED:	"
-										+ getZustandsString(z));
+								ausgabeEarly+="PRED:	"
+										+ getZustandsString(z)+"\n";
 								ready = false;
 								hinzugefuegt = true;
 							}
