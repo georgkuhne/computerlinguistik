@@ -2,6 +2,7 @@ package home.computerlinguistik.main.gui;
 
 import home.computerlinguistik.main.MainView;
 import home.computerlinguistik.main.algorithm.earlyparser.EarlyParser;
+import home.computerlinguistik.main.algorithm.earlyparser.Unification;
 import home.computerlinguistik.main.algorithm.earlyparser.WordNotInLexikonException;
 import home.computerlinguistik.main.gui.showvalidationresult.DialogResults;
 import home.cpmputerlinguistik.persistence.PersistenceUtility;
@@ -30,7 +31,9 @@ import org.hibernate.Session;
 public class CompositeMain extends Composite implements GrammarSelectedListener {
 	private Text text;
 	private long grammarId;
+	final static String sample = "Theo hat einen Hering verspeist";
 
+	// "the little baby needs a bed"
 	/**
 	 * Create the composite.
 	 * 
@@ -96,7 +99,7 @@ public class CompositeMain extends Composite implements GrammarSelectedListener 
 		fd_text.top = new FormAttachment(lblEingabe, 6);
 		fd_text.left = new FormAttachment(0);
 		text.setLayoutData(fd_text);
-		text.setText("the little baby needs a bed");
+		text.setText(sample);
 		Button btnValidieren = new Button(composite, SWT.NONE);
 		btnValidieren.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -137,13 +140,31 @@ public class CompositeMain extends Composite implements GrammarSelectedListener 
 			return;
 		}
 		if (EarlyParser.getInstance().performEarlyParser(grammatik, eintraege)) {
-			//earlysucceed
-			
+			// earlysucceed
+			DialogResults dialog = new DialogResults(getShell());
+			dialog.setSatz(text.getText());
+			dialog.setEarlyProgressString(EarlyParser.getInstance()
+					.getAusgabeEarly());
+			dialog.setUsedRulesString(EarlyParser.getInstance()
+					.getAusgabeResultregeln());
+			dialog.setAbbleitungsbaum(EarlyParser.getInstance()
+					.getGrammarTreeRoot());
+			Unification unifi = new Unification();
+			if (unifi.univicateGrammarTree(EarlyParser.getInstance()
+					.getGrammarTreeRoot()))
+				dialog.open();
+			else {
+				dialog.setUnificationError();
+				dialog.open();
+			}
 		} else {
-			DialogResults dialog=new DialogResults(getShell());
-			dialog.setEarlyProgressString(EarlyParser.getInstance().getAusgabeEarly());
+			DialogResults dialog = new DialogResults(getShell());
+			dialog.setSatz(text.getText());
+			dialog.setParsingError();
+			dialog.setEarlyProgressString(EarlyParser.getInstance()
+					.getAusgabeEarly());
 			dialog.open();
-			//earlyfailed
+			// earlyfailed
 		}
 
 		session.close();

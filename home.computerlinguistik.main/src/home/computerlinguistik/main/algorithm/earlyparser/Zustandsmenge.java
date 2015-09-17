@@ -40,8 +40,7 @@ public class Zustandsmenge {
 				.hasNext();) {
 			Zustand zustand = iterator.next();
 			if (zustand.getRegel().equals(z.getRegel())
-					&& zustand.getTeilungsPosition() == z.teilungsPosition
-					&& zustand.nrUrsprungsmenge == z.nrUrsprungsmenge)
+					&& zustand.getTeilungsPosition() == z.teilungsPosition)
 				return true;
 		}
 		return false;
