@@ -10,6 +10,7 @@ import model.ModelPackage;
 import model.WertTyp;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -57,8 +58,8 @@ public class AttributWertePaarImpl extends MinimalEObjectImpl.Container
 
 	/**
 	 * The cached value of the '{@link #getFunktionsWert()
-	 * <em>Funktions Wert</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <em>Funktions Wert</em>}' containment reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getFunktionsWert()
 	 * @generated
@@ -188,16 +189,6 @@ public class AttributWertePaarImpl extends MinimalEObjectImpl.Container
 	 * @generated
 	 */
 	public FStruktur getFunktionsWert() {
-		if (funktionsWert != null && funktionsWert.eIsProxy()) {
-			InternalEObject oldFunktionsWert = (InternalEObject) funktionsWert;
-			funktionsWert = (FStruktur) eResolveProxy(oldFunktionsWert);
-			if (funktionsWert != oldFunktionsWert) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							ModelPackage.ATTRIBUT_WERTE_PAAR__FUNKTIONS_WERT,
-							oldFunktionsWert, funktionsWert));
-			}
-		}
 		return funktionsWert;
 	}
 
@@ -206,8 +197,21 @@ public class AttributWertePaarImpl extends MinimalEObjectImpl.Container
 	 * 
 	 * @generated
 	 */
-	public FStruktur basicGetFunktionsWert() {
-		return funktionsWert;
+	public NotificationChain basicSetFunktionsWert(FStruktur newFunktionsWert,
+			NotificationChain msgs) {
+		FStruktur oldFunktionsWert = funktionsWert;
+		funktionsWert = newFunktionsWert;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this,
+					Notification.SET,
+					ModelPackage.ATTRIBUT_WERTE_PAAR__FUNKTIONS_WERT,
+					oldFunktionsWert, newFunktionsWert);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -216,12 +220,29 @@ public class AttributWertePaarImpl extends MinimalEObjectImpl.Container
 	 * @generated
 	 */
 	public void setFunktionsWert(FStruktur newFunktionsWert) {
-		FStruktur oldFunktionsWert = funktionsWert;
-		funktionsWert = newFunktionsWert;
-		if (eNotificationRequired())
+		if (newFunktionsWert != funktionsWert) {
+			NotificationChain msgs = null;
+			if (funktionsWert != null)
+				msgs = ((InternalEObject) funktionsWert)
+						.eInverseRemove(
+								this,
+								EOPPOSITE_FEATURE_BASE
+										- ModelPackage.ATTRIBUT_WERTE_PAAR__FUNKTIONS_WERT,
+								null, msgs);
+			if (newFunktionsWert != null)
+				msgs = ((InternalEObject) newFunktionsWert)
+						.eInverseAdd(
+								this,
+								EOPPOSITE_FEATURE_BASE
+										- ModelPackage.ATTRIBUT_WERTE_PAAR__FUNKTIONS_WERT,
+								null, msgs);
+			msgs = basicSetFunktionsWert(newFunktionsWert, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
 					ModelPackage.ATTRIBUT_WERTE_PAAR__FUNKTIONS_WERT,
-					oldFunktionsWert, funktionsWert));
+					newFunktionsWert, newFunktionsWert));
 	}
 
 	/**
@@ -295,6 +316,21 @@ public class AttributWertePaarImpl extends MinimalEObjectImpl.Container
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case ModelPackage.ATTRIBUT_WERTE_PAAR__FUNKTIONS_WERT:
+			return basicSetFunktionsWert(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case ModelPackage.ATTRIBUT_WERTE_PAAR__WERT_TYP:
@@ -304,9 +340,7 @@ public class AttributWertePaarImpl extends MinimalEObjectImpl.Container
 				return getFunktion();
 			return basicGetFunktion();
 		case ModelPackage.ATTRIBUT_WERTE_PAAR__FUNKTIONS_WERT:
-			if (resolve)
-				return getFunktionsWert();
-			return basicGetFunktionsWert();
+			return getFunktionsWert();
 		case ModelPackage.ATTRIBUT_WERTE_PAAR__MERKMAL:
 			if (resolve)
 				return getMerkmal();

@@ -271,8 +271,35 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 		fd_btnEntfernen_1.right = new FormAttachment(lblNewLabel, 0, SWT.RIGHT);
 		btnEntfernen_1.setLayoutData(fd_btnEntfernen_1);
 		btnEntfernen_1.setText("entfernen");
+
+		Button btnFunktionBearbeiten = new Button(grpFstruktur, SWT.NONE);
+		btnFunktionBearbeiten.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				FunktionBearbeiten();
+			}
+		});
+		FormData fd_btnFunktionBearbeiten = new FormData();
+		fd_btnFunktionBearbeiten.top = new FormAttachment(btnEntfernen_1, 17);
+		fd_btnFunktionBearbeiten.left = new FormAttachment(table, 32);
+		btnFunktionBearbeiten.setLayoutData(fd_btnFunktionBearbeiten);
+		btnFunktionBearbeiten.setText("Funktion bearbeiten");
 		initViewer();
 		return container;
+	}
+
+	protected void FunktionBearbeiten() {
+		StructuredSelection selection = (StructuredSelection) viewerTableFstruktur
+				.getSelection();
+		if (selection.isEmpty())
+			return;
+		AttributWertePaar paar = (AttributWertePaar) selection
+				.getFirstElement();
+		if (paar.getFunktion() == null)
+			return;
+		DialogEditFStruktur dialog = new DialogEditFStruktur(getParentShell());
+		dialog.setFStruktur(paar.getFunktionsWert(), grammar);
+		dialog.open();
 	}
 
 	protected void entfernenAttributWertpaar() {
@@ -309,6 +336,7 @@ public class DialogCreateNewOrEditLexiconEintrag extends Dialog {
 			viewerTableFstruktur.refresh();
 
 		} else {
+			wertpaar.setFunktionsWert(ModelFactory.eINSTANCE.createFStruktur());
 			wertpaar.setFunktion((Funktion) mf);
 			wertpaar.setWertTyp(WertTyp.FUNKTION);
 			List list = (List) viewerTableFstruktur.getInput();

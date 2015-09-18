@@ -82,26 +82,26 @@ public interface AttributWertePaar extends EObject {
 	void setFunktion(Funktion value);
 
 	/**
-	 * Returns the value of the '<em><b>Funktions Wert</b></em>' reference.
+	 * Returns the value of the '<em><b>Funktions Wert</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Funktions Wert</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Funktions Wert</em>' reference.
+	 * @return the value of the '<em>Funktions Wert</em>' containment reference.
 	 * @see #setFunktionsWert(FStruktur)
 	 * @see model.ModelPackage#getAttributWertePaar_FunktionsWert()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	FStruktur getFunktionsWert();
 
 	/**
-	 * Sets the value of the '{@link model.AttributWertePaar#getFunktionsWert <em>Funktions Wert</em>}' reference.
+	 * Sets the value of the '{@link model.AttributWertePaar#getFunktionsWert <em>Funktions Wert</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Funktions Wert</em>' reference.
+	 * @param value the new value of the '<em>Funktions Wert</em>' containment reference.
 	 * @see #getFunktionsWert()
 	 * @generated
 	 */

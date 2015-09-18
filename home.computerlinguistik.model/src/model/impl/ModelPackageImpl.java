@@ -738,7 +738,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEClass(attributWertePaarEClass, AttributWertePaar.class, "AttributWertePaar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAttributWertePaar_WertTyp(), this.getWertTyp(), "wertTyp", "Merkmal", 0, 1, AttributWertePaar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttributWertePaar_Funktion(), this.getFunktion(), null, "funktion", null, 0, 1, AttributWertePaar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAttributWertePaar_FunktionsWert(), this.getFStruktur(), null, "funktionsWert", null, 0, 1, AttributWertePaar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAttributWertePaar_FunktionsWert(), this.getFStruktur(), null, "funktionsWert", null, 0, 1, AttributWertePaar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttributWertePaar_Merkmal(), this.getMerkmal(), null, "merkmal", null, 0, 1, AttributWertePaar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttributWertePaar_MerkmalsWert(), ecorePackage.getEString(), "merkmalsWert", null, 0, 1, AttributWertePaar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

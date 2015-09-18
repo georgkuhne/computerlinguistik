@@ -361,7 +361,7 @@ public interface ModelPackage extends EPackage {
 	int ATTRIBUT_WERTE_PAAR__FUNKTION = 1;
 
 	/**
-	 * The feature id for the '<em><b>Funktions Wert</b></em>' reference.
+	 * The feature id for the '<em><b>Funktions Wert</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -996,10 +996,10 @@ public interface ModelPackage extends EPackage {
 	EReference getAttributWertePaar_Funktion();
 
 	/**
-	 * Returns the meta object for the reference '{@link model.AttributWertePaar#getFunktionsWert <em>Funktions Wert</em>}'.
+	 * Returns the meta object for the containment reference '{@link model.AttributWertePaar#getFunktionsWert <em>Funktions Wert</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Funktions Wert</em>'.
+	 * @return the meta object for the containment reference '<em>Funktions Wert</em>'.
 	 * @see model.AttributWertePaar#getFunktionsWert()
 	 * @see #getAttributWertePaar()
 	 * @generated
@@ -1426,7 +1426,7 @@ public interface ModelPackage extends EPackage {
 		EReference ATTRIBUT_WERTE_PAAR__FUNKTION = eINSTANCE.getAttributWertePaar_Funktion();
 
 		/**
-		 * The meta object literal for the '<em><b>Funktions Wert</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Funktions Wert</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

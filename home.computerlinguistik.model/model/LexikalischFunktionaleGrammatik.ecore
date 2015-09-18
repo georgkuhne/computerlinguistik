@@ -41,7 +41,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="wertTyp" eType="#//WertTyp"
         defaultValueLiteral="Merkmal"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="funktion" eType="#//Funktion"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="funktionsWert" eType="#//FStruktur"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="funktionsWert" eType="#//FStruktur"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="merkmal" eType="#//Merkmal"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="merkmalsWert" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
