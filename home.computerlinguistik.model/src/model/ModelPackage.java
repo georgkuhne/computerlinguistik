@@ -159,13 +159,22 @@ public interface ModelPackage extends EPackage {
 	int FSTRUKTUR__ATTRIBUT_WERTE_PAARE = 0;
 
 	/**
+	 * The feature id for the '<em><b>Isunificated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FSTRUKTUR__ISUNIFICATED = 1;
+
+	/**
 	 * The number of structural features of the '<em>FStruktur</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FSTRUKTUR_FEATURE_COUNT = 1;
+	int FSTRUKTUR_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>FStruktur</em>' class.
@@ -846,6 +855,17 @@ public interface ModelPackage extends EPackage {
 	EReference getFStruktur_AttributWertePaare();
 
 	/**
+	 * Returns the meta object for the attribute '{@link model.FStruktur#isIsunificated <em>Isunificated</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Isunificated</em>'.
+	 * @see model.FStruktur#isIsunificated()
+	 * @see #getFStruktur()
+	 * @generated
+	 */
+	EAttribute getFStruktur_Isunificated();
+
+	/**
 	 * Returns the meta object for class '{@link model.Grammatik <em>Grammatik</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1304,6 +1324,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FSTRUKTUR__ATTRIBUT_WERTE_PAARE = eINSTANCE.getFStruktur_AttributWertePaare();
+
+		/**
+		 * The meta object literal for the '<em><b>Isunificated</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FSTRUKTUR__ISUNIFICATED = eINSTANCE.getFStruktur_Isunificated();
 
 		/**
 		 * The meta object literal for the '{@link model.impl.GrammatikImpl <em>Grammatik</em>}' class.

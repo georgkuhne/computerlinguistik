@@ -17,6 +17,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="FStruktur">
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributWertePaare" upperBound="-1"
         eType="#//AttributWertePaar" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isunificated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Grammatik">
     <eStructuralFeatures xsi:type="ecore:EReference" name="terminale" upperBound="-1"

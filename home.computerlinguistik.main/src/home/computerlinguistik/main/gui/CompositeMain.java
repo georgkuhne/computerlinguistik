@@ -31,7 +31,7 @@ import org.hibernate.Session;
 public class CompositeMain extends Composite implements GrammarSelectedListener {
 	private Text text;
 	private long grammarId;
-	final static String sample = "Theo hat einen Hering verspeist";
+	final static String sample = "the little baby needs a bed";
 
 	// "the little baby needs a bed"
 	/**

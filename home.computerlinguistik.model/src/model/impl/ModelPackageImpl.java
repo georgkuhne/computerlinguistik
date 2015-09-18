@@ -287,6 +287,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getFStruktur_Isunificated() {
+		return (EAttribute)fStrukturEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getGrammatik() {
 		return grammatikEClass;
 	}
@@ -626,6 +635,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		fStrukturEClass = createEClass(FSTRUKTUR);
 		createEReference(fStrukturEClass, FSTRUKTUR__ATTRIBUT_WERTE_PAARE);
+		createEAttribute(fStrukturEClass, FSTRUKTUR__ISUNIFICATED);
 
 		grammatikEClass = createEClass(GRAMMATIK);
 		createEReference(grammatikEClass, GRAMMATIK__TERMINALE);
@@ -720,6 +730,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEClass(fStrukturEClass, FStruktur.class, "FStruktur", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFStruktur_AttributWertePaare(), this.getAttributWertePaar(), null, "attributWertePaare", null, 0, -1, FStruktur.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFStruktur_Isunificated(), ecorePackage.getEBoolean(), "isunificated", "false", 0, 1, FStruktur.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(grammatikEClass, Grammatik.class, "Grammatik", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGrammatik_Terminale(), this.getTerminal(), null, "terminale", null, 0, -1, Grammatik.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
